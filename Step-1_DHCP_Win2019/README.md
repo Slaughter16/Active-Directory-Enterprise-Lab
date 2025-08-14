@@ -46,7 +46,7 @@ This centralizes network services in an AD environment, allowing integrated DNS 
     Default Gateway: 192.168.10.1
     Preferred DNS: 192.168.10.10
     Alternate DNS: 192.168.20.2
-    ```
+    
   ![Assign_Static_IP_WIN11](images/6_Static_WIN11.png)
 
    - Confirmed settings via
