@@ -30,18 +30,26 @@ This centralizes network services in an AD environment, allowing integrated DNS 
 1. **Assigned Static IP to Windows Server 2019**
    - Opened `Network & Internet Settings → Change Adapter Options → Ethernet → Properties`.
    ![Assign_Static_IP_WIN11](images/1_Static_WIN11.png)
+   ![Assign_Static_IP_WIN11](images/2_Static_WIN11.png)
+   ![Assign_Static_IP_WIN11](images/3_Static_WIN11.png)
+   ![Assign_Static_IP_WIN11](images/4_Static_WIN11.png)
 
    - Selected `Internet Protocol Version 4 (TCP/IPv4)` → `Use the following IP address`.
+  
+   ![Assign_Static_IP_WIN11](images/5_Static_WIN11.png)
+
    - Configured:
      - **IP Address:** 192.168.10.10
      - **Subnet Mask:** 255.255.255.0
      - **Default Gateway:** 192.168.10.1
      - **Preferred DNS:** 192.168.10.10
      - **Alternate DNS:** 192.168.20.2
+  ![Assign_Static_IP_WIN11](images/6_Static_WIN11.png)
+
    - Confirmed settings via `ipconfig /all`.
-   
-   ![Static IP Configuration](images/static_ip_config.png)
-   
+  
+  ![Assign_Static_IP_WIN11](images/6_Static_WIN11.png)
+
 ---
 
 2. **Disabled DHCP on pfSense VLAN 10**  
