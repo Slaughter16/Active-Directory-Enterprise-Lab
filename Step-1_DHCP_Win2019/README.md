@@ -48,7 +48,7 @@ This centralizes network services in an AD environment, allowing integrated DNS 
 
    - Confirmed settings via `ipconfig /all`.
   
-  ![Assign_Static_IP_WIN11](images/6_Static_WIN11.png)
+  ![Assign_Static_IP_WIN11](images/7_Static_WIN11.png)
 
 ---
 
