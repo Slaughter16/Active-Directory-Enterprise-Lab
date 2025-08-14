@@ -27,8 +27,8 @@ This centralizes network services in an AD environment, allowing integrated DNS 
 
 ## 🔹 Steps Performed
 
-1. **Assigned Static IP to Windows Server 2019**
-   - Opened `Network & Internet Settings → Change Adapter Options → Ethernet → Properties`.
+### 1. **Assigned Static IP to Windows Server 2019**
+  - Opened `Network & Internet Settings → Change Adapter Options → Ethernet → Properties`.
    ![Assign_Static_IP_WIN11](images/1_Static_WIN11.png)
    ![Assign_Static_IP_WIN11](images/2_Static_WIN11.png)
    ![Assign_Static_IP_WIN11](images/3_Static_WIN11.png)
