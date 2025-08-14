@@ -9,7 +9,6 @@ This centralizes network services in an AD environment, allowing integrated DNS 
 ## 🔹 Background
 - In real-world Active Directory environments, DHCP is typically managed by Windows Server rather than a firewall/router.  
 - Centralized DHCP simplifies network management, integrates with DNS, and improves client provisioning.
-![Assign_Static_IP_WIN11](images/1_Static_WIN11.png)
 
 ---
 
@@ -30,6 +29,8 @@ This centralizes network services in an AD environment, allowing integrated DNS 
 
 1. **Assigned Static IP to Windows Server 2019**
    - Opened `Network & Internet Settings → Change Adapter Options → Ethernet → Properties`.
+   ![Assign_Static_IP_WIN11](images/1_Static_WIN11.png)
+
    - Selected `Internet Protocol Version 4 (TCP/IPv4)` → `Use the following IP address`.
    - Configured:
      - **IP Address:** 192.168.10.10
