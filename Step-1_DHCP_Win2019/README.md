@@ -40,7 +40,7 @@ This centralizes network services in an AD environment, allowing integrated DNS 
 
    - Configured the following:
 
-```text
+    ```text
 IP Address: 192.168.10.10
 Subnet Mask: 255.255.255.0
 Default Gateway: 192.168.10.1
