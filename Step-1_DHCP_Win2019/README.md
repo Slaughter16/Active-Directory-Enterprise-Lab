@@ -34,7 +34,7 @@ This centralizes network services in an AD environment, allowing integrated DNS 
    ![Assign_Static_IP_WIN11](images/3_Static_WIN11.png)
    ![Assign_Static_IP_WIN11](images/4_Static_WIN11.png)
 
-   - Selected `Internet Protocol Version 4 (TCP/IPv4)`
+   - Selected `Internet Protocol Version 4 (TCP/IPv4)` → `Use the following IP address`.
   
    ![Assign_Static_IP_WIN11](images/5_Static_WIN11.png)
 
