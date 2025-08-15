@@ -115,9 +115,9 @@ Alternate DNS: 192.168.20.2
 
 **Windows 10 Client:**  
 ```cmd
-ipconfig /release       :: Release current IP
-ipconfig /renew         :: Request new IP from DHCP
-ipconfig /all           :: Verify IP, gateway, DHCP server, and DNS
+ipconfig /release       # Release current IP
+ipconfig /renew         # Request new IP from DHCP
+ipconfig /all           # Verify IP, gateway, DHCP server, and DNS
 ```
 
 
