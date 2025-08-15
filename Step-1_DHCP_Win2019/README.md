@@ -113,11 +113,11 @@ Alternate DNS: 192.168.20.2
 
 5. **Tested DHCP on Clients**
 
-   **Windows 10 Client**:  
-   ```cmd
-   ipconfig /release
-   ipconfig /renew
-   ipconfig /all
+**Windows 10 Client:**  
+```cmd
+ipconfig /release       :: Release current IP
+ipconfig /renew         :: Request new IP from DHCP
+ipconfig /all           :: Verify IP, gateway, DHCP server, and DNS
 
 
 
