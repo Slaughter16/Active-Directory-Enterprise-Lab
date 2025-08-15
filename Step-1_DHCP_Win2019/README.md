@@ -118,3 +118,21 @@ Alternate DNS: 192.168.20.2
    ipconfig /release
    ipconfig /renew
    ipconfig /all
+
+
+
+  **Windows 11 Client**:  
+ ```cmd
+   ipconfig /release
+   ipconfig /renew
+   ipconfig /all
+
+
+
+  **Debian Client**:
+ ```cmd
+  sudo dhclient -r
+  sudo dhclient
+  ip a
+  ip route
+  cat /etc/resolv.conf
