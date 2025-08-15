@@ -120,6 +120,14 @@ ipconfig /renew         # Request new IP from DHCP
 ipconfig /all           # Verify IP, gateway, DHCP server, and DNS
 ```
 
+  ![WIN_10_Verify](images/31_WIN10_Verify.png)
+  ![WIN_10_Verify](images/32_WIN10_Verify.png)
+  ![WIN_10_Verify](images/33_WIN10_Verify.png)
+
+
+
+
+
 
   **Windows 11 Client**:  
  ```cmd
