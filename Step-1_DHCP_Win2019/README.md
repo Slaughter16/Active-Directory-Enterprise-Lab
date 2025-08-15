@@ -136,6 +136,8 @@ ipconfig /all           # Verify IP, gateway, DHCP server, and DNS
    ipconfig /renew
    ipconfig /all
 ```
+  ![WIN_11_Verify](images/35_WIN11_Verify.png)
+  ![WIN_11_Verify](images/36_WIN11_Verify.png)
 
 
   **Debian Client**:
