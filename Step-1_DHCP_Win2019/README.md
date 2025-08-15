@@ -1,4 +1,4 @@
-# Step 1 – Migrate DHCP from pfSense to Windows Server 2019
+w# Step 1 – Migrate DHCP from pfSense to Windows Server 2019
 
 ## 📌 Objective
 Migrate DHCP services from pfSense to Windows Server 2019 for VLAN 10.  
@@ -148,3 +148,5 @@ ipconfig /all           # Verify IP, gateway, DHCP server, and DNS
   ip route              # Verify default gateway
   cat /etc/resolv.conf  # Check DNS servers
 ```
+  ![Debian_Verify](images/38_Debian_Verify.png)
+
