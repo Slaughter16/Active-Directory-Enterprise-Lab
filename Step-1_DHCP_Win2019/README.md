@@ -73,7 +73,14 @@ Alternate DNS: 192.168.20.2
    - Server Manager → Add Roles and Features → DHCP Server  
    - Completed post-install configuration and authorized in AD  
 
-   ![DHCP Role Installation](images/dhcp_scope_config.png)
+  ![Install_DHCP_WINServer](images/11_Install_WINServer.png)
+  ![Install_DHCP_WINServer](images/12_Install_WINServer.png)
+  ![Install_DHCP_WINServer](images/13_Install_WINServer.png)
+  ![Install_DHCP_WINServer](images/14_Install_WINServer.png)
+  ![Install_DHCP_WINServer](images/15_Install_WINServer.png)
+  ![Install_DHCP_WINServer](images/16_Install_WINServer.png)
+  ![Install_DHCP_WINServer](images/17_Install_WINServer.png)
+  ![Install_DHCP_WINServer](images/18_Install_WINServer.png)
 
 ---
 
