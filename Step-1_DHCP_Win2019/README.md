@@ -104,6 +104,7 @@ Alternate DNS: 192.168.20.2
   ![Create_DHCP_Scope](images/28_DHCP_Scope.png)
   ![Create_DHCP_Scope](images/29_DHCP_Scope.png)
   ![Create_DHCP_Scope](images/30_DHCP_Scope.png)
+  ![Create_DHCP_Scope](images/31_DHCP_Scope.png)
 
 
 
@@ -120,9 +121,9 @@ ipconfig /renew         # Request new IP from DHCP
 ipconfig /all           # Verify IP, gateway, DHCP server, and DNS
 ```
 
-  ![WIN_10_Verify](images/31_WIN10_Verify.png)
   ![WIN_10_Verify](images/32_WIN10_Verify.png)
   ![WIN_10_Verify](images/33_WIN10_Verify.png)
+  ![WIN_10_Verify](images/34_WIN10_Verify.png)
 
 
 
