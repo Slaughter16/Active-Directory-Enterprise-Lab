@@ -131,9 +131,9 @@ ipconfig /all           :: Verify IP, gateway, DHCP server, and DNS
 
   **Debian Client**:
  ```cmd
-  sudo dhclient -r
-  sudo dhclient
-  ip a
-  ip route
-  cat /etc/resolv.conf
+  sudo dhclient -r      # Release current IP
+  sudo dhclient         # Request new IP from DHCP
+  ip a                  # Check assigned IP address
+  ip route              # Verify default gateway
+  cat /etc/resolv.conf  # Check DNS servers
 ```
