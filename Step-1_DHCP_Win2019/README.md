@@ -118,7 +118,7 @@ Alternate DNS: 192.168.20.2
 ipconfig /release       :: Release current IP
 ipconfig /renew         :: Request new IP from DHCP
 ipconfig /all           :: Verify IP, gateway, DHCP server, and DNS
-
+```
 
 
   **Windows 11 Client**:  
@@ -136,3 +136,4 @@ ipconfig /all           :: Verify IP, gateway, DHCP server, and DNS
   ip a
   ip route
   cat /etc/resolv.conf
+```
