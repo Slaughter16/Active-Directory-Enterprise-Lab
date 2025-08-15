@@ -92,7 +92,22 @@ Alternate DNS: 192.168.20.2
    - DNS Servers: 192.168.10.10, 192.168.20.2  
    - Activated scope  
 
-   ![DHCP Scope Configuration](images/dhcp_scope_config.png)
+  ![Create_DHCP_Scope](images/19_DHCP_Scope.png)
+  ![Create_DHCP_Scope](images/20_DHCP_Scope.png)
+  ![Create_DHCP_Scope](images/21_DHCP_Scope.png)
+  ![Create_DHCP_Scope](images/22_DHCP_Scope.png)
+  ![Create_DHCP_Scope](images/23_DHCP_Scope.png)
+  ![Create_DHCP_Scope](images/24_DHCP_Scope.png)
+  ![Create_DHCP_Scope](images/25_DHCP_Scope.png)
+  ![Create_DHCP_Scope](images/26_DHCP_Scope.png)
+  ![Create_DHCP_Scope](images/27_DHCP_Scope.png)
+  ![Create_DHCP_Scope](images/28_DHCP_Scope.png)
+  ![Create_DHCP_Scope](images/29_DHCP_Scope.png)
+  ![Create_DHCP_Scope](images/30_DHCP_Scope.png)
+
+
+
+
 
 ---
 
