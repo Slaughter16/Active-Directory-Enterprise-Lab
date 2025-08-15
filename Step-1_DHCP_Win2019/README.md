@@ -64,8 +64,11 @@ Alternate DNS: 192.168.20.2
    - Disabled DHCP for VLAN 10 only  
    - Verified service stopped  
 
-   ![Disable pfSense DHCP](images/pfsense_disable.png)
+  ![Disable_DHCP_pfSense](8_Disable_DHCP.png)
+  ![Disable_DHCP_pfSense](9_Disable_DHCP.png)
+  ![Disable_DHCP_pfSense](10_Disable_DHCP.png)
 
+  
 3. **Installed DHCP Role on Windows Server 2019**  
    - Server Manager → Add Roles and Features → DHCP Server  
    - Completed post-install configuration and authorized in AD  
