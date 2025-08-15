@@ -126,7 +126,7 @@ Alternate DNS: 192.168.20.2
    ipconfig /release
    ipconfig /renew
    ipconfig /all
-
+```
 
 
   **Debian Client**:
