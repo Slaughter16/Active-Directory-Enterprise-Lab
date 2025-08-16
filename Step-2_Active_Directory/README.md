@@ -37,22 +37,20 @@ This step builds the foundation for:
 
 
 
-3. **Before You Begin** → Click **Next**.
-  
-4. **Installation Type** → Select **Role-based or feature-based installation** → **Next**.\
-
+2. **Before You Begin** → Click **Next**.  
+3. **Installation Type** → Select **Role-based or feature-based installation** → **Next**.
 ![Role_Based](images/2_Role_Based.png)
 
-5. **Server Selection** → Choose your server → **Next**.
+4. **Server Selection** → Select your server → **Next**.  
 ![Choose_Server](images/3_Choose_Server.png)
 
-6. **Server Roles** → Check **Active Directory Domain Services**.
+5. **Server Roles** → Check **Active Directory Domain Services**.  
 ![Active Directory](images/4_ActiveDirectory.png)
 
-7. When prompted, click **Add Features** → **Next**.
+6. When prompted, click **Add Features** → **Next**.  
 ![Add_Roles_Features](images/5_Add_Features.png)
 
-8. Continue clicking **Next** until the **Confirmation** screen.
+7. Continue clicking **Next** → **Confirmation** → **Install**.  
 ![Next](images/6_Next.png)
 9. Click **Install** (do not close the wizard when finished).
 ![Install](images/7_Install.png)
