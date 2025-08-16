@@ -108,7 +108,6 @@ This step builds the foundation for:
 ![WIN11_DNS](images/20_WIN11_DNS.png)
 ![WIN11_DNS](images/21_WIN11_DNS.png)
 ![WIN10_DNS](images/22_WIN10_DNS.png)
-![WIN10_DNS](images/23_WIN10_DNS.png)
 
 
 
