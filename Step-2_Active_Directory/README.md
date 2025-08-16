@@ -85,6 +85,27 @@ This forms the foundation for centralized user management, Group Policy applicat
 ![Installation Complete](images/16_Installation_Complete.png)
 
 ---
+### Authorize DHCP server in Active Directory 
+In a domain environment, only authorized DHCP servers can hand out IPs to domain clients.
+
+If the server isn’t authorized, clients won’t get leases reliably on the domain network.
+
+1. Open DHCP Management Console (Server Manager → Tools → DHCP).
+![Tools_DHCP](images/17_Tools_DHCP.png)
+
+2. Right-click on your server (e.g., WINSERVER.CORP.LOCAL) under DHCP → Authorize.
+![Authorize_DHCP](images/18_Authorize_DHCP.png)
+
+  -Wait a few moments; the red arrow should turn green.
+-After that, your DHCP scope will hand out IPs to clients.
+![Verify_DHCP](images/19_Verify_DHCP.png)
+
+
+
+
+
+
+---
 
 ### 3️⃣ Join Clients to the Domain
 
