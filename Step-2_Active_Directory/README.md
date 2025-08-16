@@ -128,14 +128,18 @@ This step builds the foundation for:
 
 
 5. Under **Computer Name**, click **Change**.
+
 -WIN11 Change Name
 ![WIN11_Change](images/27_WIN11_Change_Name.png)
+
 -Win10 Change Name
 ![WIN10_Change](images/28_WIN10_Change_Name.png)
 
 7. Select **Domain**, enter: `corp.local`.
+
 -WIN11 Domain Config
 ![WIN11_Corp](images/29_WIN11_Corp.png)
+
 -WIN10 Domain Config
 ![WIN10_Corp](images/30_WIN10_Corp.png)
 
