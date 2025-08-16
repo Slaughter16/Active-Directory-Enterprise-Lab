@@ -105,11 +105,15 @@ This step builds the foundation for:
 
 #### 🖥️ Windows 10 / 11
 1. Ensure **Preferred DNS** is set to DC (`192.168.10.10`).
+
    -WIN11 DNS Config
 ![WIN11_DNS](images/20_WIN11_DNS.png)
+
 ![WIN11_DNS](images/21_WIN11_DNS.png)
+
    -WIN10 DNS Config
 ![WIN10_DNS](images/22_WIN10_DNS.png)
+
    
 3. **Right-click Start → System → Advanced system settings**.  
 4. Under **Computer Name**, click **Change**.  
