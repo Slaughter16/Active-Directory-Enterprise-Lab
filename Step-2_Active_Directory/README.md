@@ -85,48 +85,43 @@ This forms the foundation for centralized user management, Group Policy applicat
 ![Installation Complete](images/16_Installation_Complete.png)
 
 ---
-### Authorize DHCP server in Active Directory 
-In a domain environment, only authorized DHCP servers can hand out IPs to domain clients.
+### 3️⃣ Authorize DHCP in Active Directory
+- In AD-integrated networks, **only authorized DHCP servers** can issue IP leases.  
+- Without authorization, clients may fail to receive IPs.
 
-If the server isn’t authorized, clients won’t get leases reliably on the domain network.
-
-1. Open DHCP Management Console (Server Manager → Tools → DHCP).
+1. Open **DHCP Management Console** (Server Manager → Tools → DHCP).  
 ![Tools_DHCP](images/17_Tools_DHCP.png)
 
-2. Right-click on your server (e.g., WINSERVER.CORP.LOCAL) under DHCP → Authorize.
+2. Right-click your server (e.g., `WINSERVER.corp.local`) → **Authorize**.  
 ![Authorize_DHCP](images/18_Authorize_DHCP.png)
 
-  -Wait a few moments; the red arrow should turn green.
--After that, your DHCP scope will hand out IPs to clients.
+3. Wait until the **red arrow turns green** → DHCP is active.
 ![Verify_DHCP](images/19_Verify_DHCP.png)
-
-
-
-
-
 
 ---
 
-### 3️⃣ Join Clients to the Domain
+### 4️⃣ Join Clients to the Domain
 
-#### **Windows 10 / 11 Clients**
-1. Set the **Preferred DNS** server to the DC IP (`192.168.10.10`) in the adapter properties.
-2. **Right-click Start → System → Advanced system settings**.
-3. Under **Computer Name**, click **Change**.
-4. Select **Domain** and enter: `corp.local`.
-5. Enter domain admin credentials.
-6. Accept the welcome prompt → Reboot.
+#### 🖥️ Windows 10 / 11
+1. Ensure **Preferred DNS** is set to DC (`192.168.10.10`).  
+2. **Right-click Start → System → Advanced system settings**.  
+3. Under **Computer Name**, click **Change**.  
+4. Select **Domain**, enter: `corp.local`.  
+5. Enter domain **Administrator** credentials.  
+6. Accept welcome prompt → Reboot.  
 
+---
 
-#### **Debian Client**
+#### 🐧 Debian Client
 ```bash
-# Set DNS server to domain controller
+# Set DNS server to Domain Controller
 sudo nano /etc/resolv.conf
 # Add:
 nameserver 192.168.10.10
 
-# Install realmd & samba packages
-sudo apt update && sudo apt install realmd sssd samba-common packagekit samba-common-bin adcli -y
+# Install required packages
+sudo apt update && sudo apt install realmd sssd samba-common \
+    samba-common-bin packagekit adcli -y
 
 # Discover the domain
 realm discover corp.local
