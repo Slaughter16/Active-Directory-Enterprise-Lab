@@ -28,36 +28,52 @@ This forms the foundation for centralized user management, Group Policy applicat
 1. Open **Server Manager**.
   
 2. In the top-right, click **Manage → Add Roles and Features**.
-  
+
+![Add_Roles_Features](images/1_Add_Roles.png)
+
+
+
+
 3. **Before You Begin** → Click **Next**.
   
-4. **Installation Type** → Select **Role-based or feature-based installation** → **Next**.
-   
-5. **Server Selection** → Choose your server → **Next**.
-    
-6. **Server Roles** → Check **Active Directory Domain Services**.
-    
-7. When prompted, click **Add Features** → **Next**.
-    
-8. Continue clicking **Next** until the **Confirmation** screen.
-    
-9. Click **Install** (do not close the wizard when finished).
-    
-10. After installation, click **Promote this server to a domain controller**.
-    
+4. **Installation Type** → Select **Role-based or feature-based installation** → **Next**.\
+
+![Role_Based](images/2_Role_Based.png)
+
+6. **Server Selection** → Choose your server → **Next**.
+![Choose_Server](images/3_Choose_Server.png)
+
+7. **Server Roles** → Check **Active Directory Domain Services**.
+![Active Directory](images/4_ActiveDirectory.png)
+
+8. When prompted, click **Add Features** → **Next**.
+![Add_Roles_Features](images/5_Add_Features.png)
+
+9. Continue clicking **Next** until the **Confirmation** screen.
+![Next](images/6_Next.png)
+10. Click **Install** (do not close the wizard when finished).
+![Install](images/7_Install.png)
+
+11. After installation, click **Promote this server to a domain controller**.
+![Promote_DC](images/8_Promote_DC.png)
+
 ---
 
 ### 2️⃣ Promote the Server to a Domain Controller
 1. **Deployment Configuration** → Select **Add a new forest**.
 2. **Root Domain Name:** `corp.local`
-3. **Domain Controller Options:**
+![Add_Roles_Features](images/_Add_Roles.png)
+
+4. **Domain Controller Options:**
    - Keep **DNS Server** checked.
    - Set a **DSRM password** (Directory Services Restore Mode).
-4. **Additional Options:**
+  ![Add_Roles_Features](images/_Add_Roles.png)
+
+5. **Additional Options:**
    - NetBIOS name will default to `CORP`.
-5. **Paths:** Leave default locations.
-6. **Review & Install:** Click **Next** until the **Prerequisites Check** completes.
-7. Click **Install** → Server will reboot automatically.
+6. **Paths:** Leave default locations.
+7. **Review & Install:** Click **Next** until the **Prerequisites Check** completes.
+8. Click **Install** → Server will reboot automatically.
 
 ---
 
