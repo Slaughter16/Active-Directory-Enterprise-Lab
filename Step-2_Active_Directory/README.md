@@ -1,8 +1,13 @@
 # Step 2 – Install Active Directory Domain Services (AD DS) & DNS, and Join Clients
 
 ## 📌 Objective
-Install Active Directory Domain Services (AD DS) with integrated DNS on Windows Server 2019, configure a new domain, and join Windows 10, Windows 11, and Debian clients to the domain.  
-This forms the foundation for centralized user management, Group Policy application, and enterprise-grade administration.
+Install Active Directory Domain Services (AD DS) with integrated DNS on Windows Server 2019, configure a new domain, and join Windows 10, Windows 11, and Debian clients to the domain.
+
+This step builds the foundation for:
+- Centralized authentication & authorization  
+- Group Policy deployment  
+- Organizational Unit (OU) design & administration---
+
 ---
 
 ## 🔹 Background
