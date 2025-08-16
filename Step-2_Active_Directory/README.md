@@ -62,18 +62,27 @@ This forms the foundation for centralized user management, Group Policy applicat
 ### 2️⃣ Promote the Server to a Domain Controller
 1. **Deployment Configuration** → Select **Add a new forest**.
 2. **Root Domain Name:** `corp.local`
-![Add_Roles_Features](images/_Add_Roles.png)
+![Add_Forest](images/9_Add_Forest.png)
 
-4. **Domain Controller Options:**
+3. **Domain Controller Options:**
    - Keep **DNS Server** checked.
    - Set a **DSRM password** (Directory Services Restore Mode).
-  ![Add_Roles_Features](images/_Add_Roles.png)
+![Set_Pass](images/10_Set_Password.png)
+![Next_DNS](images/11_Next_DNS.png)
 
-5. **Additional Options:**
+4. **Additional Options:**
    - NetBIOS name will default to `CORP`.
-6. **Paths:** Leave default locations.
-7. **Review & Install:** Click **Next** until the **Prerequisites Check** completes.
-8. Click **Install** → Server will reboot automatically.
+![NetBIOS](images/12_NetBIOS.png)
+
+5. **Paths:** Leave default locations.
+![Default_Path](images/13_Default_Paths.png)
+
+6. **Review & Install:** Click **Next** until the **Prerequisites Check** completes.
+![Review_Next](images/14_Review_Next.png)
+
+7. Click **Install** → Server will reboot automatically.
+![Install](images/15_Install.png)
+![Installation Complete](images/16_Installation_Complete.png)
 
 ---
 
