@@ -104,12 +104,21 @@ This step builds the foundation for:
 ### 4️⃣ Join Clients to the Domain
 
 #### 🖥️ Windows 10 / 11
-1. Ensure **Preferred DNS** is set to DC (`192.168.10.10`).  
-2. **Right-click Start → System → Advanced system settings**.  
-3. Under **Computer Name**, click **Change**.  
-4. Select **Domain**, enter: `corp.local`.  
-5. Enter domain **Administrator** credentials.  
-6. Accept welcome prompt → Reboot.  
+1. Ensure **Preferred DNS** is set to DC (`192.168.10.10`).
+![WIN11_DNS](images/20_WIN11_DNS.png)
+![WIN11_DNS](images/21_WIN11_DNS.png)
+![WIN10_DNS](images/22_WIN10_DNS.png)
+![WIN10_DNS](images/23_WIN10_DNS.png)
+
+
+
+
+   
+3. **Right-click Start → System → Advanced system settings**.  
+4. Under **Computer Name**, click **Change**.  
+5. Select **Domain**, enter: `corp.local`.  
+6. Enter domain **Administrator** credentials.  
+7. Accept welcome prompt → Reboot.  
 
 ---
 
