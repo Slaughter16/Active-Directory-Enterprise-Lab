@@ -115,11 +115,39 @@ This step builds the foundation for:
 ![WIN10_DNS](images/22_WIN10_DNS.png)
 
    
-3. **Right-click Start → System → Advanced system settings**.  
-4. Under **Computer Name**, click **Change**.  
-5. Select **Domain**, enter: `corp.local`.  
-6. Enter domain **Administrator** credentials.  
-7. Accept welcome prompt → Reboot.  
+3. **Right-click Start → System → Advanced system settings**.
+
+-Win11 Settings
+![WIN11_System](images/23_WIN11_System.png)
+![WIN11_System](images/24_WIN11_System.png)
+
+-Win10 Settings
+
+![WIN10_Sytem](images/25_WIN10_System.png)
+![WIN10_Sytem](images/26_WIN10_System.png)
+
+
+5. Under **Computer Name**, click **Change**.
+-WIN11 Change Name
+![WIN11_Change](images/27_WIN11_Change_Name.png)
+-Win10 Change Name
+![WIN10_Change](images/28_WIN10_Change_Name.png)
+
+7. Select **Domain**, enter: `corp.local`.
+-WIN11 Domain Config
+![WIN11_Corp](images/29_WIN11_Corp.png)
+-WIN10 Domain Config
+![WIN10_Corp](images/30_WIN10_Corp.png)
+
+9. Enter domain **Administrator** credentials.
+-WIN11 Credentials
+![WIN11_Credentials](images/31_WIN11_Credentials.png)
+-WIN10 Credentials
+![WIN10_Credentials](images/32_WIN10_Credentials.png)
+
+11. Accept welcome prompt → Reboot.  
+![WIN11_Joined_Domain](images/33_WIN11_Joined_Domain.png)
+![WIN10_Joined_Domain](images/34_WIN10_Joined_Domain.png)
 
 ---
 
