@@ -30,10 +30,8 @@ This step builds the foundation for:
 ## 🔹 Steps Performed
 
 ### 1️⃣ Install AD DS on Windows Server 2019
-1. Open **Server Manager**.
-  
-2. In the top-right, click **Manage → Add Roles and Features**.
 
+1. Open **Server Manager** → **Manage → Add Roles and Features**.  
 ![Add_Roles_Features](images/1_Add_Roles.png)
 
 
