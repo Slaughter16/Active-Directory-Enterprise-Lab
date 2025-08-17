@@ -162,33 +162,57 @@ This step builds the foundation for:
 ---
 
 #### 🐧 Debian Client
-```bash
+
+``
 # Ensure the client points to the Domain Controller (DC) for DNS resolution.
 sudo nano /etc/resolv.conf
 nameserver 192.168.10.10
 
+![WIN10_Joined_Domain](images/35_Verify_DNS.png)
+
+
 # Install required packages
 sudo apt update && sudo apt install realmd sssd samba-common \
-    samba-common-bin packagekit adcli -y
+sudo apt install adcli packagekit samba-commmon-bin -y 
+
+![WIN10_Joined_Domain](images/34_WIN10_Joined_Domain.png)
+![WIN10_Joined_Domain](images/34_WIN10_Joined_Domain.png)
 
 # Update & Install the necessary packages
 sudo apt update
 sudo apt install realmd -y
 
+![WIN10_Joined_Domain](images/34_WIN10_Joined_Domain.png)
+
+
 # Discover the domain
 sudo realm discover corp.local
+
+![WIN10_Joined_Domain](images/34_WIN10_Joined_Domain.png)
+
 
 # Use the AD Administrator account to join the domain
 sudo realm join corp.local -U Administrator
 
+![WIN10_Joined_Domain](images/34_WIN10_Joined_Domain.png)
+
+
 # Verify machine successfully join the domain
 sudo realm list
+
+![WIN10_Joined_Domain](images/34_WIN10_Joined_Domain.png)
+
 
 # Lookup Domain Controller
 nslookup 192.168.10.10
 
+![WIN10_Joined_Domain](images/34_WIN10_Joined_Domain.png)
+
+
 # Ping the Domain Controller
 ping -c 3 192.168.10.10
+
+![WIN10_Joined_Domain](images/34_WIN10_Joined_Domain.png)
 
 
 
