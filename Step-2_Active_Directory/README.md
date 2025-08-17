@@ -163,23 +163,33 @@ This step builds the foundation for:
 
 #### 🐧 Debian Client
 ```bash
-# Set DNS server to Domain Controller
+# Ensure the client points to the Domain Controller (DC) for DNS resolution.
 sudo nano /etc/resolv.conf
-# Add:
 nameserver 192.168.10.10
 
 # Install required packages
 sudo apt update && sudo apt install realmd sssd samba-common \
     samba-common-bin packagekit adcli -y
 
-# Discover the domain
-realm discover corp.local
+# Update & Install the necessary packages
+sudo apt update
+sudo apt install realmd -y
 
-# Join the domain
+# Discover the domain
+sudo realm discover corp.local
+
+# Use the AD Administrator account to join the domain
 sudo realm join corp.local -U Administrator
 
-# Verify
-realm list
+# Verify machine successfully join the domain
+sudo realm list
+
+# Lookup Domain Controller
+nslookup 192.168.10.10
+
+# Ping the Domain Controller
+ping -c 3 192.168.10.10
+
 
 
 
