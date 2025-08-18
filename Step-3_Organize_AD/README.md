@@ -140,22 +140,24 @@ For this lab, create the following groups:
 1. Open **Server Manager → Tools → Active Directory Users and Computers (ADUC)**.  
 2. Navigate to the appropriate OU (e.g., **IT OU**).  
 3. Right-click → **New → Group**.
-   ![New_GroupIT](images/23_GroupIT.png)
-4. Enter **Group name:** `IT_Staff`  
-5. Set **Group scope:** Global  
-6. Set **Group type:** Security → **OK**
-   ![GroupIT_Config](images/24_GroupIT_Config.png)
+
+![New_GroupIT](images/23_GroupIT.png)
+  
+5. Enter **Group name:** `IT_Staff`  
+6. Set **Group scope:** Global  
+7. Set **Group type:** Security → **OK**
+
+![GroupIT_Config](images/24_GroupIT_Config.png)
  
-7. Repeat for HR OU → create `HR_Staff`
+9. Repeat for HR OU → create `HR_Staff`
 
    ![GroupHR_Config](images/25_GroupHR_Config.png)
 
-8. Verify groups created (IT_Staff)(HR_Staff)
+10. Verify groups created (IT_Staff)(HR_Staff)
 
    ![Verify_IT_Staff](images/26_Verify_IT_Staff.png)
    
    ![Verify_HR_Staff](images/27_Verify_HR_Staff.png)
-
 
 ---
 
