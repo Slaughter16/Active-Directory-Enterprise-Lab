@@ -62,7 +62,7 @@ This enables structured administration, targeted Group Policy application, and r
 
 ### 2️⃣ Create User Accounts
 
-1. In **Active Directory Users and Computers**, expand your domain (`corp.local`) and navigate to the **OU where you want the user** (e.g., `LabUsers → IT` or `LabUsers → HR`).
+1. In **Active Directory Users and Computers**, expand your domain (`corp.local`) and navigate to the **OU where you want the user** (e.g., `LabUsers → IT` or `LabUsers → HR`) We chose HR this time.
 
    ![OU_Select](images/11_Select_OU.png)
    
@@ -74,8 +74,8 @@ This enables structured administration, targeted Group Policy application, and r
 3. Enter user details:  
    - **First Name:** John  
    - **Last Name:** Doe  
-   - **User Logon Name (UPN):** `jdoe@corp.local`
-   - **User Logon Name (Pre-Windows 2000):** `CORP\jdoe`
+   - **User Logon Name (UPN):** `jdoeHR@corp.local`
+   - **User Logon Name (Pre-Windows 2000):** `CORP\jdoeHR`
    - **Click Next** 
 
    ![User_Details](images/13_User_Details.png)
