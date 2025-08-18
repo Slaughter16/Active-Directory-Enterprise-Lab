@@ -61,15 +61,46 @@ This enables structured administration, targeted Group Policy application, and r
 ---
 
 ### 2️⃣ Create User Accounts
-1. Navigate to the appropriate OU (e.g., `Users → IT`).  
-2. Right-click → **New → User**.  
-3. Fill in **First Name, Last Name, User Logon Name** (e.g., `jlee`).  
-4. Set initial password.  
-5. Optionally check **User must change password at next logon**.  
-6. Click **Next → Finish**.
 
-![Create_User](images/2_Create_User.png)
+1. In **Active Directory Users and Computers**, expand your domain (`corp.local`) and navigate to the **OU where you want the user** (e.g., `LabUsers → IT` or `LabUsers → HR`).
 
+   ![OU_Select](images/11_Select_OU.png)
+   
+2. Right-click the chosen OU (HR) → **New → User**.  
+   
+   ![New_User](images/12_New_User.png)
+
+   
+3. Enter user details:  
+   - **First Name:** John  
+   - **Last Name:** Doe  
+   - **User Logon Name (UPN):** `jdoe@corp.local`
+   - **User Logon Name (Pre-Windows 2000):** `CORP\jdoe`
+   - **Click Next** 
+
+   ![User_Details](images/13_User_Details.png)
+
+ 
+4. Set an **initial password**.  
+   - Check **User must change password at next logon** (recommended for lab security).  
+   - Optionally, uncheck if you want static passwords.
+
+ ![Set_Password](images/14_Set_Password.png)
+ 
+5. Repeat for multiple accounts:  
+   - `IT` OU → Create users like `Alice IT`, `Bob IT`  
+   - `HR` OU → Create users like `Eve HR`, `Charlie HR` 
+
+    Example usernames:  
+   - `alice.it@corp.local`  
+   - `bob.it@corp.local`  
+   - `eve.hr@corp.local`  
+   - `charlie.hr@corp.local`
+  
+    
+6. Verify that the accounts appear inside their respective OUs.  
+
+   ![Verify_Users](images/15_Verify_Users.png)
 
 ---
 
