@@ -64,41 +64,46 @@ This enables structured administration, targeted Group Policy application, and r
 
 1. In **Active Directory Users and Computers**, expand your domain (`corp.local`) and navigate to the **OU where you want the user** (e.g., `LabUsers → IT` or `LabUsers → HR`) We chose HR this time.
 
-   ![OU_Select](images/11_Select_OU.png)
+![OU_Select](images/11_Select_OU.png)
    
 2. Right-click the chosen OU (HR) → **New → User**.  
    
-   ![New_User](images/12_New_User.png)
+![New_User](images/12_New_User.png)
 
    
 3. Enter user details:  
    - **First Name:** John  
    - **Last Name:** Doe  
-   - **User Logon Name (UPN):** `jdoeHR@corp.local`
-   - **User Logon Name (Pre-Windows 2000):** `CORP\jdoeHR`
+   - **User Logon Name (UPN):** `JdoeHR@corp.local`
+   - **User Logon Name (Pre-Windows 2000):** `CORP\JdoeHR`
    - **Click Next** 
 
-   ![User_Details](images/13_User_Details.png)
+![User_Details](images/13_Jdoe.png)
 
  
 4. Set an **initial password**.  
    - Check **User must change password at next logon** (recommended for lab security).  
    - Optionally, uncheck if you want static passwords.
 
- ![Set_Password](images/14_Set_Password.png)
- 
-5. Repeat for multiple accounts:  
-   - `IT` OU → Create users like `Alice IT`, `Bob IT`  
-   - `HR` OU → Create users like `Eve HR`, `Charlie HR` 
+![Set_Password_Jdoe](images/14_Set_Password_Jdoe.png)
+![Review_Jdoe_Users](images/15_Review_Jdoe_User.png)
+![Verify_Users](images/16_Verify_Jdoe_HR.png)
 
-    Example usernames:  
-   - `alice.it@corp.local`  
-   - `bob.it@corp.local`  
+5. Repeat for multiple accounts:
+
+   - `HR` OU → Create users like `Eve HR`, `Charlie HR`
+   
+   - `IT` OU → Create users like `Alice IT`, `Bob IT`  
+
+    Example usernames:
+   
    - `eve.hr@corp.local`  
    - `charlie.hr@corp.local`
+   - `alice.it@corp.local`  
+   - `bob.it@corp.local`  
   
     
-6. Verify that the accounts appear inside their respective OUs.  
+7. Verify that the accounts appear inside their respective OUs.  
 
    ![Verify_Users](images/15_Verify_Users.png)
 
