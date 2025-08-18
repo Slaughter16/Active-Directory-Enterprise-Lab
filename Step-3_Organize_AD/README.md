@@ -114,7 +114,10 @@ This enables structured administration, targeted Group Policy application, and r
     
 7. Verify that the accounts appear inside their respective OUs.  
 
+-HR List
    ![Verify_Users_HR](images/21_Verify_Users_HR.png)
+
+-IT List
    ![Verify_Users_IT](images/22_Verify_Users_IT.png)
 
 ---
