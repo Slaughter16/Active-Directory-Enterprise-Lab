@@ -94,8 +94,15 @@ This enables structured administration, targeted Group Policy application, and r
 6. Repeat for multiple accounts:
 
    - `HR` OU → Create users like `Eve HR`, `Charlie HR`
+ 
+![New_User_EveHR](images/17_New_User_EveHR.png)
+![New_User_CharlieHR](images/18_New_User_CharlieHR.png)
+
    
    - `IT` OU → Create users like `Alice IT`, `Bob IT`  
+
+![New_User_AliceIT](images/19_New_User_AliceIT.png)
+![New_User_BobIT](images/20_New_User_BobIT.png)
 
     Example usernames:
    
@@ -105,9 +112,10 @@ This enables structured administration, targeted Group Policy application, and r
    - `bob.it@corp.local`  
   
     
-8. Verify that the accounts appear inside their respective OUs.  
+7. Verify that the accounts appear inside their respective OUs.  
 
-   ![Verify_Users](images/15_Verify_Users.png)
+   ![Verify_Users_HR](images/21_Verify_Users_HR.png)
+   ![Verify_Users_IT](images/22_Verify_Users_IT.png)
 
 ---
 
