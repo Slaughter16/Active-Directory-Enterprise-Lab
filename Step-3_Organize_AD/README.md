@@ -86,10 +86,12 @@ This enables structured administration, targeted Group Policy application, and r
    - Optionally, uncheck if you want static passwords.
 
 ![Set_Password_Jdoe](images/14_Set_Password_Jdoe.png)
+
+5. Review and Verify creation of John Doe user in HR
 ![Review_Jdoe_Users](images/15_Review_Jdoe_User.png)
 ![Verify_Users](images/16_Verify_Jdoe_HR.png)
 
-5. Repeat for multiple accounts:
+6. Repeat for multiple accounts:
 
    - `HR` OU → Create users like `Eve HR`, `Charlie HR`
    
@@ -103,7 +105,7 @@ This enables structured administration, targeted Group Policy application, and r
    - `bob.it@corp.local`  
   
     
-7. Verify that the accounts appear inside their respective OUs.  
+8. Verify that the accounts appear inside their respective OUs.  
 
    ![Verify_Users](images/15_Verify_Users.png)
 
