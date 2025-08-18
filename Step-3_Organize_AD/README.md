@@ -38,7 +38,7 @@ This enables structured administration, targeted Group Policy application, and r
 3. Enter the OU name (e.g., `LabUsers`) → **OK**
 ![LabUsers_OU](images/3_LabUsers.png)
 
-4. Repeat to create sub-OUs like `IT`, `HR`, `Computers → Workstations`, `Servers`, `Groups`.
+4. Repeat to create sub-OUs like 'LabUsers' →`IT` & `HR`, `Computers → Workstations` & `Servers`. `LabGroups`.
 
 ![IT_LabUsers](images/4_IT_LabUsers.png)
 
