@@ -118,16 +118,73 @@ This enables structured administration, targeted Group Policy application, and r
 
 ---
 
-### 3️⃣ Create Security Groups
-1. Navigate to **Groups** OU.  
-2. Right-click → **New → Group**.  
-3. Name the group (e.g., `ITAdmins`).  
-4. Select **Group scope:** Global, **Group type:** Security → **OK**.  
-5. Add members (users) to the group by right-clicking the group → **Properties → Members → Add**.
+### 3️⃣ Create Security Groups & Add Users
 
-![Create_Group](images/3_Create_Group.png)
+## 📌 Objective
+Create security groups for users in the IT and HR OUs and assign users to their respective groups.  
+This enables centralized management of permissions, policies, and resources in Active Directory.
 
 ---
+
+## 🔹 Steps Performed
+
+### 1. Decide on Security Groups
+For this lab, create the following groups:
+
+- `IT_Staff` → All users in the **IT OU**  
+- `HR_Staff` → All users in the **HR OU**  
+
+---
+
+### 2. Create Security Groups
+1. Open **Server Manager → Tools → Active Directory Users and Computers (ADUC)**.  
+2. Navigate to the appropriate OU (e.g., **IT OU**).  
+3. Right-click → **New → Group**.
+   ![New_GroupIT](images/23_GroupIT.png)
+5. Enter **Group name:** `IT_Staff`  
+6. Set **Group scope:** Global  
+7. Set **Group type:** Security → **OK**
+   ![GroupIT_Config](images/24_GroupIT_Config.png)
+ 
+9. Repeat for HR OU → create `HR_Staff`  
+   ![GroupHR_Config](images/25_GroupHR_Config.png)
+
+10. Verify groups created (IT_Staff)(HR_Staff)
+
+   ![Verify_IT_Staff](images/26_Verify_IT_Staff.png)
+   ![Verify_HR_Staff](images/27_Verify_HR_Staff.png)
+
+
+---
+
+### 3. Add Users to Groups
+1. Go to the **IT OU**, right-click **AliceIT** → **Add to a group…**  
+   - Type `IT_Staff`, click **Check Names**, then **OK**  
+2. Go to the **HR OU**, right-click **EveHR** → **Add to a group…**  
+   - Type `HR_Staff`, click **Check Names**, then **OK**  
+
+![Add_User_to_Group](images/3_Add_User_to_Group.png)
+
+---
+
+### 4. Verify Group Membership
+1. Right-click the group (e.g., `IT_Staff`) → **Properties**  
+2. Go to the **Members** tab to confirm users are listed  
+
+![Verify_Group_Members](images/3_Verify_Group_Members.png)
+
+---
+
+✅ **Outcome:**  
+- Users are logically grouped under **security groups**  
+- Permissions and policies can now be applied at the group level instead of individually
+
+
+
+
+
+
+
 
 ### 4️⃣ Apply Basic Group Policy Objects (GPOs)
 1. Open **Server Manager → Tools → Group Policy Management**.  
