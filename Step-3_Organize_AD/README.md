@@ -28,25 +28,34 @@ This enables structured administration, targeted Group Policy application, and r
 ### 1️⃣ Create Organizational Units (OUs)
 1. Open **Server Manager → Tools → Active Directory Users and Computers**.
 
-   image
+![AD_Tools](images/1_AD_Users_Computers.png)
+
 2. Right-click your domain (`corp.local`) → **New → Organizational Unit**.
 
-image
+![Create_OrgUnit](images/2_Org_Unit.png)
 
-3. Enter the OU name (e.g., `LabUsers`) → **OK**.
-image LabUsers
+
+3. Enter the OU name (e.g., `LabUsers`) → **OK**
+![LabUsers_OU](images/3_LabUsers.png)
 
 4. Repeat to create sub-OUs like `IT`, `HR`, `Computers → Workstations`, `Servers`, `Groups`.
-image IT LabUsers
-image HR LabUsers
-image Lab Computers
-image Workstations Lab Computers
-image Servers Lab Computers
-image LabGroups
+
+![IT_LabUsers](images/4_IT_LabUsers.png)
+
+![HR_LabUsers](images/5_HR_LabUsers.png)
+ 
+![Lab_Computers_OU](images/6_Lab_Computers_.png)
+
+![LabComp_Workstations](images/7_LabComp_Workstations.png)
+
+![LabComp_Servers](images/8_LabComp_Servers.png)
+
+![LabGroup_OU](images/9_LabGroups.png)
 
 
 5. Verify AD Users and Computers
-image
+
+![Verify_AD_OU](images/10_Verify_OU.png)
 
 
 ---
