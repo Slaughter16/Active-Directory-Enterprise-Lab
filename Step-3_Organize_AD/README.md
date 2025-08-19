@@ -255,21 +255,7 @@ Now that users and groups are in place, we will create Group Policy Objects (GPO
   (`User Configuration → Administrative Templates → Control Panel → Personalization`)
     ![HR_Password](images/46_HR_Password.png)
 
-
 ---
-
-## 4. Verify GPO Application
-- Log in to a workstation as **Alice IT** or **Eve HR**.
-- Run the command: 'gpupdate /force'
-
-- Check that the GPO policies (wallpaper, restrictions, etc.) apply correctly.
-
----
-
-✅ At this point, each OU has its own policies applied through GPOs
-
-
-
 
 
 ## 🔹 Step 5 – Verify Users, Groups, and GPO Application
@@ -277,14 +263,28 @@ Now that users and groups are in place, we will create Group Policy Objects (GPO
 ### 5️⃣ Test Users and Groups
 #### **Windows 10 Client – Eve HR**
 1. Log in using **CORP\EveHR** (or EveHR@corp.local) with the temporary password set in AD.
-2. Change password if prompted.
-3. Run command to refresh policies:
+   
+   ![WIN10_EveHR](images/47_WIN10_EveHR.png)
+
+3. Change password if prompted.
+   
+   ![WIN10_Change_Pass](images/48_WIN10_Change_Pass.png)
+
+   ![WIN10_Change_Pass_Config](images/49_WIN10_Change_Pass_Config.png)
+
+   ![WIN10_Change_Pass_Confirm](images/50_WIN10_Change_Pass_Confirm.png)
+
+5. Run command to refresh policies:
 ```cmd
 gpupdate /force
 gpresult /r
 ```
+![WIN10_CMD](images/51_WIN10_CMD.png)
+
 4. Verify the client shows correct domain and computer name:
      Settings → About → Device Info or Control Panel → System
+
+![WIN10_Domain](images/52_WIN10_Domain.png)
 
 ---
 
@@ -319,3 +319,5 @@ gpresult /r
 - Users and groups are created and organized.  
 - GPOs applied to target OUs for policy enforcement.  
 - Lab is ready for file server permissions, remote tools, and additional security configurations.
+- ✅ At this point, each OU has its own policies applied through GPOs
+
