@@ -163,11 +163,21 @@ For this lab, create the following groups:
 
 ### 3. Add Users to Groups
 1. Go to the **IT OU**, right-click **AliceIT** → **Add to a group…**  
-   - Type `IT_Staff`, click **Check Names**, then **OK**  
-2. Go to the **HR OU**, right-click **EveHR** → **Add to a group…**  
-   - Type `HR_Staff`, click **Check Names**, then **OK**  
+   - Type `IT_Staff`, click **Check Names**, then **OK**
 
-![Add_User_to_Group](images/3_Add_User_to_Group.png)
+![Add_Alice_Group](images/28_Alice_Group)
+![Add_Alice_IT_Staff](images/29_Alice_IT_Staff)
+![Alice_Success_Joined](images/30_Alice_Success_Joined)
+
+
+   
+2. Go to the **HR OU**, right-click **EveHR** → **Add to a group…**  
+  - Type `HR_Staff`, click **Check Names**, then **OK**
+
+![Add_Eve_Group](images/31_Eve_Group)
+![Add_Eve_HR_Staff](images/32_Eve_HR_Staff)
+![Eve_Success_Joined](images/33_Eve_Success_Joined)
+
 
 ---
 
