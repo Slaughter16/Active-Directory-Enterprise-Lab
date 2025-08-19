@@ -289,7 +289,7 @@ gpresult /r
 ---
 
 #### **Windows 11 Client – Alice IT**
-1. Log in using **CORP\EveHR** (or AliceIT@corp.local) with the temporary password set in AD.
+1. Log in using **CORP\AliceIT** (or AliceIT@corp.local) with the temporary password set in AD.
    
 3. Change password if prompted.
 
