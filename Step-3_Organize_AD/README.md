@@ -238,13 +238,23 @@ Now that users and groups are in place, we will create Group Policy Objects (GPO
 ## 3. Create a GPO for HR
 1. Right-click the **HR OU** under `LabUsers → HR`.
 2. Select **Create a GPO in this domain, and Link it here...**
-3. Name it:  'HR_User_Policy'
-4. Right-click the new GPO → **Edit**.
-5. Example policies you can configure for HR users:
+ ![HR_GPO](images/42_HR_GPO.png)
+
+4. Name it:  'HR_User_Policy'
+      ![HR_User_Policy](images/43_HR_User_Policy.png)
+
+6. Right-click the new GPO → **Edit**.
+     ![Edit_HR_GPO](images/44_Edit_HR_GPO.png)
+
+8. Example policies you can configure for HR users:
 - Redirect Documents folder to a shared folder  
   (`User Configuration → Windows Settings → Folder Redirection`)
+    ![HR_Folder](images/45_HR_Folder.png)
+
 - Set password-protected screensaver  
   (`User Configuration → Administrative Templates → Control Panel → Personalization`)
+    ![HR_Password](images/46_HR_Password.png)
+
 
 ---
 
