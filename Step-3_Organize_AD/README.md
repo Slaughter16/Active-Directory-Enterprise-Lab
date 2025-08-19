@@ -319,9 +319,16 @@ gpresult /r
 
 - Confirm machine joined the domain:
 - sudo realm list
+  ![Debian_RealmList](images/58_Debian_RealmList)
+  
 - Verify DNS resolves the domain controller:
 - nslookup corp.local
+  
+  ![Debian_DNS](images/59_Debian_DNS)
+
 - ping -c 3 192.168.10.10
+  
+  ![Debian_Ping](images/60_Debian_Ping)
 
 
 3. Verify OU hierarchy and GPO links in **Active Directory Users and Computers** and **Group Policy Management Console**.
