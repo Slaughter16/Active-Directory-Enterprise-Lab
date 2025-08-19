@@ -266,7 +266,7 @@ Now that users and groups are in place, we will create Group Policy Objects (GPO
    
    ![WIN10_EveHR](images/47_WIN10_EveHR.png)
 
-3. Change password if prompted.
+2. Change password if prompted.
    
    ![WIN10_Change_Pass](images/48_WIN10_Change_Pass.png)
 
@@ -274,7 +274,7 @@ Now that users and groups are in place, we will create Group Policy Objects (GPO
 
    ![WIN10_Change_Pass_Confirm](images/50_WIN10_Change_Pass_Confirm.png)
 
-5. Run command to refresh policies:
+3. Run command to refresh policies:
 ```cmd
 gpupdate /force
 gpresult /r
@@ -290,12 +290,18 @@ gpresult /r
 
 #### **Windows 11 Client – Alice IT**
 1. Log in using **CORP\EveHR** (or AliceIT@corp.local) with the temporary password set in AD.
-2. Change password if prompted.
-3. Run command to refresh policies:
+   
+3. Change password if prompted.
+
+
+
+
+4. Run command to refresh policies:
 ```cmd
 gpupdate /force
 gpresult /r
 ```
+
 4. Verify the client shows correct domain and computer name:
      Settings → About → Device Info or Control Panel → System
 
