@@ -290,20 +290,28 @@ gpresult /r
 
 #### **Windows 11 Client – Alice IT**
 1. Log in using **CORP\AliceIT** (or AliceIT@corp.local) with the temporary password set in AD.
-   
-3. Change password if prompted.
+      ![WIN11_EveHR](images/53_WIN11_AliceIT_.png)
+
+2. Change password if prompted.
+
+ ![WIN11_Change_Pass](images/54_WIN11_Change_Pass.png)
+
+ ![WIN11_Change_Pass_Config](images/55_WIN11_Change_Pass_Config.png)
 
 
 
-
-4. Run command to refresh policies:
+3. Run command to refresh policies:
 ```cmd
 gpupdate /force
 gpresult /r
 ```
 
+![WIN11_CMD](images/56_WIN11_CMD.png)
+
 4. Verify the client shows correct domain and computer name:
      Settings → About → Device Info or Control Panel → System
+   
+![WIN11_Domain](images/57_WIN11_Domain.png)
 
 ---
 
