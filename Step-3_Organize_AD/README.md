@@ -181,11 +181,13 @@ For this lab, create the following groups:
 
 ---
 
+
 ### 4. Verify Group Membership
 1. Right-click the group (e.g., `IT_Staff`) → **Properties**  
 2. Go to the **Members** tab to confirm users are listed  
 
-![Verify_Group_Members](images/3_Verify_Group_Members.png)
+![Verify_Group_HR](images/34_Verify_Group_HR.png)
+![Verify_Group_IT](images/35_Verify_Group_IT.png)
 
 ---
 
@@ -193,25 +195,73 @@ For this lab, create the following groups:
 - Users are logically grouped under **security groups**  
 - Permissions and policies can now be applied at the group level instead of individually
 
+---
 
 
+# Step 4: Create and Link Group Policies (GPOs)
 
-
-
-
-
-### 4️⃣ Apply Basic Group Policy Objects (GPOs)
-1. Open **Server Manager → Tools → Group Policy Management**.  
-2. Right-click your OU (e.g., `Workstations`) → **Create a GPO in this domain, and Link it here**.  
-3. Name the GPO (e.g., `Desktop Security Policy`).  
-4. Edit GPO → Configure policies such as:
-   - **Password Policies:** Minimum length, complexity, account lockout.  
-   - **Desktop Restrictions:** Control Panel, drives, or software restrictions.  
-   - **Scripts:** Login or logoff scripts if needed.  
-
-![GPO_Example](images/4_GPO_Example.png)
+Now that users and groups are in place, we will create Group Policy Objects (GPOs) to manage settings for each OU.
 
 ---
+
+## 1. Open Group Policy Management
+- On your domain controller, open:
+  **Server Manager → Tools → Group Policy Management**
+
+---
+
+## 2. Create a GPO for IT
+1. Right-click the **IT OU** under `LabUsers → IT`.
+2. Select **Create a GPO in this domain, and Link it here...**
+3. Name it: 'IT_User_Policy'
+4. Right-click the new GPO → **Edit**.
+5. Example policies you can configure for IT users:
+- Set a custom desktop background  
+  (`User Configuration → Policies → Administrative Templates → Desktop → Desktop Wallpaper`)
+- Disable Control Panel access  
+  (`User Configuration → Administrative Templates → Control Panel → Prohibit access to Control Panel`)
+
+---
+
+## 3. Create a GPO for HR
+1. Right-click the **HR OU** under `LabUsers → HR`.
+2. Select **Create a GPO in this domain, and Link it here...**
+3. Name it:  'HR_User_Policy'
+4. Right-click the new GPO → **Edit**.
+5. Example policies you can configure for HR users:
+- Redirect Documents folder to a shared folder  
+  (`User Configuration → Windows Settings → Folder Redirection`)
+- Set password-protected screensaver  
+  (`User Configuration → Administrative Templates → Control Panel → Personalization`)
+
+---
+
+## 4. Verify GPO Application
+- Log in to a workstation as **Alice IT** or **Eve HR**.
+- Run the command: 'gpupdate /force'
+
+- Check that the GPO policies (wallpaper, restrictions, etc.) apply correctly.
+
+---
+
+✅ At this point, each OU has its own policies applied through GPOs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### 5️⃣ Test Users and Groups
 1. Log in from a client machine (Win 10/11 or Debian) using a domain user account.  
