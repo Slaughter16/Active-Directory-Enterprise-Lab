@@ -198,7 +198,7 @@ For this lab, create the following groups:
 ---
 
 
-# Step 4: Create and Link Group Policies (GPOs)
+# Step 4️⃣: Create and Link Group Policies (GPOs)
 
 Now that users and groups are in place, we will create Group Policy Objects (GPOs) to manage settings for each OU.
 
@@ -272,22 +272,44 @@ Now that users and groups are in place, we will create Group Policy Objects (GPO
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+## 🔹 Step 5 – Verify Users, Groups, and GPO Application
 
 ### 5️⃣ Test Users and Groups
-1. Log in from a client machine (Win 10/11 or Debian) using a domain user account.  
-2. Confirm policies apply, and access permissions match the user’s group membership.  
+#### **Windows 10 Client – Eve HR**
+1. Log in using **CORP\EveHR** (or EveHR@corp.local) with the temporary password set in AD.
+2. Change password if prompted.
+3. Run command to refresh policies:
+```cmd
+gpupdate /force
+gpresult /r
+```
+4. Verify the client shows correct domain and computer name:
+     Settings → About → Device Info or Control Panel → System
+
+---
+
+#### **Windows 11 Client – Alice IT**
+1. Log in using **CORP\EveHR** (or AliceIT@corp.local) with the temporary password set in AD.
+2. Change password if prompted.
+3. Run command to refresh policies:
+```cmd
+gpupdate /force
+gpresult /r
+```
+4. Verify the client shows correct domain and computer name:
+     Settings → About → Device Info or Control Panel → System
+
+---
+
+#### **Debian Client**
+
+- Confirm machine joined the domain:
+- sudo realm list
+- Verify DNS resolves the domain controller:
+- nslookup corp.local
+- ping -c 3 192.168.10.10
+
+
 3. Verify OU hierarchy and GPO links in **Active Directory Users and Computers** and **Group Policy Management Console**.
 
 ---
