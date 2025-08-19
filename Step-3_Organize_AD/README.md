@@ -207,19 +207,31 @@ Now that users and groups are in place, we will create Group Policy Objects (GPO
 ## 1. Open Group Policy Management
 - On your domain controller, open:
   **Server Manager → Tools → Group Policy Management**
+  
+![Tools_GroupPolicy](images/36_Tools_GroupPolicy.png)
 
 ---
 
 ## 2. Create a GPO for IT
 1. Right-click the **IT OU** under `LabUsers → IT`.
 2. Select **Create a GPO in this domain, and Link it here...**
+ ![IT_GPO](images/37_IT_GPO.png)
+
 3. Name it: 'IT_User_Policy'
+   ![IT_User_Policy](images/38_IT_User_Policy.png)
+
 4. Right-click the new GPO → **Edit**.
+  ![Edit_GPO](images/39_Edit_GPO.png)
+
 5. Example policies you can configure for IT users:
 - Set a custom desktop background  
   (`User Configuration → Policies → Administrative Templates → Desktop → Desktop Wallpaper`)
+   ![GPO_Background](images/40_GPO_Background.png)
+
 - Disable Control Panel access  
   (`User Configuration → Administrative Templates → Control Panel → Prohibit access to Control Panel`)
+   ![ControlPanel](images/41_ControlPanel.png)
+
 
 ---
 
