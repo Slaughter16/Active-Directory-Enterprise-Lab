@@ -40,15 +40,16 @@ Right-click → Properties → Sharing → Advanced Sharing → Share this folde
 
 2️⃣ Share the folder
 
-Right-click D:\Wallpapers → Properties → Sharing → Advanced Sharing
+Right-click C:\Wallpapers → Properties → Sharing → Advanced Sharing
 
 Check Share this folder
 
-Give Read permissions to the users/groups that need it (e.g., IT group)
+Give Read permissions to the users/groups that need it (IT_Staff)
 
 Note the UNC path, e.g.:
 
-\\DC01\Wallpapers\ITBackground.jpg3️⃣ Apply the wallpaper via GPO
+\\WIN-Server\Wallpapers\ITBackground.jpg
+3️⃣ Apply the wallpaper via GPO
 
 Open Group Policy Management → Your IT OU GPO
 
