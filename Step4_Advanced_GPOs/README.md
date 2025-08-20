@@ -5,7 +5,6 @@ This simulates real-world administrative tasks where IT departments enforce poli
 
 ---
 
----
 
 ## 🛠️ Policies to Configure
 
