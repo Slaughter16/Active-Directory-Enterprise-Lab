@@ -12,9 +12,69 @@ This simulates real-world administrative tasks where IT departments enforce poli
 **GPO Name:** `IT_User_Policy`
 
 1. **Set a custom desktop background**  
-   - Path: `User Configuration → Policies → Administrative Templates → Desktop → Desktop Wallpaper`  
+   - Path: `User Configuration → Policies → Administrative Templates → Desktop → Desktop Wallpaper`
+   - Use a Network share create a folder on your server : D:\Wallpapers
+   - Copy your wallpaper image into that folder. Move or copy the image you downloaded from Firefox into that folder.
+
+Share the folder:
+
+Right-click → Properties → Sharing → Advanced Sharing → Share this folder
+
+2️⃣ Share the folder
+
+Right-click D:\Wallpapers → Properties → Sharing → Advanced Sharing
+
+Check Share this folder
+
+Give Read permissions to the users/groups that need it (e.g., IT group)
+
+Note the UNC path, e.g.:
+
+\\DC01\Wallpapers\ITBackground.jpg3️⃣ Apply the wallpaper via GPO
+
+Open Group Policy Management → Your IT OU GPO
+
+Navigate to:
+
+User Configuration → Policies → Administrative Templates → Desktop → Desktop → Desktop Wallpaper
+
+
+Double-click → Enable
+
+In Wallpaper Name, enter the UNC path from step 2:
+
+\\DC01\Wallpapers\ITBackground.jpg
+
+
+Set Wallpaper Style (Stretch, Fill, Center, etc.)
+
+Click OK → Link GPO if not already linked
+
+Test with one client first to make sure it resolves and users can see the image.
+
+✅ Pros: Easy to manage centrally, updates automatically if you replace the image
+❌ Cons: Users need network access to see it
    - Example: `\\Server01\Wallpapers\IT_Wallpaper.jpg`  
    - This ensures IT staff see a standardized background (branding, security reminder, etc.).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 2. **Disable Control Panel access**  
    - Path: `User Configuration → Administrative Templates → Control Panel → Prohibit access to Control Panel`  
