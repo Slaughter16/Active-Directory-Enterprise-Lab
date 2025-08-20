@@ -15,6 +15,24 @@ This simulates real-world administrative tasks where IT departments enforce poli
    - Path: `User Configuration → Policies → Administrative Templates → Desktop → Desktop Wallpaper`
    - Use a Network share create a folder on your server : D:\Wallpapers
    - Copy your wallpaper image into that folder. Move or copy the image you downloaded from Firefox into that folder.
+1️⃣ Create a folder for wallpapers 
+On your Windows Server, open File Explorer.
+
+
+Navigate to a drive you want to use (for example, C:\).
+
+
+Right-click → New → Folder.
+
+
+Name it something clear, e.g.:
+
+ Wallpapers
+
+
+Now you have a dedicated folder to store all GPO wallpapers.
+
+
 
 Share the folder:
 
