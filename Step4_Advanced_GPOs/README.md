@@ -80,6 +80,52 @@ log into WIN-11 client using Alice IT account and notice the background change
    - This ensures IT staff see a standardized background (branding, security reminder, etc.).
 
 
+# 🖥️ IT GPO – Disable Control Panel Access
+
+This section shows how to **disable Control Panel access** for IT users (e.g., AliceIT) using the existing IT_User_Policy GPO.
+
+---
+
+## 1️⃣ Open the GPO
+
+1. Open **Group Policy Management**  
+2. Navigate to:   LabUsers → IT OU → IT_User_Policy → Edit
+
+---
+
+## 2️⃣ Locate the Setting
+
+Navigate in the GPO Editor:   User Configuration → Policies → Administrative Templates → Control Panel → Prohibit access to Control Panel
+
+---
+
+## 3️⃣ Configure the Policy
+
+1. Double-click **Prohibit access to Control Panel**  
+2. Select **Enabled**  
+3. Click **Apply → OK**  
+
+*(Optional screenshot placeholder)*  
+![DisableControlPanel](./images/disable-controlpanel.png)
+
+---
+
+## 4️⃣ Test the Policy
+
+1. Log in on a client machine as **AliceIT** (member of IT_Staff)  
+2. Open Command Prompt → run:   gpupdate /force
+
+3. Try opening **Control Panel** → access should now be blocked  
+
+*(Optional screenshot placeholder)*  
+![TestControlPanel](./images/test-controlpanel.png)
+
+---
+
+## ✅ Notes
+
+- This applies to all users in the **IT_Staff** group  
+- Combined with the wallpaper policy, IT_User_Policy now enforces both branding and system restrictions
 
 
 
@@ -87,20 +133,6 @@ log into WIN-11 client using Alice IT account and notice the background change
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-2. **Disable Control Panel access**  
-   - Path: `User Configuration → Administrative Templates → Control Panel → Prohibit access to Control Panel`  
-   - Helps prevent IT staff from making unauthorized system changes.
 
 
 ---
