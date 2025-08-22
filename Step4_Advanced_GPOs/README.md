@@ -176,6 +176,73 @@ Navigate in the GPO Editor:   User Configuration → Policies → Administrative
 ### 🔹 HR Department (OU: LabUsers → HR)
 **GPO Name:** `HR_User_Policy`
 
+We will configure:
+
+1. **Redirect Documents folder** → central server share (`\\WIN-Server\HRDocs`)  
+2. **Password-protected screensaver** → auto-lock after 5 minutes  
+3. **Disable USB storage** → prevent data exfiltration  
+
+---
+
+## 1️⃣ Folder Redirection – Documents → \\WIN-Server\HRDocs
+
+### Server Setup
+
+1. On your server, create a folder: C:\HRDocs
+
+2. Right-click → **Properties → Sharing → Advanced Sharing…**  
+   - Share name: `HRDocs`  
+   - Permissions: Add **HR_Staff group → Read/Write**  
+3. Set **NTFS Permissions** (Security tab):  
+   - Add **HR_Staff → Full Control**  
+   - Remove **Everyone** if present  
+4. Note UNC path:  
+
+
+``` ### GPO Configuration 1. Open **Group Policy Management → LabUsers → HR OU → HR_User_Policy → Edit** 
+2. Navigate: ``` User Configuration → Policies → Windows Settings → Folder Redirection → Documents ```
+3. Right-click **Documents → Properties** → Basic – Redirect everyone’s folder to the same location
+4. Target folder location → **Redirect to the following location**
+5. Set path: ``` \\WIN-Server\HRDocs ```
+6. Apply → OK *(Optional screenshot placeholder)* ![HR_FolderRedirection](./images/hr-folderredirection.png) ---
+
+
+
+
+## 2️⃣ Password-Protected Screensaver
+1. In `HR_User_Policy`, navigate: ``` User Configuration → Policies → Administrative Templates → Control Panel → Personalization ```
+2. Enable these settings: - **Password protect the screen saver** → Enabled - **Screen saver timeout** → Enabled → 300 seconds (5 min) - **Force specific screen saver** → optional (`scrnsave.scr`)
+3. Apply → OK *(Optional screenshot placeholder)* ![HR_Screensaver](./images/hr-screensaver.png) --- ##
+
+
+
+
+3️⃣ Disable USB Storage
+1. In `HR_User_Policy`, navigate: ``` Computer Configuration → Policies → Administrative Templates → System → Removable Storage Access ```
+2. Enable: - **All Removable Storage classes: Deny all access** → Enabled 3. Apply → OK *(Optional screenshot placeholder)* ![HR_USBBlock](./images/hr-usbblock.png) --- ##
+
+
+4️⃣ Test HR Policy
+1. Log in as an HR user (e.g., **EveHR**)
+2. Run in Command Prompt: ``` gpupdate /force ```
+3. Log off/log back in
+4. Confirm: - Documents redirect to `\\WIN-Server\HRDocs` - Screensaver locks after 5 minutes - USB storage is blocked *(Optional screenshot placeholder)* ![HR_Test](./images/hr-test.png) --- ##
+
+
+
+
+
+
+
+✅ Notes - Policies apply to all members of the **HR_Staff** group - Folder redirection ensures HR documents are **centralized and backed up** - USB block prevents sensitive data exfiltration - Screensaver enforces workstation security compliance --- ## 🔹 Real-World IT Tasks Related to HR Policies - Resetting forgotten passwords - Unlocking accounts after lockout - Adjusting group memberships (HR_Staff, IT_Staff, etc.) - Fixing folder access issues - Deploying printers or drive mappings for HR users - Monitoring login activity and auditing These reflect **daily IT admin responsibilities** in a corporate environment. ``` --- This README covers all **three HR policies** plus **testing and real-world notes**, formatted for GitHub. If you want, I can **also make a matching IT + HR combined Step 4 README** that includes **both OUs in one document** for your repo.
+
+
+
+
+
+
+
+
 1. **Redirect Documents folder to a shared folder**  
    - Path: `User Configuration → Windows Settings → Folder Redirection → Documents`  
    - Target: `\\Server01\HRDocs`  
