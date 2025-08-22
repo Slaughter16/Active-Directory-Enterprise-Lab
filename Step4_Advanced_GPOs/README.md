@@ -196,7 +196,7 @@ We will configure:
 3. Set **NTFS Permissions** (Security tab):  
    - Add **HR_Staff → Full Control**  
    - Remove **Everyone** if present  
-4. Note UNC path:  
+4. Note UNC path:  \\WIN-SERVER\HRDocs
 
 
 ``` ### GPO Configuration 1. Open **Group Policy Management → LabUsers → HR OU → HR_User_Policy → Edit** 
