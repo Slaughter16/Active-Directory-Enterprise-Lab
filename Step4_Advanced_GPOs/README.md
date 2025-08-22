@@ -226,7 +226,9 @@ We will configure:
 1. Log in as an HR user (e.g., **EveHR**)
 2. Run in Command Prompt: ``` gpupdate /force ```
 3. Log off/log back in
-4. Confirm: - Documents redirect to `\\WIN-Server\HRDocs` - Screensaver locks after 5 minutes - USB storage is blocked *(Optional screenshot placeholder)* ![HR_Test](./images/hr-test.png) --- ##
+4. Confirm: - Documents redirect to `\\WIN-Server\HRDocs` - Screensaver locks after 5 minutes -
+USB storage is blocked *(Optional screenshot placeholder)*
+![HR_Test](./images/hr-test.png) --- ##
 
 
 
