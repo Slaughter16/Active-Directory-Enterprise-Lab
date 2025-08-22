@@ -198,62 +198,72 @@ We will configure:
    - Remove **Everyone** if present  
 4. Note UNC path:  \\WIN-SERVER\HRDocs
 
-
-``` ### GPO Configuration 1. Open **Group Policy Management → LabUsers → HR OU → HR_User_Policy → Edit** 
-2. Navigate: ``` User Configuration → Policies → Windows Settings → Folder Redirection → Documents ```
-3. Right-click **Documents → Properties** → Basic – Redirect everyone’s folder to the same location
-4. Target folder location → **Redirect to the following location**
-5. Set path: ``` \\WIN-Server\HRDocs ```
-6. Apply → OK *(Optional screenshot placeholder)* ![HR_FolderRedirection](./images/hr-folderredirection.png) ---
+---
 
 
-## verify:
-
-1️. On the HR client machine (e.g., EveHR)
-
-Log in as the HR user (member of HR_Staff)
-
-Open File Explorer
-
-Navigate to Documents (or This PC → Documents)
-
-✅ If the policy applied correctly, the path at the top should show the redirected location:
-
-\\WIN-Server\HRDocs\EveHR
+### GPO Configuration
+1. Open **Group Policy Management → LabUsers → HR OU → HR_User_Policy → Edit**  
+2. Navigate:  User Configuration → Policies → Windows Settings → Folder Redirection → Documents
+3. Right-click **Documents → Properties** → choose:  
+- **Basic – Redirect everyone’s folder to the same location**  
+- Target folder location → **Redirect to the following location**  
+- Root Path: `\\WIN-SERVER\HRDocs`  
+4. Apply → OK  
 
 
-Tip: Windows automatically creates a subfolder for each user (%USERNAME%) if “Redirect to the following location” with user-specific subfolders is selected.
+---
 
-2️. Command-Line Verification
+### ⚠️ Exclusive Rights Setting
+- In **Folder Redirection → Properties → Settings tab**, uncheck:  
+**“Grant the user exclusive rights to Documents.”**
 
-Open Command Prompt
+![ExclusiveRights](./images/exclusive-rights.png)
 
-Run:
+- **Why disable it?**  
+- With it **enabled**, Windows tries to set the user as the folder **owner**, which can fail if the folder is owned by Administrators.  
+- With it **disabled**, Windows just creates `\\WIN-SERVER\HRDocs\%USERNAME%` and redirects Documents without ownership conflicts.  
 
+
+In this lab, “Grant the user exclusive rights to Documents” is unchecked to simplify folder creation and avoid ownership conflicts.
+In a real-world environment, this setting would typically be enabled for user privacy, with proper NTFS/ownership configuration.
+✅ **Best Practice:** Always disable this in lab/test environments unless you specifically need per-user ownership.
+
+---
+
+### Verification
+1. **On client machine (AliceHR, EveHR, etc.):**  
+- Log in → open **Documents**.  
+- Path should show: `\\WIN-SERVER\HRDocs\AliceHR`.  
+
+2. **Command-line check:**  
+```bash
+gpupdate /force
 gpresult /r
 
+Confirm HR_User_Policy applied and Documents is redirected.
 
-Look under User Settings → Folder Redirection
 
-You should see that the Documents folder is redirected and the HR_User_Policy GPO is applied
 
-3️. Manual Test
+Server check:
 
-Try saving a file in Documents
+Navigate to C:\HRDocs on the server.
 
-Check the server folder (\\WIN-Server\HRDocs\EveHR)
+You should see a folder for each user (AliceHR, EveHR, etc.).
 
-The file should appear there, confirming redirection works
+Saving a file in Documents on the client should appear in the user’s folder on the server.
 
-✅ Notes
 
-If redirection didn’t apply:
 
-Run gpupdate /force and log off/log back in
 
-Make sure HR user is member of HR_Staff
 
-Ensure the HRDocs folder has proper NTFS/share permissions
+
+
+
+
+
+
+
+
 
 
 
