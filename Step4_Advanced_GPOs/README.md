@@ -111,14 +111,21 @@ This section shows how to **disable Control Panel access** for IT users (e.g., A
 
 ## 1️⃣ Open the GPO
 
-1. Open **Group Policy Management**  
-2. Navigate to:   LabUsers → IT OU → IT_User_Policy → Edit
+1. Open **Group Policy Management**
+![GPO_IT_Control_Panel](images/12_GPO_IT_Control_Panel.png) 
+
+   
+3. Navigate to:   LabUsers → IT OU → IT_User_Policy → Edit
+![IT_Policy_Control_Panel](images/13_IT_Policy_Control_Panel.png) 
+
 
 ---
 
 ## 2️⃣ Locate the Setting
 
 Navigate in the GPO Editor:   User Configuration → Policies → Administrative Templates → Control Panel → Prohibit access to Control Panel
+
+![Prohibit_Access_Control_Panel](images/14_Prohibit_Access_Control_Panel.png) 
 
 ---
 
@@ -128,8 +135,9 @@ Navigate in the GPO Editor:   User Configuration → Policies → Administrative
 2. Select **Enabled**  
 3. Click **Apply → OK**  
 
-*(Optional screenshot placeholder)*  
-![DisableControlPanel](./images/disable-controlpanel.png)
+![Apply_Control_Panel_Policy](images/15_Apply_Control_Panel_Policy.png) 
+
+![Verify_Control_Enabled](images/16_Verify_Control_Enabled.png) 
 
 ---
 
@@ -138,10 +146,15 @@ Navigate in the GPO Editor:   User Configuration → Policies → Administrative
 1. Log in on a client machine as **AliceIT** (member of IT_Staff)  
 2. Open Command Prompt → run:   gpupdate /force
 
+![AliceIT_Update_Policy](images/17_AliceIT_Update_Policy.png) 
+
+
+
 3. Try opening **Control Panel** → access should now be blocked  
 
-*(Optional screenshot placeholder)*  
-![TestControlPanel](./images/test-controlpanel.png)
+![Open_Control_Panel](images/18_Open_Control_Panel.png) 
+![Verify_ControlPanel_Prohibited](images/19_Verify_ControlPanel_Prohibited.png) 
+
 
 ---
 
