@@ -207,6 +207,61 @@ We will configure:
 6. Apply → OK *(Optional screenshot placeholder)* ![HR_FolderRedirection](./images/hr-folderredirection.png) ---
 
 
+## verify:
+
+1️. On the HR client machine (e.g., EveHR)
+
+Log in as the HR user (member of HR_Staff)
+
+Open File Explorer
+
+Navigate to Documents (or This PC → Documents)
+
+✅ If the policy applied correctly, the path at the top should show the redirected location:
+
+\\WIN-Server\HRDocs\EveHR
+
+
+Tip: Windows automatically creates a subfolder for each user (%USERNAME%) if “Redirect to the following location” with user-specific subfolders is selected.
+
+2️. Command-Line Verification
+
+Open Command Prompt
+
+Run:
+
+gpresult /r
+
+
+Look under User Settings → Folder Redirection
+
+You should see that the Documents folder is redirected and the HR_User_Policy GPO is applied
+
+3️. Manual Test
+
+Try saving a file in Documents
+
+Check the server folder (\\WIN-Server\HRDocs\EveHR)
+
+The file should appear there, confirming redirection works
+
+✅ Notes
+
+If redirection didn’t apply:
+
+Run gpupdate /force and log off/log back in
+
+Make sure HR user is member of HR_Staff
+
+Ensure the HRDocs folder has proper NTFS/share permissions
+
+
+
+
+
+
+
+
 
 
 ## 2️⃣ Password-Protected Screensaver
