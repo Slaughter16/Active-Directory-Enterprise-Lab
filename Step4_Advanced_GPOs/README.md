@@ -75,22 +75,22 @@ User Configuration → Policies → Administrative Templates → Desktop → Des
 ![Desktop_Wallpaper](images/8_Desktop_Wallpaper.png) 
 
 
-Double-click → Enable
+- Double-click → Enable
 
-In Wallpaper Name, enter the UNC path from step 2:
+- In Wallpaper Name, enter the UNC path from step 2:
 
-\\Win_Server\Wallpapers\ITBackground.jpg
+- \\Win_Server\Wallpapers\ITBackground.jpg
 
 
-Set Wallpaper Style (Stretch, Fill, Center, etc.)
+- Set Wallpaper Style (Stretch, Fill, Center, etc.)
 
-Click OK → Link GPO if not already linked
+- Click OK → Link GPO if not already linked
 
 ![Apply_Wallpaper](images/9_Apply_Wallpaper.png) 
 
 
-Test with one client first to make sure it resolves and users can see the image.
-log into WIN-11 client using Alice IT account and notice the background change 
+- Test with one client first to make sure it resolves and users can see the image.
+- Log into WIN-11 client using Alice IT account and notice the background change 
 
 ![Login_Alice_WIN11](images/10_Login_Alice_WIN11.png) 
 
