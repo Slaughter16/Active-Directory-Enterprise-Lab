@@ -30,13 +30,13 @@ This simulates real-world administrative tasks where IT departments enforce poli
 3. Name the folder:  
 - Wallpapers
 
-![New_Folder_Wallpapers](image/1_New_Folder_Wallpapers)
+![New_Folder_Wallpapers](image/1_New_Folder_Wallpapers.png)
 
 Now you have a dedicated folder to store all GPO wallpapers.
 
 4. Save the wallpaper image into this folder  
    - Example: `C:\Wallpapers\ITBackground.jpg`   
-![Save_Image_Wallpapers](image/2_Save_Image_Wallpapers)
+![Save_Image_Wallpapers](image/2_Save_Image_Wallpapers.png)
 
 ---
 
@@ -46,8 +46,8 @@ Right-click → Properties → Sharing → Advanced Sharing → Share this folde
 
 1. Right-click `C:\Wallpapers` → **Properties → Sharing → Advanced Sharing…**
 
-![Sharing_Folder](image/3_Sharing_Folder)
-![Advanced_Sharing](image/4_Advanced_Sharing)
+![Sharing_Folder](image/3_Sharing_Folder.png)
+![Advanced_Sharing](image/4_Advanced_Sharing.png)
 
    
 3. Check **Share this folder**  
@@ -57,8 +57,8 @@ Right-click → Properties → Sharing → Advanced Sharing → Share this folde
 
 \\WIN-Server\Wallpapers\ITBackground.jpg
 
-![Object_Name_IT_Staff](image/5_Object_Name_IT_Staff)
-![Share_Permissions_Wallpapers](image/6_Share_Permissions_Wallpapers)
+![Object_Name_IT_Staff](image/5_Object_Name_IT_Staff.png)
+![Share_Permissions_Wallpapers](image/6_Share_Permissions_Wallpapers.png)
 
 
 
@@ -66,13 +66,13 @@ Right-click → Properties → Sharing → Advanced Sharing → Share this folde
 
 Open Group Policy Management → Your IT OU GPO
 
-![Edit_IT_User_Policy](image/7_Edit_IT_User_Policy) 
+![Edit_IT_User_Policy](image/7_Edit_IT_User_Policy.png) 
 
 Navigate to:
 
 User Configuration → Policies → Administrative Templates → Desktop → Desktop → Desktop Wallpaper
 
-![Desktop_Wallpaper](image/8_Desktop_Wallpaper) 
+![Desktop_Wallpaper](image/8_Desktop_Wallpaper.png) 
 
 
 Double-click → Enable
@@ -86,15 +86,15 @@ Set Wallpaper Style (Stretch, Fill, Center, etc.)
 
 Click OK → Link GPO if not already linked
 
-![Apply_Wallpaper](image/9_Apply_Wallpaper) 
+![Apply_Wallpaper](image/9_Apply_Wallpaper.png) 
 
 
 Test with one client first to make sure it resolves and users can see the image.
 log into WIN-11 client using Alice IT account and notice the background change 
 
-![Login_Alice_WIN11](image/10_Login_Alice_WIN11) 
+![Login_Alice_WIN11](image/10_Login_Alice_WIN11.png) 
 
-![Verify_AliceIT_Background](image/11_Verify_AliceIT_Background) 
+![Verify_AliceIT_Background](image/11_Verify_AliceIT_Background.png) 
  
 
 ✅ Pros: Easy to manage centrally, updates automatically if you replace the image
