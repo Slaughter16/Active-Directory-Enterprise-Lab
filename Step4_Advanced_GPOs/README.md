@@ -213,6 +213,9 @@ We will configure:
 - **Creator Owner** → Full Control (Subfolders and files only)
 - **HR_Staff** → Read, Write, List Folder Contents (This folder only)
 
+
+775
+774
 ✅ This setup ensures HR users automatically get their own subfolder when logging in.
 
 
@@ -223,23 +226,36 @@ We will configure:
 ---
 
 
-### GPO Configuration
-1. Open **Group Policy Management → LabUsers → HR OU → HR_User_Policy → Edit**  
-2. Navigate:  User Configuration → Policies → Windows Settings → Folder Redirection → Documents
-3. Right-click **Documents → Properties** → choose:  
+## 🏷️ Group Policy Configuration
+1. Open **Group Policy Management → LabUsers → HR OU → HR_User_Policy → Edit**
+   ![Edit_HR_User_Policy](images/??_Edit_HR_User_Policy.png) 
+
+3. Navigate:  User Configuration → Policies → Windows Settings → Folder Redirection → Documents
+   ![Folder_Redirection_Documents](images/??_Folder_Redirection_Documents.png) 
+
+   
+5. Right-click **Documents → Properties** → choose:
+
+   ![Folder_Redirection_Document_Properties](images/??_Folder_Redirection_Document_Properties.png) 
+
+
 - **Basic – Redirect everyone’s folder to the same location**  
 - Target folder location → **Redirect to the following location**  
-- Root Path: `\\WIN-SERVER\HRDocs`  
+- Root Path: `\\WIN-SERVER\HRDocs`
+
 4. Apply → OK  
+  ![Target_Folder_HRDocs](images/??_Target_Folder_HRDocs.png) 
 
 
 ---
-
+ - Options:
+     - ✅ Grant the user exclusive rights to Documents (optional, stricter security)
+     - ❌ Or uncheck if admin visibility is required
 ### ⚠️ Exclusive Rights Setting
 - In **Folder Redirection → Properties → Settings tab**, uncheck:  
 **“Grant the user exclusive rights to Documents.”**
 
-![ExclusiveRights](./images/exclusive-rights.png)
+![ExclusiveRights](images/ 754 exclusive-rights.png)
 
 - **Why disable it?**  
 - With it **enabled**, Windows tries to set the user as the folder **owner**, which can fail if the folder is owned by Administrators.  
@@ -252,15 +268,24 @@ In a real-world environment, this setting would typically be enabled for user pr
 
 ---
 
-### Verification
-1. **On client machine (AliceHR, EveHR, etc.):**  
+### Verification Steps
+1. **On client machine ( EveHR ):**  
 - Log in → open **Documents**.  
 - Path should show: `\\WIN-SERVER\HRDocs\AliceHR`.  
-
+770
+765
+- Create a folder in the HRDocs to see if it shows in the server as well
+766
+-Verify on win server that Test_File shows up in the HRDocs
+768
 2. **Command-line check:**  
 ```bash
 gpupdate /force
+747
+
 gpresult /r
+
+748
 
 Confirm HR_User_Policy applied and Documents is redirected.
 
