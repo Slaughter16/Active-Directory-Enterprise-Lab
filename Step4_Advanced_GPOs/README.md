@@ -190,12 +190,34 @@ We will configure:
 
 1. On your server, create a folder: C:\HRDocs
 
+![Create_Folder_HRDocs](images/20_Create_Folder_HRDocs.png) 
+
+
+
 2. Right-click → **Properties → Sharing → Advanced Sharing…**  
    - Share name: `HRDocs`  
-   - Permissions: Add **HR_Staff group → Read/Write**  
-3. Set **NTFS Permissions** (Security tab):  
-   - Add **HR_Staff → Full Control**  
-   - Remove **Everyone** if present  
+   - Permissions: Add **HR_Staff group → Read/Write**
+
+![Properties_HRDocs](images/21_Properties_HRDocs.png) 
+![Advanced_Sharing_HRDocs](images/22_Advanced_Sharing_HRDocs.png) 
+![Permissions&ShareHRDocs](images/23_Permissions&ShareHRDocs.png) 
+![Permissions&ShareHRDocs](images/24_Add_HR_Staff.png) 
+![Permissions&ShareHRDocs](images/25_FullControl_Permission_HRDocs_HR_Staff.png) 
+
+
+
+     
+### 3. Configure NTFS Permissions (Advanced Security Settings on `C:\HRDocs`)
+- **SYSTEM** → Full Control (This folder, subfolders, files)
+- **Administrators** → Full Control (This folder, subfolders, files)
+- **Creator Owner** → Full Control (Subfolders and files only)
+- **HR_Staff** → Read, Write, List Folder Contents (This folder only)
+
+✅ This setup ensures HR users automatically get their own subfolder when logging in.
+
+
+
+
 4. Note UNC path:  \\WIN-SERVER\HRDocs
 
 ---
