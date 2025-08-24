@@ -189,18 +189,36 @@ The configuration redirects each user’s **Documents** folder to a centralized 
 ## 🖥️ 1. Create File Share on Server
 
 1. Open **Server Manager** → **File and Storage Services** → **Shares**.  
-2. Click **Tasks > New Share** → select:  
+2. Click **Tasks > New Share** → select:
+   
+![Tasks_NewShare](images/20_Tasks_NewShare.png) 
+
+
    - **SMB Share – Quick** (default), or  
-   - **SMB Share – Advanced** if using File Server Resource Manager.  
-3. Select **Server** = `WIN-Server`, **Volume** = `C:`.  
-4. Enter the following details:
-   - **Local path**: `C:\FOLDERREDIR`  
+   - **SMB Share – Advanced** if using File Server Resource Manager.
+
+
+![SMB_Share_Quick](images/21_SMB_Share_Quick.png) 
+
+4. Select **Server** = `WIN-Server`, **Volume** = `C:`.
+
+![SMB_Share_Quick](images/22_SMB_Share_Quick.png) 
+![Share_Browse](images/23_Share_Browse.png) 
+![FOLDERREDIR_Select_Folder](images/24_FOLDERREDIR_Select_Folder.png) 
+
+
+6. Enter the following details:
+   - **Local path**: `C:\FOLDERREDIR`
+  
+image4
+
    - **Share name**: `FOLDERREDIR$`  
-     - The `$` hides the share from casual browsing.  
+     - The `$` hides the share from casual browsing.
+image5  
    - **Protocol**: SMB  
    - Enable **Access-based enumeration** (recommended).  
    - Disable **Continuous Availability**.  
-
+image6
 
 
 
