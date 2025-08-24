@@ -259,6 +259,10 @@ The configuration redirects each user’s **Documents** folder to a centralized 
    ![Share_Success](images/31_Share_Success.png) 
 
 
+-Confirm ShareFolder created
+   ![Verify_ShareFolder](images/32_Verify_ShareFolder.png) 
+
+
 
 
 
@@ -268,17 +272,28 @@ The configuration redirects each user’s **Documents** folder to a centralized 
 
 ## 📑 3. Configure Group Policy
 
-1. In **Group Policy Management**, right-click the GPO for HR users (e.g. `HR_User_Policy`) → **Edit**.  
+1. In **Group Policy Management**, right-click the GPO for HR users (e.g. `HR_User_Policy`) → **Edit**.
+
+   ![Group_PolicyMgmt](images/33_Group_PolicyMgmt.png) 
+   ![Edit_HR_User_Policy.png](images/34_Edit_HR_User_Policy.png) 
+
+
+
 2. Navigate to:  User Configuration > Policies > Windows Settings > Folder Redirection
+   ![Folder_Redirection_Documents](images/35_Folder_Redirection_Documents.png)
+
+3. Right-click **Documents** → **Properties**.
+   ![Properties_Documents](images/36_Properties_Documents.png)
 
 
-3. Right-click **Documents** → **Properties**.  
+
 4. Configure as follows:
 - **Setting**: `Basic - Redirect everyone’s folder to the same location`  
 - **Target folder location**: `Create a folder for each user under the root path`  
 - **Root path**: `\\WIN-Server\FOLDERREDIR$`  
 - **Policy Removal**: `Redirect the folder back to the local userprofile location when the policy is removed` (recommended).  
 5. Click **OK** → confirm the warning.  
+   ![Target_Documents](images/37_Target_Documents.png)
 
 ---
 
@@ -290,7 +305,7 @@ The configuration redirects each user’s **Documents** folder to a centralized 
 - In **Folder Redirection → Properties → Settings tab**, uncheck:  
 **“Grant the user exclusive rights to Documents.”**
 
-![ExclusiveRights](images/ 754 exclusive-rights.png)
+   ![Settings_Documents](images/38_Settings_Documents.png)
 
 - **Why disable it?**  
 - With it **enabled**, Windows tries to set the user as the folder **owner**, which can fail if the folder is owned by Administrators.  
@@ -308,13 +323,28 @@ In a real-world environment, this setting would typically be enabled for user pr
 
 ## ✅ 4. Test on Client
 
-1. On an HR client (e.g. `Win10-HR`), log in as an HR user. 
+1. On an HR client (e.g. `Win10-HR`), log in as an HR user.
+   ![Log_Into_EveHR](images/39_Log_Into_EveHR.png)
+
+
+
+
 2. Run:  gpupdate /force
+   ![Gpupdate_Force_FolderRedirect](images/40_Gpupdate_Force_FolderRedirect.png)
 
-3. Open **Documents** – it should now have a green sync icon and be redirected to the server share.  
-4. On the server, verify that a subfolder with the user’s name was created in: C:\FOLDERREDIR
+3. Open **Documents** – it should now have a green sync icon and be redirected to the server share.  and create Test folder in it
 
+   ![Verify_DocumentsRedirection_Test](images/41_Verify_DocumentsRedirection_Test.png)
 
+-verify the Location of Documents Redirection Folder in WIN 10 client 
+      ![Verify_Location_Documents_EveHR](images/42_Verify_Location_Documents_EveHR.png)
+
+5. On the server, verify that a subfolder with the user’s name was created in: C:\FOLDERREDIR
+
+![WinServer_FOLDERREDIR](images/43_WinServer_FOLDERREDIR.png)
+![Verify_EveHR_Folder](images/44_Verify_EveHR_Folder.png)
+![Documents_EveHR](images/45_Documents_EveHR.png)
+![Test_Folder_WinServer](images/46_Test_Folder_WinServer.png)
 
 
 
