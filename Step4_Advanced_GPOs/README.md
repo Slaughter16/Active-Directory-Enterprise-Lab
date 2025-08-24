@@ -204,21 +204,20 @@ The configuration redirects each user’s **Documents** folder to a centralized 
 
 ![SMB_Share_Quick](images/22_Browse_Path.png) 
 ![Share_Browse](images/23_FOLDERREDIR_Select_Folder.png) 
-![FOLDERREDIR_Select_Folder](images/24_Next_Path.png) 
 
 
 6. Enter the following details:
    - **Local path**: `C:\FOLDERREDIR`
   
-image4
+![FOLDERREDIR_Select_Folder](images/24_Next_Path.png) 
 
    - **Share name**: `FOLDERREDIR$`  
      - The `$` hides the share from casual browsing.
-image5  
+![Share_Name](images/25_Share_Name.png) 
    - **Protocol**: SMB  
    - Enable **Access-based enumeration** (recommended).  
    - Disable **Continuous Availability**.  
-image6
+![Other_Settings](images/26_Other_Settings.png) 
 
 
 
@@ -237,8 +236,10 @@ image6
 
 1. On the **Permissions** page, choose **Customize permissions**.  
 2. Open **Advanced Security Settings** → **Disable inheritance** →  
-   select **Convert inherited permissions into explicit permissions**.  
-3. Configure the following permissions:
+   select **Convert inherited permissions into explicit permissions**.
+   ![Disable_Inheritance](images/27_Disable_Inheritance.png) 
+  
+4. Configure the following permissions:
 
 | Account / Group          | Permission                                                                 | Applies to                          |
 |---------------------------|---------------------------------------------------------------------------|-------------------------------------|
@@ -248,6 +249,20 @@ image6
 | **CORP\HR_Staff**         | List folder / Read data, Create folders / Append data, Read attributes, Read extended attributes, Read permissions | This folder only |
 
 ✅ Remove any other accounts not listed above.  
+
+   ![HR_Staff_Permissions](images/28_HR_Staff_Permissions.png) 
+      ![Permissions_Wizard](images/29_Permissions_Wizard.png) 
+
+-Confirm Selections
+
+   ![Confirm_Selections](images/30_Confirm_Selections.png) 
+   ![Share_Success](images/31_Share_Success.png) 
+
+
+
+
+
+
 
 ---
 
