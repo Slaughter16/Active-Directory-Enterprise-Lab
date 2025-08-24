@@ -201,7 +201,6 @@ The configuration redirects each user’s **Documents** folder to a centralized 
    - Enable **Access-based enumeration** (recommended).  
    - Disable **Continuous Availability**.  
 
-![Create_Folder_HRDocs](images/20_Create_Folder_HRDocs.png) 
 
 
 
@@ -209,11 +208,7 @@ The configuration redirects each user’s **Documents** folder to a centralized 
    - Share name: `HRDocs`  
    - Permissions: Add **HR_Staff group → Read/Write**
 
-![Properties_HRDocs](images/21_Properties_HRDocs.png) 
-![Advanced_Sharing_HRDocs](images/22_Advanced_Sharing_HRDocs.png) 
-![Permissions&ShareHRDocs](images/23_Permissions&ShareHRDocs.png) 
-![Permissions&ShareHRDocs](images/24_Add_HR_Staff.png) 
-![Permissions&ShareHRDocs](images/25_FullControl_Permission_HRDocs_HR_Staff.png) 
+
 
 
 
