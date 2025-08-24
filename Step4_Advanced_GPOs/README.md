@@ -166,11 +166,6 @@ Navigate in the GPO Editor:   User Configuration → Policies → Administrative
 
 
 
-
-
-
-
-
 ---
 
 ### 🔹 HR Department (OU: LabUsers → HR)
@@ -184,11 +179,27 @@ We will configure:
 
 ---
 
-## 1️⃣ Folder Redirection – Documents → \\WIN-Server\HRDocs
+ # 📂 Folder Redirection Setup (HR Department)
 
-### Server Setup
+This guide explains how to configure Folder Redirection in Active Directory for the **HR department**.  
+The configuration redirects each user’s **Documents** folder to a centralized file server share.
 
-1. On your server, create a folder: C:\HRDocs
+---
+
+## 🖥️ 1. Create File Share on Server
+
+1. Open **Server Manager** → **File and Storage Services** → **Shares**.  
+2. Click **Tasks > New Share** → select:  
+   - **SMB Share – Quick** (default), or  
+   - **SMB Share – Advanced** if using File Server Resource Manager.  
+3. Select **Server** = `WIN-Server`, **Volume** = `C:`.  
+4. Enter the following details:
+   - **Local path**: `C:\FOLDERREDIR`  
+   - **Share name**: `FOLDERREDIR$`  
+     - The `$` hides the share from casual browsing.  
+   - **Protocol**: SMB  
+   - Enable **Access-based enumeration** (recommended).  
+   - Disable **Continuous Availability**.  
 
 ![Create_Folder_HRDocs](images/20_Create_Folder_HRDocs.png) 
 
@@ -207,45 +218,41 @@ We will configure:
 
 
      
-### 3. Configure NTFS Permissions (Advanced Security Settings on `C:\HRDocs`)
-- **SYSTEM** → Full Control (This folder, subfolders, files)
-- **Administrators** → Full Control (This folder, subfolders, files)
-- **Creator Owner** → Full Control (Subfolders and files only)
-- **HR_Staff** → Read, Write, List Folder Contents (This folder only)
+---
 
+## 🔒 2. Configure NTFS Permissions
 
-775
-774
-✅ This setup ensures HR users automatically get their own subfolder when logging in.
+1. On the **Permissions** page, choose **Customize permissions**.  
+2. Open **Advanced Security Settings** → **Disable inheritance** →  
+   select **Convert inherited permissions into explicit permissions**.  
+3. Configure the following permissions:
 
+| Account / Group          | Permission                                                                 | Applies to                          |
+|---------------------------|---------------------------------------------------------------------------|-------------------------------------|
+| **SYSTEM**                | Full Control                                                             | This folder, subfolders, and files |
+| **Administrators**        | Full Control                                                             | This folder, subfolders, and files |
+| **Creator Owner**         | Full Control                                                             | Subfolders and files only           |
+| **CORP\HR_Staff**         | List folder / Read data, Create folders / Append data, Read attributes, Read extended attributes, Read permissions | This folder only |
 
-
-
-4. Note UNC path:  \\WIN-SERVER\HRDocs
+✅ Remove any other accounts not listed above.  
 
 ---
 
+## 📑 3. Configure Group Policy
 
-## 🏷️ Group Policy Configuration
-1. Open **Group Policy Management → LabUsers → HR OU → HR_User_Policy → Edit**
-   ![Edit_HR_User_Policy](images/??_Edit_HR_User_Policy.png) 
-
-3. Navigate:  User Configuration → Policies → Windows Settings → Folder Redirection → Documents
-   ![Folder_Redirection_Documents](images/??_Folder_Redirection_Documents.png) 
-
-   
-5. Right-click **Documents → Properties** → choose:
-
-   ![Folder_Redirection_Document_Properties](images/??_Folder_Redirection_Document_Properties.png) 
+1. In **Group Policy Management**, right-click the GPO for HR users (e.g. `HR_User_Policy`) → **Edit**.  
+2. Navigate to:  User Configuration > Policies > Windows Settings > Folder Redirection
 
 
-- **Basic – Redirect everyone’s folder to the same location**  
-- Target folder location → **Redirect to the following location**  
-- Root Path: `\\WIN-SERVER\HRDocs`
+3. Right-click **Documents** → **Properties**.  
+4. Configure as follows:
+- **Setting**: `Basic - Redirect everyone’s folder to the same location`  
+- **Target folder location**: `Create a folder for each user under the root path`  
+- **Root path**: `\\WIN-Server\FOLDERREDIR$`  
+- **Policy Removal**: `Redirect the folder back to the local userprofile location when the policy is removed` (recommended).  
+5. Click **OK** → confirm the warning.  
 
-4. Apply → OK  
-  ![Target_Folder_HRDocs](images/??_Target_Folder_HRDocs.png) 
-
+---
 
 ---
  - Options:
@@ -269,41 +276,37 @@ In a real-world environment, this setting would typically be enabled for user pr
 ---
 
 ### Verification Steps
-1. **On client machine ( EveHR ):**  
-- Log in → open **Documents**.  
-- Path should show: `\\WIN-SERVER\HRDocs\AliceHR`.  
-770
-765
-- Create a folder in the HRDocs to see if it shows in the server as well
-766
--Verify on win server that Test_File shows up in the HRDocs
-768
-2. **Command-line check:**  
-```bash
-gpupdate /force
-747
+1.---
 
-gpresult /r
+## ✅ 4. Test on Client
 
-748
+1. On an HR client (e.g. `Win10-HR`), log in as an HR user. 
+2. Run:  gpupdate /force
 
-Confirm HR_User_Policy applied and Documents is redirected.
-
-
-
-Server check:
-
-Navigate to C:\HRDocs on the server.
-
-You should see a folder for each user (AliceHR, EveHR, etc.).
-
-Saving a file in Documents on the client should appear in the user’s folder on the server.
+3. Open **Documents** – it should now have a green sync icon and be redirected to the server share.  
+4. On the server, verify that a subfolder with the user’s name was created in: C:\FOLDERREDIR
 
 
 
 
 
+---
 
+## 🔧 Troubleshooting
+
+- **User cannot access redirected folder**  
+→ Check NTFS permissions and ensure `CORP\HR_Staff` group is set correctly.  
+
+- **No folder created on server**  
+→ Run `gpresult /r` on the client to confirm the GPO applied.  
+
+- **Offline files sync issues**  
+→ Disable Offline Files in Control Panel if not required.  
+
+- **Want to undo Folder Redirection?**  
+→ Remove the GPO and select **Redirect the folder back to the local user profile location**.  
+
+---
 
 
 
