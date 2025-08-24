@@ -203,8 +203,8 @@ The configuration redirects each user’s **Documents** folder to a centralized 
 4. Select **Server** = `WIN-Server`, **Volume** = `C:`.
 
 ![SMB_Share_Quick](images/22_Browse_Path.png) 
-![Share_Browse](images/23_Share_Browse.png) 
-![FOLDERREDIR_Select_Folder](images/24_FOLDERREDIR_Select_Folder.png) 
+![Share_Browse](images/23_FOLDERREDIR_Select_Folder.png) 
+![FOLDERREDIR_Select_Folder](images/24_FOLDERR.png) 
 
 
 6. Enter the following details:
