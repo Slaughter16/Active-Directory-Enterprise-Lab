@@ -204,7 +204,7 @@ The configuration redirects each user’s **Documents** folder to a centralized 
 
 ![SMB_Share_Quick](images/22_Browse_Path.png) 
 ![Share_Browse](images/23_FOLDERREDIR_Select_Folder.png) 
-![FOLDERREDIR_Select_Folder](images/24_FOLDERR.png) 
+![FOLDERREDIR_Select_Folder](images/24_Next_Path.png) 
 
 
 6. Enter the following details:
