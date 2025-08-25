@@ -382,10 +382,52 @@ In a real-world environment, this setting would typically be enabled for user pr
 
 
 
-## 2️⃣ Password-Protected Screensaver
-1. In `HR_User_Policy`, navigate: ``` User Configuration → Policies → Administrative Templates → Control Panel → Personalization ```
-2. Enable these settings: - **Password protect the screen saver** → Enabled - **Screen saver timeout** → Enabled → 300 seconds (5 min) - **Force specific screen saver** → optional (`scrnsave.scr`)
-3. Apply → OK *(Optional screenshot placeholder)* ![HR_Screensaver](./images/hr-screensaver.png) --- ##
+## 2️⃣ Password-Protected Screensaver (HR_User_Policy)
+
+---
+## Configuration Steps
+
+### 1. Open Group Policy Management
+1. Launch **Server Manager → Tools → Group Policy Management**  
+2. Navigate to the HR OU and locate `HR_User_Policy`
+
+
+### 2. Edit the GPO
+1. Right-click the GPO → **Edit**  
+2. Navigate to:  User Configuration → Administrative Templates → Control Panel → Personalization
+
+
+### 3. Enable Screensaver
+1. Double-click **Enable screen saver** → select **Enabled** → click **OK**
+
+### 4. Set Screensaver Timeout
+1. Double-click **Screen saver timeout** → enter inactivity period in seconds (e.g., `120` for 2 minutes) → click **OK**
+
+### 5. Enable Password Protection
+1. Double-click **Password protect the screen saver** → select **Enabled** → click **OK**
+
+### 6. Apply and Close
+- Close the Group Policy Management Editor  
+- The GPO is now configured and linked to the HR OU
+
+---
+
+## Verification on HR Client (EveHR – Windows 10)
+
+1. Log in as **EveHR** on the HR client machine  
+2. Update Group Policy and verify application:
+```powershell
+gpupdate /force
+gpresult /r
+
+3. Check Screensaver Settings: Go to: Control Panel → Personalization → Lock Screen → Screen Saver Settings
+Verify:
+-Screensaver is enabled
+-Password protected is active
+-Timeout matches the configured period
+
+
+
 
 
 
@@ -418,10 +460,6 @@ USB storage is blocked *(Optional screenshot placeholder)*
 
 
 
-1. **Redirect Documents folder to a shared folder**  
-   - Path: `User Configuration → Windows Settings → Folder Redirection → Documents`  
-   - Target: `\\Server01\HRDocs`  
-   - Ensures HR data is stored centrally for backup/security.
 
 2. **Set password-protected screensaver**  
    - Path: `User Configuration → Administrative Templates → Control Panel → Personalization → Password protect the screen saver`  
