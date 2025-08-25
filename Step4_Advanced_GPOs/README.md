@@ -446,26 +446,66 @@ Verify:
 
 
 
-3️⃣ Disable USB Storage
-1. In `HR_User_Policy`, navigate: ``` Computer Configuration → Policies → Administrative Templates → System → Removable Storage Access ```
-2. Enable: - **All Removable Storage classes: Deny all access** → Enabled 3. Apply → OK *(Optional screenshot placeholder)* ![HR_USBBlock](./images/hr-usbblock.png) --- ##
+3️⃣ Disable USB Storage for HR Users
+
+## Objective
+Prevent users in the HR department from using USB storage devices to help secure sensitive data.
+
+---
+
+## Steps to Configure USB Storage Restriction
+
+### 1️⃣ Open Group Policy Management
+1. Log in to the **Domain Controller**.
+2. Open **Server Manager → Tools → Group Policy Management**.
+
+---
+
+### 2️⃣ Locate HR User Policy
+1. Navigate to **Group Policy Objects**.
+2. Find the **HR_User_Policy** linked to the `HR` OU.
+3. Right-click → **Edit**.
+
+---
+
+### 3️⃣ Configure USB Storage Restriction
+1. In the **Group Policy Management Editor**:
+   - Navigate to:  
+     `User Configuration → Policies → Administrative Templates → System → Removable Storage Access`
+2. Enable the following policies:
+   - **Removable Disks: Deny execute access** → Enabled
+   - **Removable Disks: Deny read access** → Enabled
+   - **Removable Disks: Deny write access** → Enabled
+3. Optionally, configure other device types (CD/DVD, Floppy, etc.) if needed.
+
+---
+
+### 4️⃣ Apply and Update Policy
+1. On the client machine (e.g., EveHR):
+   - Open **Command Prompt** → Run `gpupdate /force`  
+     ```
+     gpupdate /force
+     ```
+2. Log off and log back on (if needed) for policy to take effect.
+
+---
+
+### 5️⃣ Verification
+1. On the HR client:
+   - Plug in a USB drive (if available) or check **Device Manager → Disk drives / USB controllers**.
+   - Attempt to access the USB drive:
+     - Should be blocked or read/write denied.
+2. Run `gpresult /r` in Command Prompt to confirm that **HR_User_Policy** is applied.
+3. Verify in **Local Group Policy Editor (gpedit.msc)** under:
+   `User Configuration → Policies → Administrative Templates → System → Removable Storage Access`
+
+---
+
+## Notes
+- Even if no physical USB is present, the policy can be verified via **Device Manager** or `gpresult`.
+- This configuration is part of standard HR security measures to prevent data exfiltration.
 
 
-4️⃣ Test HR Policy
-1. Log in as an HR user (e.g., **EveHR**)
-2. Run in Command Prompt: ``` gpupdate /force ```
-3. Log off/log back in
-4. Confirm: - Documents redirect to `\\WIN-Server\HRDocs` - Screensaver locks after 5 minutes -
-USB storage is blocked *(Optional screenshot placeholder)*
-![HR_Test](./images/hr-test.png) --- ##
-
-
-
-
-
-
-
-✅ Notes - Policies apply to all members of the **HR_Staff** group - Folder redirection ensures HR documents are **centralized and backed up** - USB block prevents sensitive data exfiltration - Screensaver enforces workstation security compliance --- ## 🔹 Real-World IT Tasks Related to HR Policies - Resetting forgotten passwords - Unlocking accounts after lockout - Adjusting group memberships (HR_Staff, IT_Staff, etc.) - Fixing folder access issues - Deploying printers or drive mappings for HR users - Monitoring login activity and auditing These reflect **daily IT admin responsibilities** in a corporate environment. ``` --- This README covers all **three HR policies** plus **testing and real-world notes**, formatted for GitHub. If you want, I can **also make a matching IT + HR combined Step 4 README** that includes **both OUs in one document** for your repo.
 
 
 
@@ -475,10 +515,7 @@ USB storage is blocked *(Optional screenshot placeholder)*
 
 
 
-2. **Set password-protected screensaver**  
-   - Path: `User Configuration → Administrative Templates → Control Panel → Personalization → Password protect the screen saver`  
-   - Timeout: `10 minutes`  
-   - Prevents unauthorized access when HR staff leave their workstations.
+
   
 
 
