@@ -398,7 +398,7 @@ In a real-world environment, this setting would typically be enabled for user pr
 
    
 3. Navigate to:  User Configuration → Administrative Templates → Control Panel → Personalization
-![ControlPanel_Personalization_](images/48_ControlPanel_Personalization_.png)
+![ControlPanel_Personalization_](images/48_ControlPanel_Personalization.png)
 
 ### 3. Enable Password Protection
 1. Double-click **Password protect the screen saver** → select **Enabled** → click **OK**
