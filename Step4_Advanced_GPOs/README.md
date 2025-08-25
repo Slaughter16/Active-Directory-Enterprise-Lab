@@ -393,23 +393,26 @@ In a real-world environment, this setting would typically be enabled for user pr
 
 
 ### 2. Edit the GPO
-1. Right-click the GPO → **Edit**  
-2. Navigate to:  User Configuration → Administrative Templates → Control Panel → Personalization
+1. Right-click the GPO → **Edit**
+![Edit_HR_User_Policy_AdminTemp](images/47_Edit_HR_User_Policy_AdminTemp.png)
 
+   
+3. Navigate to:  User Configuration → Administrative Templates → Control Panel → Personalization
+![ControlPanel_Personalization_](images/48_ControlPanel_Personalization_.png)
 
-### 3. Enable Screensaver
-1. Double-click **Enable screen saver** → select **Enabled** → click **OK**
-
-### 4. Set Screensaver Timeout
-1. Double-click **Screen saver timeout** → enter inactivity period in seconds (e.g., `120` for 2 minutes) → click **OK**
-
-### 5. Enable Password Protection
+### 3. Enable Password Protection
 1. Double-click **Password protect the screen saver** → select **Enabled** → click **OK**
+![Enable_PasswordProtect](images/49_Enable_PasswordProtect.png)
+### 4. Set Screensaver Timeout
+1. Double-click **Password protect the screen saver** → select **Enabled** → click **OK**
+2. Double-click **Screen saver timeout** → enter inactivity period in seconds (e.g., `120` for 2 minutes) → click **OK**
+![Enable_ScreenSaver_120sec](images/50_Enable_ScreenSaver_120sec.png)
+
 
 ### 6. Apply and Close
 - Close the Group Policy Management Editor  
 - The GPO is now configured and linked to the HR OU
-
+![Apply&Close](images/51_Apply&Close.png)
 ---
 
 ## Verification on HR Client (EveHR – Windows 10)
@@ -419,6 +422,10 @@ In a real-world environment, this setting would typically be enabled for user pr
 ```powershell
 gpupdate /force
 gpresult /r
+```
+![gpuupdate_HR_PasswordPolicy](images/52_gpuupdate_HR_PasswordPolicy.png)
+![gpresult_HR_PasswordPolicy](images/53_gpresult_HR_PasswordPolicy.png)
+
 
 3. Check Screensaver Settings: Go to: Control Panel → Personalization → Lock Screen → Screen Saver Settings
 Verify:
@@ -426,8 +433,13 @@ Verify:
 -Password protected is active
 -Timeout matches the configured period
 
+![Screensaver_Settings_EveHR](images/54_Screensaver_Settings_EveHR.png)
 
+4. Stay on homepage inactive for 2mins for policy to apply 
 
+![Homescreen_HR](images/55_Homescreen_HR.png)
+![PasswordProtect_Applied](images/56_PasswordProtect_Applied.png)
+![Back_To_LoginEveHR](images/57_Back_To_LoginEveHR.png)
 
 
 
