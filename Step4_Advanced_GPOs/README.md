@@ -388,9 +388,11 @@ In a real-world environment, this setting would typically be enabled for user pr
 ## Configuration Steps
 
 ### 1. Open Group Policy Management
-1. Launch **Server Manager → Tools → Group Policy Management**  
-2. Navigate to the HR OU and locate `HR_User_Policy`
+1. Launch **Server Manager → Tools → Group Policy Management**
+![Tools_GroupPolicy_Password](images/58_Tools_GroupPolicy_Password.png)
 
+2. Navigate to the HR OU and locate `HR_User_Policy`
+![HR_User_Policy_Password.png](images/59_HR_User_Policy_Password.png)
 
 ### 2. Edit the GPO
 1. Right-click the GPO → **Edit**
