@@ -492,12 +492,29 @@ Prevent users in the HR department from using USB storage devices to help secure
 
 ### 5️⃣ Verification
 1. On the HR client:
-   - Plug in a USB drive (if available) or check **Device Manager → Disk drives / USB controllers**.
-   - Attempt to access the USB drive:
-     - Should be blocked or read/write denied.
-2. Run `gpresult /r` in Command Prompt to confirm that **HR_User_Policy** is applied.
-3. Verify in **Local Group Policy Editor (gpedit.msc)** under:
+   -Check with rsop.msc (Resultant Set of Policy)
+
+On the client → press Win + R → type rsop.msc → Enter.
+Navigate to:
+User Configuration → Administrative Templates → System → Removable Storage Access
+Verify Deny read / Deny write are showing as Enabled.
+    
+   - 
+2. Run `gpresult /h report.html' then open 'report.html' in Command Prompt to confirm that **HR_User_Policy** is applied.Open the report.html file → look under User Configuration → Administrative Templates → System → Removable Storage Access.
+It should show your configured settings as Enabled.
+
+
+
+
+4. Verify in **Local Group Policy Editor (gpedit.msc)** under:
    `User Configuration → Policies → Administrative Templates → System → Removable Storage Access`
+
+4.Registry Check (Optional but Screenshot-Friendly)
+
+Folder Redirection & Removable Storage policies also write to the registry.
+Open regedit on the client and check:Check registry keys for confirmation:
+HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices Look for entries showing Deny Read/Write policies.
+
 
 ---
 
