@@ -517,7 +517,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices L
 ---
 
 ## Notes
-- Even if no physical USB is present, the policy can be verified via **Device Manager** or `gpresult`.
+- Even if no physical USB is present, the policy can be verified via **Device Manager** or `gpresult` or 'rsop.msc'.
 - This configuration is part of standard HR security measures to prevent data exfiltration.
 
 
@@ -542,7 +542,7 @@ Redirect HR users’ **Documents** folder from the local workstation to a centra
 ## 🖥️ Server-Side Setup
 
 ### 1. Create the Folder
-- Path: `C:\HRDocs`
+- Path: `C:\HRDocss`
 
 ### 2. Configure Share Permissions
 - Right-click **HRDocs** → Properties → **Sharing** → **Advanced Sharing**
