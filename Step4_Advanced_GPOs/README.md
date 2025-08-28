@@ -506,13 +506,11 @@ It should show your configured settings as Enabled.
 
 
 
-4. Verify in **Local Group Policy Editor (gpedit.msc)** under:
-   `User Configuration → Policies → Administrative Templates → System → Removable Storage Access`
 
-4.Registry Check (Optional but Screenshot-Friendly)
+3.Registry Check (Optional but Screenshot-Friendly)
 
 Folder Redirection & Removable Storage policies also write to the registry.
-Open regedit on the client and check:Check registry keys for confirmation:
+Open 'regedit' on the client and check:Check registry keys for confirmation:
 HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices Look for entries showing Deny Read/Write policies.
 
 
@@ -531,7 +529,67 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices L
 
 
 
+# 📂 Folder Redirection Lab – HR Department
 
+## 🎯 Objective
+Redirect HR users’ **Documents** folder from the local workstation to a central server share (`\\WIN-SERVER\HRDocs`) to achieve:
+- Centralized storage
+- Simplified backups
+- Improved data security
+
+---
+
+## 🖥️ Server-Side Setup
+
+### 1. Create the Folder
+- Path: `C:\HRDocs`
+
+### 2. Configure Share Permissions
+- Right-click **HRDocs** → Properties → **Sharing** → **Advanced Sharing**
+  - Share name: `HRDocs`
+  - Remove **Everyone**
+  - Add **HR_Staff** → Allow **Change** + **Read**
+  - Ensure **Administrators** → Full Control
+
+### 3. Configure NTFS Permissions (Advanced Security Settings on `C:\HRDocs`)
+- **SYSTEM** → Full Control (This folder, subfolders, files)
+- **Administrators** → Full Control (This folder, subfolders, files)
+- **Creator Owner** → Full Control (Subfolders and files only)
+- **HR_Staff** → Read, Write, List Folder Contents (This folder only)
+
+✅ This setup ensures HR users automatically get their own subfolder when logging in.
+
+---
+
+## 🏷️ Group Policy Configuration
+
+1. Open **Group Policy Management** → Create a new GPO: `HR_User_Policy`
+2. Link the GPO to the **HR OU**
+3. Edit the GPO:
+   - Path: `User Configuration → Policies → Windows Settings → Folder Redirection → Documents`
+   - Setting: **Basic – Redirect everyone’s folder to the same location**
+   - Target folder location: `\\WIN-SERVER\HRDocs`
+   - Options:
+     - ✅ Grant the user exclusive rights to Documents (optional, stricter security)
+     - ❌ Or uncheck if admin visibility is required
+
+---
+
+## 🔎 Verification Steps
+
+On a Windows 10 HR client (e.g., user `EveHR`):
+1. Run `gpupdate /force`
+2. Log off and log back in
+3. Open **This PC** → Confirm **Documents** now points to `\\WIN-SERVER\HRDocs`
+4. Create a test file in **Documents**
+5. Check on server: `C:\HRDocs\<Username>` → File should be present
+
+---
+
+## ✅ Results
+- HR users’ Documents are redirected to the server share.
+- Files are centralized and can be backed up easily.
+- With permissions set correctly, users only see their own subfolder.
 
   
 
