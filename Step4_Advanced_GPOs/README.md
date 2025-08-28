@@ -458,6 +458,8 @@ Prevent users in the HR department from using USB storage devices to help secure
 ### 1️⃣ Open Group Policy Management
 1. Log in to the **Domain Controller**.
 2. Open **Server Manager → Tools → Group Policy Management**.
+![Tools_GroupPolicy_Password](images/58_Tools_GroupPolicy_Password.png)
+
 
 ---
 
@@ -465,7 +467,7 @@ Prevent users in the HR department from using USB storage devices to help secure
 1. Navigate to **Group Policy Objects**.
 2. Find the **HR_User_Policy** linked to the `HR` OU.
 3. Right-click → **Edit**.
-
+![HR_User_Policy_Password](images/59_HR_User_Policy_Password.png)
 ---
 
 ### 3️⃣ Configure USB Storage Restriction
