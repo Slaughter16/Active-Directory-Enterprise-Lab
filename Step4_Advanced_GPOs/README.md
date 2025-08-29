@@ -499,16 +499,16 @@ Prevent users in the HR department from using USB storage devices to help secure
 ### 5️⃣ Verification
 1. On the HR client:
    -Check with rsop.msc (Resultant Set of Policy)
-![rsop.msc_command](images/64_rsop.msc_command.png)
 On the client → press Win + R → type rsop.msc → Enter.
+    ![rsop.msc_command](images/64_rsop.msc_command.png)
+
 Navigate to:
 User Configuration → Administrative Templates → System → Removable Storage Access
 Verify Deny read / Deny write are showing as Enabled.
-    ![rsop.msc_command](images/64_rsop.msc_command.png)
  ![Resultant_Set_Of_Policy](images/65_resultant_set_of_policy.png)
 
    - 
-2. Run `gpresult /h report.html' then open 'report.html' in Command Prompt to confirm that **HR_User_Policy** is applied.Open the report.html file → look under User Configuration → Administrative Templates → System → Removable Storage Access.
+3. Run `gpresult /h report.html' then open 'report.html' in Command Prompt to confirm that **HR_User_Policy** is applied.Open the report.html file → look under User Configuration → Administrative Templates → System → Removable Storage Access.
 It should show your configured settings as Enabled.
 ![gpresult/h_report.html](images/66_gpresult/h.png)
  ![verify_report.html](images/67_report.html.png)
@@ -524,6 +524,7 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices L
 
 ![regedit_command](images/68_regedit_command.png)
 ![registry_editor](images/69_registry_edit.png)
+
 ---
 
 ## Notes
