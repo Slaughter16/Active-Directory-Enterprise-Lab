@@ -175,7 +175,8 @@ We will configure:
 
 1. **Redirect Documents folder** → central server share (`\\WIN-Server\HRDocs`)  
 2. **Password-protected screensaver** → auto-lock after 5 minutes  
-3. **Disable USB storage** → prevent data exfiltration  
+3. **Disable USB storage** → prevent data exfiltration
+4. **Shared Folder** (\\WIN-SERVER\HRData$
 
 ---
 
@@ -531,75 +532,70 @@ HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices Lo
 - This configuration is part of standard HR security measures to prevent data exfiltration.
 
 
+---
 
+# HR Shared Folder Setup
 
-
-
-
-
-
-
-# 📂 Folder Redirection Lab – HR Department
-
-## 🎯 Objective
-Redirect HR users’ **Documents** folder from the local workstation to a central server share (`\\WIN-SERVER\HRDocs`) to achieve:
-- Centralized storage
-- Simplified backups
-- Improved data security
+## Objective
+Create a secure shared folder on the server for HR users, allowing only authorized HR staff to access and modify files. Verify proper permissions and client access.
 
 ---
 
-## 🖥️ Server-Side Setup
+---
 
-### 1. Create the Folder
-- Path: `C:\HRDocss`
+## 1. Create the Shared Folder on the Server
 
-### 2. Configure Share Permissions
-- Right-click **HRDocs** → Properties → **Sharing** → **Advanced Sharing**
-  - Share name: `HRDocs`
-  - Remove **Everyone**
-  - Add **HR_Staff** → Allow **Change** + **Read**
-  - Ensure **Administrators** → Full Control
+1. Open `This PC → Local Disk (C:)`.  
+2. Create a folder: `C:\Shares\HRData$`  
+   - The `$` makes the share **hidden**.  
+3. Open **Server Manager → File and Storage Services → Shares**.  
+4. Select **Tasks → New Share → SMB Share – Quick**.  
+5. On **Share Location**, choose the server and folder path:  C:\Shares\Data$
 
-### 3. Configure NTFS Permissions (Advanced Security Settings on `C:\HRDocs`)
-- **SYSTEM** → Full Control (This folder, subfolders, files)
-- **Administrators** → Full Control (This folder, subfolders, files)
-- **Creator Owner** → Full Control (Subfolders and files only)
-- **HR_Staff** → Read, Write, List Folder Contents (This folder only)
+6. On **Share Name**, set:  
+HRData$
 
-✅ This setup ensures HR users automatically get their own subfolder when logging in.
+
+7. Other settings:  
+- Enable **access-based enumeration**  
+- Optionally enable **encryption**  
+- Leave **continuous availability** unchecked  
 
 ---
 
-## 🏷️ Group Policy Configuration
+## 2. Configure NTFS Security Permissions
 
-1. Open **Group Policy Management** → Create a new GPO: `HR_User_Policy`
-2. Link the GPO to the **HR OU**
-3. Edit the GPO:
-   - Path: `User Configuration → Policies → Windows Settings → Folder Redirection → Documents`
-   - Setting: **Basic – Redirect everyone’s folder to the same location**
-   - Target folder location: `\\WIN-SERVER\HRDocs`
-   - Options:
-     - ✅ Grant the user exclusive rights to Documents (optional, stricter security)
-     - ❌ Or uncheck if admin visibility is required
+1. In **Advanced Security Settings** for `C:\Shares\HRData$`:  
+- **Disable inheritance**  
+- **Convert inherited permissions into explicit permissions**  
+2. Set permissions:
 
----
+| Account / Group       | Permissions                                   | Applies To |
+|----------------------|-----------------------------------------------|------------|
+| `SYSTEM`             | Full Control                                  | This folder, subfolders, and files |
+| `BUILTIN\Administrators` | Full Control                             | This folder only |
+| `CREATOR OWNER`       | Full Control                                  | Subfolders and files only |
+| `CORP\HR_Staff`       | List folder / read data, create folders / append data, read attributes, read extended attributes, read permissions | This folder only |
+| Other accounts        | None (remove any not listed above)           | -          |
 
-## 🔎 Verification Steps
-
-On a Windows 10 HR client (e.g., user `EveHR`):
-1. Run `gpupdate /force`
-2. Log off and log back in
-3. Open **This PC** → Confirm **Documents** now points to `\\WIN-SERVER\HRDocs`
-4. Create a test file in **Documents**
-5. Check on server: `C:\HRDocs\<Username>` → File should be present
+> Only HR staff can create/modify files; other users are denied access.
 
 ---
 
-## ✅ Results
-- HR users’ Documents are redirected to the server share.
-- Files are centralized and can be backed up easily.
-- With permissions set correctly, users only see their own subfolder.
+## 3. Verify Share Permissions
+
+- UNC path:  
+``` - HR users should see and access the folder. - Non-HR users should receive **access denied**. ---
+## 4. Access the Shared Folder from Client 1.
+On HR client (`EveHR` Windows 10 machine): - Press **Win + R**, type: ``` \\WIN-SERVER\HRData$ ``` -
+Press Enter 2. Optional: Map network drive: - Right-click **This PC → Map Network Drive** - Drive letter: `Z:` - Folder: `\\WIN-SERVER\HRData$` - Check **Reconnect at sign-in**
+
+---
+
+## 5. Testing
+1. Create a test file/folder (e.g., `Test1`) on the client inside `HRData$`.
+2. Confirm it appears on the server: ``` C:\Shares\HRData$ ```
+3. Verify permissions: - HR users: full control - Non-HR users: access denied --- ## Notes - Hidden shares (`$`) prevent casual browsing but are accessible via UNC path. - NTFS permissions are critical for security; share permissions alone are not sufficient. - Mapping a network drive improves usability for end users. ```
 
   
 
