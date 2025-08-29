@@ -478,8 +478,10 @@ Prevent users in the HR department from using USB storage devices to help secure
    - **Removable Disks: Deny execute access** → Enabled
    - **Removable Disks: Deny read access** → Enabled
    - **Removable Disks: Deny write access** → Enabled
+![Deny_Write_Access](images/60_Deny_Write_Access.png)
+![Deny_Read_Access](images/61_Deny_Read_Access.png)
 3. Optionally, configure other device types (CD/DVD, Floppy, etc.) if needed.
-
+![Verify_deny_enabled](images/62_verify_deny_enabled.png)
 ---
 
 ### 4️⃣ Apply and Update Policy
@@ -488,6 +490,8 @@ Prevent users in the HR department from using USB storage devices to help secure
      ```
      gpupdate /force
      ```
+     ![gpupdate_USB_restriction](images/63_gpupdate_USB_restrict.png)
+
 2. Log off and log back on (if needed) for policy to take effect.
 
 ---
@@ -495,16 +499,19 @@ Prevent users in the HR department from using USB storage devices to help secure
 ### 5️⃣ Verification
 1. On the HR client:
    -Check with rsop.msc (Resultant Set of Policy)
-
+![rsop.msc_command](images/64_rsop.msc_command.png)
 On the client → press Win + R → type rsop.msc → Enter.
 Navigate to:
 User Configuration → Administrative Templates → System → Removable Storage Access
 Verify Deny read / Deny write are showing as Enabled.
-    
+    ![rsop.msc_command](images/64_rsop.msc_command.png)
+ ![Resultant_Set_Of_Policy](images/65_resultant_set_of_policy.png)
+
    - 
 2. Run `gpresult /h report.html' then open 'report.html' in Command Prompt to confirm that **HR_User_Policy** is applied.Open the report.html file → look under User Configuration → Administrative Templates → System → Removable Storage Access.
 It should show your configured settings as Enabled.
-
+![gpresult/h_report.html](images/66_gpresult/h.png)
+ ![verify_report.html](images/67_report.html.png)
 
 
 
@@ -515,7 +522,8 @@ Folder Redirection & Removable Storage policies also write to the registry.
 Open 'regedit' on the client and check:Check registry keys for confirmation:
 HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices Look for entries showing Deny Read/Write policies.
 
-
+![regedit_command](images/68_regedit_command.png)
+![registry_editor](images/69_registry_edit.png)
 ---
 
 ## Notes
