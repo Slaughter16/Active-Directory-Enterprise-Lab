@@ -522,6 +522,7 @@ Open 'regedit' on the client and check:Check registry keys for confirmation:
 HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices Look for entries showing Deny Read/Write policies.
 
 ![regedit_command](images/68_regedit_command.png)
+![registry_editor](images/69_registry_edit.png)
 
 ---
 
