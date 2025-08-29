@@ -547,21 +547,21 @@ Create a secure shared folder on the server for HR users, allowing only authoriz
 
 1. Open Server Manager → File and Storage Services → Shares.  
 2. Click Tasks → New Share.
-   - The `$` makes the share **hidden**.  
+   ![New_HRShared_Folder](images/70_New_HRShared_Folder.png)  
 3. Select SMB Share – Quick (or Advanced if using File Server Resource Manager).
-
+![Select_Profile_Shares](images/71_Select_Profile_Shares.png)
 4. On Share Location, select the volume (e.g., C:).
 
 5. On Share Name, enter  HRData$
    - The `$` makes the share **hidden** from casual browsing.
-
+![Share_Name_HRData$](images/72_Share_Name_HRData$.png)
 6. Other settings:  
 - Enable **access-based enumeration**  
 - Optionally enable **encryption**  
 - Leave **continuous availability** unchecked
 
+![Other_Settings_HRData](images/73_Other_Settings_HRData.png)
 
-7. Click Next and then Create.
 
 ---
 
@@ -569,7 +569,9 @@ Create a secure shared folder on the server for HR users, allowing only authoriz
 
 1. In **Advanced Security Settings** for `C:\Shares\HRData$`:  
 - **Disable inheritance**  
-- **Convert inherited permissions into explicit permissions**  
+- **Convert inherited permissions into explicit permissions**
+  ![Permissions_HRData](images/74_Permissions_HRData.png)
+  ![Disable_Inheritance_HRData](images/75_Disable_Inheritance_HRData.png)
 2. Set permissions:
 
 | Account / Group       | Permissions                                   | Applies To |
@@ -580,7 +582,15 @@ Create a secure shared folder on the server for HR users, allowing only authoriz
 | `CORP\HR_Staff`       | List folder / read data, create folders / append data, read attributes, read extended attributes, read permissions | This folder only |
 | Other accounts        | None (remove any not listed above)           | -          |
 
+![Add_HR_Staff_HRData](images/76_Add_HR_Staff_HRData.png)
+![Edit_Permissions_HRData](images/77_Edit_Permissions_HRData.png)
+![Verify_Permissions_HRData](images/78_Verify_Permissions_HRData.png)
+![Next_Permissions_HRData](images/79_Next_Permissions_HRData.png)
 > Only HR staff can create/modify files; other users are denied access.
+
+## 3. Click Create Folder & Verify Successfully created
+![Create_HRData$](images/80_Create_HRData$.png)
+![Success_Created_HRData](images/81_Success_Created_HRData.png)
 
 ---
 
@@ -591,11 +601,11 @@ Create a secure shared folder on the server for HR users, allowing only authoriz
 1. Open File Explorer.
 
 2. Enter the UNC path in the address bar: \\WIN-SERVER\HRData$
-
 3. HR users should see the shared folder.
-
-4.  Create a test file/folder (e.g., `Test1`) on the client inside `HRData$`.
-
+![WIN_SERVER_HRData$](images/82_WIN_SERVER_HRData$.png)
+![HRData$_Folder](images/83_HRData$_Folder.png)
+5.  Create a test file/folder (e.g., `Test1`) on the client inside `HRData$`.
+![Test1_File](images/84_Test1_File.png)
 HR user should be able to create/edit files.
 
 Non-HR users should not have access.
@@ -609,10 +619,11 @@ Non-HR users should not have access.
 3. Check Reconnect at sign-in.
 
 4. Verify access for HR users.
-
+![Z_Drive_Letter](images/85_Z_Drive_Letter.png)
+![Verify_Test1_WIN_10](images/86_Verify_Test1_WIN_SERVER.png)
 #### WIN-SERVER verification
 
-- Verify WIN-SERVER can view the test file created in the shared folder from the client 
+- Verify WIN-SERVER can view the test file created in the shared folder from the client- ![Verify_Test1_WIN_SERVER](images/87_Verify_Test1_WIN_SERVER.png)
 ---
 
 
