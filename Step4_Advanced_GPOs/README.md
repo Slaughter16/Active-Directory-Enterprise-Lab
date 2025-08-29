@@ -475,12 +475,11 @@ Prevent users in the HR department from using USB storage devices to help secure
    - Navigate to:  
      `User Configuration → Policies → Administrative Templates → System → Removable Storage Access`
 2. Enable the following policies:
-   - **Removable Disks: Deny execute access** → Enabled
    - **Removable Disks: Deny read access** → Enabled
    - **Removable Disks: Deny write access** → Enabled
 ![Deny_Write_Access](images/60_Deny_Write_Access.png)
 ![Deny_Read_Access](images/61_Deny_Read_Access.png)
-3. Optionally, configure other device types (CD/DVD, Floppy, etc.) if needed.
+3. Verify the Deny rules are enabled.
 ![Verify_deny_enabled](images/62_verify_deny_enabled.png)
 ---
 
