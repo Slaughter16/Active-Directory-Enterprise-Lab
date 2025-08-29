@@ -584,18 +584,18 @@ HRData$
 
 ## 3. Verify Share Permissions
 
-- UNC path:  
-``` - HR users should see and access the folder. - Non-HR users should receive **access denied**. ---
+- UNC path:
+- HR users should see and access the folder. - Non-HR users should receive **access denied**. ---
 ## 4. Access the Shared Folder from Client 1.
-On HR client (`EveHR` Windows 10 machine): - Press **Win + R**, type: ``` \\WIN-SERVER\HRData$ ``` -
+On HR client (`EveHR` Windows 10 machine): - Press **Win + R**, type:  \\WIN-SERVER\HRData$ ``` -
 Press Enter 2. Optional: Map network drive: - Right-click **This PC → Map Network Drive** - Drive letter: `Z:` - Folder: `\\WIN-SERVER\HRData$` - Check **Reconnect at sign-in**
 
 ---
 
 ## 5. Testing
 1. Create a test file/folder (e.g., `Test1`) on the client inside `HRData$`.
-2. Confirm it appears on the server: ``` C:\Shares\HRData$ ```
-3. Verify permissions: - HR users: full control - Non-HR users: access denied --- ## Notes - Hidden shares (`$`) prevent casual browsing but are accessible via UNC path. - NTFS permissions are critical for security; share permissions alone are not sufficient. - Mapping a network drive improves usability for end users. ```
+2. Confirm it appears on the server:  C:\Shares\HRData$ ```
+3. Verify permissions: - HR users: full control - Non-HR users: access denied --- ## Notes - Hidden shares (`$`) prevent casual browsing but are accessible via UNC path. - NTFS permissions are critical for security; share permissions alone are not sufficient. - Mapping a network drive improves usability for end users. 
 
   
 
