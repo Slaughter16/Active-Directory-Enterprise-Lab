@@ -509,7 +509,7 @@ Verify Deny read / Deny write are showing as Enabled.
    - 
 3. Run `gpresult /h report.html' then open 'report.html' in Command Prompt to confirm that **HR_User_Policy** is applied.Open the report.html file → look under User Configuration → Administrative Templates → System → Removable Storage Access.
 It should show your configured settings as Enabled.
-![gpresult/h_report.html](images/66_gpresult/h.png)
+![gpresult/h_report.html](images/66_gpresulth.png)
  ![verify_report.html](images/67_report.html.png)
 
 
