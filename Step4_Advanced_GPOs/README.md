@@ -11,12 +11,12 @@ This simulates real-world administrative tasks where IT departments enforce poli
 ### 🔹 IT Department (OU: LabUsers → IT)
 **GPO Name:** `IT_User_Policy`
 
-1. **Set a custom desktop background**  
+1. **Set a custom desktop background**  (GPO-Applied Settings)
    - Path: `User Configuration → Policies → Administrative Templates → Desktop → Desktop Wallpaper`
    - Use a Network share create a folder on your server : D:\Wallpapers
    - Copy your wallpaper image into that folder. Move or copy the image you downloaded from Firefox into that folder.
   
-2. **Disable Control Panel access**  
+2. **Disable Control Panel access**  (GPO-Applied Settings)
    - Path: `User Configuration → Policies → Administrative Templates → Control Panel → Prohibit access to Control Panel`  
    - This prevents IT staff from making unauthorized changes.
 
@@ -173,10 +173,10 @@ Navigate in the GPO Editor:   User Configuration → Policies → Administrative
 
 We will configure:
 
-1. **Redirect Documents folder** → central server share (`\\WIN-Server\HRDocs`)  
-2. **Password-protected screensaver** → auto-lock after 5 minutes  
-3. **Disable USB storage** → prevent data exfiltration
-4. **Shared Folder** (\\WIN-SERVER\HRData$
+1. **Redirect Documents folder** → central server share (`\\WIN-SERVER\FOLDERREDIR$`)  (GPO-Applied Settings)
+2. **Password-protected screensaver** → auto-lock after 5 minutes  (GPO-Applied Settings)
+3. **Disable USB storage** → prevent data exfiltration   (GPO-Applied Settings)
+4. **Shared Folder** (\\WIN-SERVER\HRData$) (Server-Side Config 'NTFS & share permissions')
 
 ---
 
@@ -474,7 +474,8 @@ Prevent users in the HR department from using USB storage devices to help secure
 ### 3️⃣ Configure USB Storage Restriction
 1. In the **Group Policy Management Editor**:
    - Navigate to:  
-     `User Configuration → Policies → Administrative Templates → System → Removable Storage Access`
+     `User Configuration → Policies → Administrative Templates → System → Removable Storage Access` (First applied under User Configuration, but best practice is Computer)
+     
 2. Enable the following policies:'
    - **Removable Disks: Deny write access** → Enabled
    - **Removable Disks: Deny read access** → Enabled
@@ -482,7 +483,7 @@ Prevent users in the HR department from using USB storage devices to help secure
 
 ![Deny_Write_Access](images/60_Deny_Write_Access.png)
 ![Deny_Read_Access](images/61_Deny_Read_Access.png)
-4. Verify the Deny rules are enabled.
+3. Verify the Deny rules are enabled.
 ![Verify_deny_enabled](images/62_verify_deny_enabled.png)
 
 ---
@@ -505,7 +506,7 @@ Prevent users in the HR department from using USB storage devices to help secure
 On the client → press Win + R → type rsop.msc → Enter.
     ![rsop.msc_command](images/64_rsop.msc_command.png)
 
-Navigate to:
+2. Navigate to:
 User Configuration → Administrative Templates → System → Removable Storage Access
 Verify Deny read / Deny write are showing as Enabled.
  ![Resultant_Set_Of_Policy](images/65_resultant_set_of_policy.png)
@@ -519,7 +520,7 @@ It should show your configured settings as Enabled.
 
 
 
-3.Registry Check (Optional but Screenshot-Friendly)
+4.Registry Check (Optional but Screenshot-Friendly)
 
 Folder Redirection & Removable Storage policies also write to the registry.
 Open 'regedit' on the client and check:Check registry keys for confirmation:
@@ -597,7 +598,7 @@ Create a secure shared folder on the server for HR users, allowing only authoriz
 
 ---
 
-## 3. Verify Share Permissions
+## 4. Verify Share Permissions
 
 #### On Windows Client (EveHR)
 
@@ -607,7 +608,7 @@ Create a secure shared folder on the server for HR users, allowing only authoriz
 3. HR users should see the shared folder.
 ![WIN_SERVER_HRData$](images/82_WIN_SERVER_HRData$.png)
 ![HRData$_Folder](images/83_HRData$_Folder.png)
-5.  Create a test file/folder (e.g., `Test1`) on the client inside `HRData$`.
+4.  Create a test file/folder (e.g., `Test1`) on the client inside `HRData$`.
 ![Test1_File](images/84_Test1_File.png)
 HR user should be able to create/edit files.
 
