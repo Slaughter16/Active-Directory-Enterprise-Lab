@@ -6,7 +6,7 @@ Install Active Directory Domain Services (AD DS) with integrated DNS on Windows 
 This step builds the foundation for:
 - Centralized authentication & authorization  
 - Group Policy deployment  
-- Organizational Unit (OU) design & administration---
+- Organizational Unit (OU) design & administration
 
 ---
 
