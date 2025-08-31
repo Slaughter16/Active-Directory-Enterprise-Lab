@@ -613,7 +613,8 @@ HR user should be able to create/edit files.
 
 Non-HR users should not have access.
 
-#### Optional: Map as Network Drive
+#### Optional: Manually Map as Network Drive or via GPO
+
 
 1. Right-click This PC → Map Network Drive.
 
