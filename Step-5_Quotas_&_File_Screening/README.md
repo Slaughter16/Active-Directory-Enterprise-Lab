@@ -1,51 +1,82 @@
-## Quotas & File Screening (FSRM)
--install file server resource manager 
+# Step 5: Quotas & File Screening (FSRM)
 
--Create quotas to limit storage per folder or per user
+In this step, we will use **File Server Resource Manager (FSRM)** to enforce storage management policies on our file server. This includes:  
 
--Configure file screens to block unwanted file types (e.g., .mp3, .exe)
+- **Quotas** → Limit the amount of storage space users or folders can consume.  
+- **File Screening** → Restrict the types of files users can store (e.g., block media, executables).  
+- **Notifications & Reports** → Configure alerts when thresholds are reached.  
 
--Configure notifications or reports for exceeded thresholds
 
+---
 
-1. Install File Server Resource Manager
+## 1. Install File Server Resource Manager
 
-go to manage add roles and features 
-image
-installation type keep it as role based click next 
-image
-server selection keep it default click next 
-image
+1. Open **Server Manager** → **Manage** → **Add Roles and Features**.  
+2. Leave **Installation Type** as *Role-based or feature-based installation* → click **Next**.  
+3. Leave **Server Selection** default (local server) → click **Next**.  
+4. Under **Server Roles**:  
+   - Expand **File and iSCSI Services**.  
+   - Check **File Server Resource Manager**.  
+   - When prompted, click **Add Features**.  
+   - Continue clicking **Next** until the confirmation screen.  
+5. Click **Install**.  
+6. Once installed, verify FSRM is available under:  
+   - **Tools → File Server Resource Manager** in Server Manager.  
 
-Server Roles File and Storage Services already checked but need to select what we wanted to install expand FIle and iSCI Services then select File Server Resource Manager Tools then cick add features then click next until confirmation 
-image 
-image 
-image 
+---
 
-Confirmation click install and verify File Server Resource Manager installed
-image
-image
+## 2. Configure Quotas
 
-2. Open File Server Resouce Manager
+Quotas allow administrators to restrict the amount of data stored in a folder.  
 
-To setup Quota managment expand quota management then right click Quotas and select create Quota which allows for more customzied quota
-image
-image
+1. Open **File Server Resource Manager** → expand **Quota Management**.  
+2. Right-click **Quotas** → select **Create Quota**.  
+3. In the **Quota Path**, select the target shared folder (example: `D:\Shares\HRData$`).  
+4. Choose **Define custom quota properties**.  
+5. Configure settings:  
+   - **Hard quota** (recommended): Prevents users from exceeding the limit.  
+   - Set a space limit (example: `500 MB` or `1 GB`).  
+   - Add a description for documentation.  
+6. (Optional) Configure **Notification Thresholds**:  
+   - Click **Add** → set threshold (example: `80%`).  
+   - Choose actions:  
+     - Send email to administrators  
+     - Log an event  
+     - Run a command  
+     - Generate a report  
 
-In create quota select the shared folder (HRData$) for the quota path  then click Define custom quota properties (Custom Properties) can select the limit for how much maxiumum to be can also put description and space limit and best practice select hard quota do not allow users to exceed limit 
+---
 
-image 
-image 
+## 3. Configure File Screening
 
-then can add notification threshold click add  and can put 80% for generate notifications when usage reaches % and can check send email to following administartso such as the distro list 
-image 
+File Screening allows administrators to block specific file types in shared folders.  
 
-3. Setup File Screening managment 
+1. In **FSRM**, expand **File Screening Management**.  
+2. Right-click **File Screens** → select **Create File Screen**.  
+3. Select the target folder path (example: `D:\Shares\HRData$`).  
+4. Choose configuration method:  
+   - **Derive from a template** (preconfigured rules), or  
+   - **Define custom file screen properties** (granular control).  
+5. For this lab, define a **custom file screen**:  
+   - Select **Active Screening** (prevents saving disallowed files).  
+   - Block categories such as:  
+     - Audio and Video Files  
+     - Compressed Files  
+     - Executable Files  
+     - Image Files  
+     - Web Page Files  
+   - This ensures only text/document file types are allowed in the HR share.  
+6. (Optional) Save this configuration as a **custom template** for reuse.  
+7. Click **OK** → verify the file screen is created.  
 
-expand file screening managemnt click file screens to contorl what file types on this shared folder for this lab we can restrict certian files so could select derive properoties from this file screen template but if want to block more file types can do custom properties for this lab we only wnat text and document file types in the shared folder so select custom properties  ensure active screening selected and check (Audio and Video Files, Compresses Files, Executable Files, Image Files, Web Page Files) then click okay and can also save template name so know which setting goes to
- image 
- image 
- image 
+---
 
- verify file screening created
- image 
+## 4. Verification
+
+- Test the quota by copying files into the shared folder until the limit is reached.  
+- Test the file screen by attempting to save a blocked file type (example: `.mp3`, `.exe`) → should be denied.  
+- Check **notifications** or **event logs** if thresholds are configured.  
+
+---
+
+✅ At this point, **FSRM is successfully configured** to enforce storage limits and block unwanted files in shared folders.  
