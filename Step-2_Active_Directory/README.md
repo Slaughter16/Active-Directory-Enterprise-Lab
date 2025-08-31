@@ -139,10 +139,14 @@ This step builds the foundation for:
 
 - Join the Windows 11 client to the `corp.local` domain.  
 - When configuring, enter **AliceIT** as the computer name (instead of the default `WIN11-CLIENT`) to keep Active Directory organized.
+- After joining, the full computer name will appear as:  
+  `AliceIT.corp.local
 ![WIN11_Corp](images/29_WIN11_Corp.png)
 
 - Join the Windows 10 client to the `corp.local` domain.  
-- When configuring, enter **EveHR** as the computer name (instead of the default `WIN10-CLIENT`) to keep Active Directory organized.  
+- When configuring, enter **EveHR** as the computer name (instead of the default `WIN10-CLIENT`) to keep Active Directory organized.
+- After joining, the full computer name will appear as:  
+  `EveHR.corp.local`  
 ![WIN10_Corp](images/30_WIN10_Corp.png)
 
 5. Enter domain **Administrator** credentials.
