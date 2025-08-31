@@ -474,15 +474,12 @@ Prevent users in the HR department from using USB storage devices to help secure
 ### 3️⃣ Configure USB Storage Restriction
 1. In the **Group Policy Management Editor**:
    - Navigate to:  
-     `Computer Configuration → Policies → Administrative Templates → System → Removable Storage Access`
-     ![Computer_Config_USB](images/88_Computer_Config_USB.png)
+     `User Configuration → Policies → Administrative Templates → System → Removable Storage Access`
 2. Enable the following policies:'
-   - **Removable Disks: Deny execute access** → Enabled
    - **Removable Disks: Deny write access** → Enabled
    - **Removable Disks: Deny read access** → Enabled
 
 
-![Deny Execute Access](images/89_Deny_Execute_Access.png)
 ![Deny_Write_Access](images/60_Deny_Write_Access.png)
 ![Deny_Read_Access](images/61_Deny_Read_Access.png)
 4. Verify the Deny rules are enabled.
