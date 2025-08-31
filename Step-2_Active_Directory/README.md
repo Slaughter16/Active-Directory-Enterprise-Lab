@@ -140,7 +140,8 @@ This step builds the foundation for:
 -WIN11 Domain Config
 ![WIN11_Corp](images/29_WIN11_Corp.png)
 
--WIN10 Domain Config , Also enter 'EveHR' as Computer Name later on instead of WIN10-Client to have an orgnazied AD
+- Join the Windows 10 client to the `corp.local` domain.  
+- When configuring, enter **EveHR** as the computer name (instead of the default `WIN10-CLIENT`) to keep Active Directory organized.  
 ![WIN10_Corp](images/30_WIN10_Corp.png)
 
 5. Enter domain **Administrator** credentials.
