@@ -137,7 +137,8 @@ This step builds the foundation for:
 
 4. Select **Domain**, enter: `corp.local`.
 
--WIN11 Domain Config
+- Join the Windows 11 client to the `corp.local` domain.  
+- When configuring, enter **AliceIT** as the computer name (instead of the default `WIN11-CLIENT`) to keep Active Directory organized.
 ![WIN11_Corp](images/29_WIN11_Corp.png)
 
 - Join the Windows 10 client to the `corp.local` domain.  
