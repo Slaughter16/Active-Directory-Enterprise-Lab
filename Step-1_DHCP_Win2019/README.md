@@ -1,18 +1,24 @@
-w# Step 1 – Migrate DHCP from pfSense to Windows Server 2019
+# Step 1 – Migrate DHCP from pfSense to Windows Server 2019
 
 ## 📌 Objective
 Migrate DHCP services from pfSense to Windows Server 2019 for VLAN 10.  
-This centralizes network services in an AD environment, allowing integrated DNS updates, better logging, and enterprise-like management.
+This centralizes network services in an AD environment, enabling:
+- Intergrated DNS updates
+- Better logging
+- Enterprise-like management
 
 ---
 
 ## 🔹 Background
-- In real-world Active Directory environments, DHCP is typically managed by Windows Server rather than a firewall/router.  
-- Centralized DHCP simplifies network management, integrates with DNS, and improves client provisioning.
+- In real-world Active Directory environments, DHCP is usually managed by **Windows Server**, not firewalls/routers.  
+- Benefits of centralized DHCP:
+    - Simplified network management
+    - Automatic DNS integration
+    - Improved reliability and control
 
 ---
 
-## 🛠️ Configuration Details
+## 🛠️ Configuration Overview
 - **DHCP Server:** Windows Server 2019  
 - **Scope Name:** VLAN10-Scope  
 - **IP Range:** 192.168.10.50 – 192.168.10.200  
