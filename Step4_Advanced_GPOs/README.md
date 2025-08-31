@@ -613,8 +613,11 @@ HR user should be able to create/edit files.
 
 Non-HR users should not have access.
 
-#### Optional: Manually Map as Network Drive or via GPO
+### Optional: Manually Map as Network Drive or via GPO
 
+---
+
+#### Manual Map
 
 1. Right-click This PC → Map Network Drive.
 
@@ -625,6 +628,27 @@ Non-HR users should not have access.
 4. Verify access for HR users.
 ![Z_Drive_Letter](images/85_Z_Drive_Letter.png)
 ![Verify_Test1_WIN_10](images/86_Verify_Test1_WIN_SERVER.png)
+
+---
+
+#### Map via GPO
+
+1. Open Group Policy Management on the server.Edit the HR_User_Policy (linked to HR OU / LabUsers HR).
+
+2.Navigate to:
+User Configuration → Preferences → Windows Settings → Drive Maps
+image drive maps before config 
+3.Right-click → New → Mapped Drive.
+image new mapped drive
+4.Configure:
+- Location: \\WIN-SERVER\HRData$
+- Drive Letter: Z:
+- Action: Create (or Replace if you want to overwrite old mapping)
+- Optional: Check Reconnect at logon.
+- Apply and OK.
+image new drive properties
+5. Verify mapped creation
+image drive maps Z:
 #### WIN-SERVER verification
 
 - Verify WIN-SERVER can view the test file created in the shared folder from the client- ![Verify_Test1_WIN_SERVER](images/87_Verify_Test1_WIN_SERVER.png)
