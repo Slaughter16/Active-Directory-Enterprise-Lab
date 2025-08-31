@@ -637,18 +637,21 @@ Non-HR users should not have access.
 
 2.Navigate to:
 User Configuration → Preferences → Windows Settings → Drive Maps
-image drive maps before config 
+![Drivemaps_before_config](images/90_drivemaps_before_config.png)
+
 3.Right-click → New → Mapped Drive.
-image new mapped drive
+![New_mapped_drive](images/91_new_mapped_drive.png)
+
 4.Configure:
 - Location: \\WIN-SERVER\HRData$
 - Drive Letter: Z:
 - Action: Create (or Replace if you want to overwrite old mapping)
 - Optional: Check Reconnect at logon.
 - Apply and OK.
-image new drive properties
+![New drive properties](images/92_New_drive_properties.png)
+
 5. Verify mapped creation
-image drive maps Z:
+![Drive maps Z:](images/93_Drive_maps_Z:.png)
 #### WIN-SERVER verification
 
 - Verify WIN-SERVER can view the test file created in the shared folder from the client- ![Verify_Test1_WIN_SERVER](images/87_Verify_Test1_WIN_SERVER.png)
