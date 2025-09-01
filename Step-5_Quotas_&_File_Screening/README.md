@@ -43,14 +43,23 @@ In this step, we will use **File Server Resource Manager (FSRM)** to enforce sto
 
 Quotas allow administrators to restrict the amount of data stored in a folder.  
 
-1. Open **File Server Resource Manager** → expand **Quota Management**.  
+1. Open **File Server Resource Manager** → expand **Quota Management**.
+
+![Open_FSRM](images/10_Open_FSRM.png)
+![FSRM_Dashboard](images/11_FSRM_Dashboard.png)
 2. Right-click **Quotas** → select **Create Quota**.  
-3. In the **Quota Path**, select the target shared folder (example: `D:\Shares\HRData$`).  
+
+![Create_Quota](images/12_Create_Quota.png)
+3. In the **Quota Path**, select the target shared folder (example: `D:\Shares\HRData$`). 
+![Quota_Path](images/13_Quota_Path.png)
 4. Choose **Define custom quota properties**.  
+![Custom_Properties](images/14_Custom_Properties.png)
 5. Configure settings:  
    - **Hard quota** (recommended): Prevents users from exceeding the limit.  
    - Set a space limit (example: `500 MB` or `1 GB`).  
-   - Add a description for documentation.  
+   - Add a description for documentation.
+
+![Hard_Quota](images/15_Hard_Quota.png)
 6. (Optional) Configure **Notification Thresholds**:  
    - Click **Add** → set threshold (example: `80%`).  
    - Choose actions:  
@@ -58,6 +67,16 @@ Quotas allow administrators to restrict the amount of data stored in a folder.
      - Log an event  
      - Run a command  
      - Generate a report  
+![Add_Threshold](images/16_Add_Threshold.png)
+![Click_Yes_NoSMTP](images/17_Click_Yes_NoSMTP.png)
+![Quota_Properties_Check](images/18_Quota_Properties_Check.png)
+
+7. Create Quota, Save Template as (HRData_Quota), Verify Quota created)
+
+
+![Create_HRData_Quota](images/19_Create_HRData_Quota.png)
+![Save_Template_Name](images/20_Save_Template_Name.png)
+![Verify_Quota_Created](images/21_Verify_Quota_Created.png)
 
 ---
 
