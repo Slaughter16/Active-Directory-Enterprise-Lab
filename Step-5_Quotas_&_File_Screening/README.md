@@ -11,17 +11,31 @@ In this step, we will use **File Server Resource Manager (FSRM)** to enforce sto
 
 ## 1. Install File Server Resource Manager
 
-1. Open **Server Manager** → **Manage** → **Add Roles and Features**.  
+1. Open **Server Manager** → **Manage** → **Add Roles and Features**.
+
+![Add_Roles_Features](images/1_Add_Roles_Features.png)
 2. Leave **Installation Type** as *Role-based or feature-based installation* → click **Next**.  
-3. Leave **Server Selection** default (local server) → click **Next**.  
+![Installation_Type](images/2_Installation_Type.png)
+
+
+3. Leave **Server Selection** default (local server) → click **Next**.
+
+![Server_Selection](images/3_Server_Selection.png)
 4. Under **Server Roles**:  
    - Expand **File and iSCSI Services**.  
    - Check **File Server Resource Manager**.  
    - When prompted, click **Add Features**.  
-   - Continue clicking **Next** until the confirmation screen.  
-5. Click **Install**.  
-6. Once installed, verify FSRM is available under:  
-   - **Tools → File Server Resource Manager** in Server Manager.  
+   - Continue clicking **Next** until the confirmation screen.
+
+     ![Server_Roles](images/4_Server_Roles.png)
+     ![Check_FSRM](images/5_Check_FSRM.png)
+     ![Add_Features_FSRM](images/6_Add_Features_FSRM.png)
+     ![Features_Next](images/7_Features_Next.png)
+5. Click **Install** and Verify Installation.
+
+![Confirmation_Install](images/8_Confirmation_Install.png)
+![Result_FSRM](images/9_Result_FSRM.png)
+ 
 
 ---
 
