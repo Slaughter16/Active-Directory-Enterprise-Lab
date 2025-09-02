@@ -117,20 +117,21 @@ File Screening allows administrators to block specific file types in shared fold
 
 ## 4. Verification
 
-- Test the quota by copying files into the shared folder until the limit is reached.
+### Test the 100 MB Quota
 
+On the **EveHR** (Win10 client):
 Test the 100 MB Quota
 
 On EveHR (Win10 client):
 
-Open Command Prompt.
+1. Open **Command Prompt**.
+2. Create a 50 MB file in the mapped HR share (replace `Z:` with your mapped drive letter):
 
-Create a 50 MB file in the mapped HR share (replace Z: with your mapped drive letter): fsutil file createnew Z:\test1.dat 52428800 
-(that’s 50 MB).
-
-Create another 60 MB file:
-
-fsutil file createnew Z:\test2.dat 62914560
+   ```bash
+   fsutil file createnew Z:\test1.dat 52428800
+   create another 60 MB file
+   fsutil file createnew Z:\test2.dat 62914560
+   ```
 
 When you try to create the second file, it should fail because you’ve exceeded the 100 MB quota.
 
@@ -138,12 +139,11 @@ You should get an error like “Not enough disk space”.
 
 ![Exceed_100MB](images/30_Exceed_100MB.png)
 
-- Also check the Quota Percentage Usage
+- Open FSRM on the server and Verify the quota usage percentage for C:\Shares\HRData$
  ![Quota_Usage_Percentage](images/35_Quota_Usage_Percentage.png)
 
+
 - Test the file screen by attempting to save a blocked file type (example: `.mp3`, `.exe`) → should be denied.
-
-
 
 - Test File Screening
 
