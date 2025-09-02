@@ -163,7 +163,17 @@ The file screen is configured to block certain file types (e.g., `.exe`, `.mp3`)
 4. Attempting to save should be **blocked** with an "Access Denied" error.
 ![Exe_File_Denied](images/34_Exe_File_Denied.png)
 
-- Check **notifications** or **event logs** if thresholds are configured.  
+#### Verify Quota Alerts in Event Viewer
+
+- After testing the quota by filling the HRData share, you can confirm that the quota threshold events were logged.
+
+1. Open Event Viewer
+
+2. In the left panel, expand:
+   - Custom Views → Administrative Events
+
+3. Look for Warning Events related to File Server Resource Manager and Click the Warning to view detailed information (User CORP\EveHR has exceeded the 80% quota threshold 
+for the quota on C:\Shares\HRData$ on server WIN-SERVER)
 
 ---
 
