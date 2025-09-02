@@ -84,12 +84,17 @@ Quotas allow administrators to restrict the amount of data stored in a folder.
 
 File Screening allows administrators to block specific file types in shared folders.  
 
-1. In **FSRM**, expand **File Screening Management**.  
-2. Right-click **File Screens** → select **Create File Screen**.  
+1. In **FSRM**, expand **File Screening Management**.
+![File_Screening_Management](images/22_File_Screening_Management.png)
+
+2. Right-click **File Screens** → select **Create File Screen**.
+![Create_File_Screen](images/23_Create_File_Screen.png)
+ 
 3. Select the target folder path (example: `D:\Shares\HRData$`).  
 4. Choose configuration method:  
    - **Derive from a template** (preconfigured rules), or  
-   - **Define custom file screen properties** (granular control).  
+   - **Define custom file screen properties** (granular control).
+     ![Define_Custom_File_Screen_Prop](images/24_Define_Custom_File_Screen_Prop.png)
 5. For this lab, define a **custom file screen**:  
    - Select **Active Screening** (prevents saving disallowed files).  
    - Block categories such as:  
@@ -98,9 +103,15 @@ File Screening allows administrators to block specific file types in shared fold
      - Executable Files  
      - Image Files  
      - Web Page Files  
-   - This ensures only text/document file types are allowed in the HR share.  
-6. (Optional) Save this configuration as a **custom template** for reuse.  
+   - This ensures only text/document file types are allowed in the HR share.
+   ![Active_Screening_HRData](images/25_Active_Screening_HRData.png)
+   ![File_Groups_Block](images/26_File_Groups_Block.png)
+6. (Optional) Save this configuration as a **custom template** for reuse.
+
+![Create_HRData_FileScreen](images/27_Create_HRData_FileScreen.png)
+![Template_FileScreen](images/28_Template_FileScreen.png)
 7. Click **OK** → verify the file screen is created.  
+![Verify_FileScreen_Created](images/29_Verify_FileScreen_Created.png)
 
 ---
 
