@@ -136,7 +136,7 @@ When you try to create the second file, it should fail because you’ve exceeded
 
 You should get an error like “Not enough disk space”.
 
-
+![Exceed_100MB](images/30_Exceed_100MB.png)
 
 
 
@@ -145,18 +145,19 @@ You should get an error like “Not enough disk space”.
 
 
 
-Test File Screening
+- Test File Screening
 
-Your screen blocks EXEs, MP3s, etc.
+- Your screen blocks EXEs, MP3s, etc.
 
-Method 1: Create a dummy EXE
+- Method 1: Create a dummy EXE
 
-Open Notepad → type random text.
-
-Save As → change to All Files → name it test.exe.
-
-Try copying it to Z:\ → should get Access Denied.
-
+- Open Notepad → type `Test.exe`.
+![Notepad_TestExe](images/31_Notepad_TestExe.png)
+- Save As → change to All Files → name it test.exe.
+![Save_Exe_File](images/32_Save_Exe_File.png)
+![Save_File_To_HRData_Z:](images/33_Save_File_To_HRData_Z:.png)
+- Try copying it to Z:\ → should get Access Denied.
+![Exe_File_Denied](images/34_Exe_File_Denied.png)
 
 - Check **notifications** or **event logs** if thresholds are configured.  
 
