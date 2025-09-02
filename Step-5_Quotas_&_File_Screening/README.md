@@ -174,8 +174,8 @@ The file screen is configured to block certain file types (e.g., `.exe`, `.mp3`)
    - Custom Views → Administrative Events
 ![Custom_Views](images/36_Custom_Views.png)
 
-3. Look for Warning Events related to File Server Resource Manager and Click the Warning to view detailed information (User CORP\EveHR has exceeded the 80% quota threshold 
-for the quota on C:\Shares\HRData$ on server WIN-SERVER)
+3. Look for Warning Events related to File Server Resource Manager and Click the Warning to view detailed information `(User CORP\EveHR has exceeded the 80% quota threshold 
+for the quota on C:\Shares\HRData$ on server WIN-SERVER)`
 ![Warning_Threshold](images/37_Warning_Threshold.png)
 
 ---
