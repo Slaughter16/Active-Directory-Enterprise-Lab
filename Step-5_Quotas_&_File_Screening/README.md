@@ -143,20 +143,24 @@ You should get an error like “Not enough disk space”.
  ![Quota_Usage_Percentage](images/35_Quota_Usage_Percentage.png)
 
 
-- Test the file screen by attempting to save a blocked file type (example: `.mp3`, `.exe`) → should be denied.
+### Test the File Screen
 
-- Test File Screening
+The file screen is configured to block certain file types (e.g., `.exe`, `.mp3`).
 
-- Your screen blocks EXEs, MP3s, etc.
+#### Method 1: Create a Dummy EXE
 
-- Method 1: Create a dummy EXE
-
-- Open Notepad → type `Test.exe`.
+1. Open **Notepad**.  
+   Type `Test.exe`.  
 ![Notepad_TestExe](images/31_Notepad_TestExe.png)
-- Save As → change to All Files → name it test.exe.
+2. Go to **File → Save As**.  
+   - Change **Save as type** to **All Files**.  
+   - Enter the name `test.exe`.
+3. Save the file to the mapped HR share (`Z:\`).
+
 ![Save_Exe_File](images/32_Save_Exe_File.png)
 ![Save_File_To_HRData_Z:](images/33_Save_File_To_HRData_Z:.png)
-- Try copying it to Z:\ → should get Access Denied.
+
+4. Attempting to save should be **blocked** with an "Access Denied" error.
 ![Exe_File_Denied](images/34_Exe_File_Denied.png)
 
 - Check **notifications** or **event logs** if thresholds are configured.  
