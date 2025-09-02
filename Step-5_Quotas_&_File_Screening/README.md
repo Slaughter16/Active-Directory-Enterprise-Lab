@@ -138,8 +138,8 @@ You should get an error like “Not enough disk space”.
 
 ![Exceed_100MB](images/30_Exceed_100MB.png)
 
-
-
+- Also check the Quota Percentage Usage
+ ![Quota_Usage_Percentage](images/35_Quota_Usage_Percentage.png)
 
 - Test the file screen by attempting to save a blocked file type (example: `.mp3`, `.exe`) → should be denied.
 
