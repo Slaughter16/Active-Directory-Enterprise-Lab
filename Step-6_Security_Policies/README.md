@@ -60,3 +60,43 @@ To enforce strong password standards across the domain, I configured the **Defau
 ---
 
 ✅ With this configuration and testing, all Active Directory users in the **corp.local** domain are now required to follow a strong password policy aligned with enterprise best practices.
+
+---
+
+## Account Lockout Policy Configuration
+
+To protect against brute-force attacks, I configured an **Account Lockout Policy** in the Default Domain Policy. This ensures that repeated invalid login attempts will temporarily lock the user’s account.
+
+---
+
+### Steps
+1. Open **Group Policy Management Console (GPMC)**.  
+   ![Screenshot – Open GPMC](screenshot4.png)
+
+2. Navigate to **Group Policy Objects**, right-click **Default Domain Policy**, and select **Edit**.  
+   ![Screenshot – Edit Default Domain Policy](screenshot5.png)
+
+3. In the Group Policy Management Editor, go to:  
+   `Computer Configuration → Policies → Windows Settings → Security Settings → Account Policies → Account Lockout Policy`  
+   ![Screenshot – Account Lockout Settings](screenshot6.png)
+
+   
+---
+
+### Configured Settings (Best Practice)
+- **Account Lockout Threshold:** 3 invalid logon attempts  
+- **Account Lockout Duration:** 30 minutes  
+- **Reset Account Lockout Counter After:** 30 minutes  
+
+---
+
+### Testing & Validation
+- On the **Windows 11 client (AliceIT)**, attempted to log in with the wrong password **3 times in a row**.  
+- After the 3rd failed attempt → **Account locked out** ✅  
+- Verified lockout message on login screen:  
+  *“Your account has been locked. Please contact your administrator or try again later.”*  
+- Account automatically unlocked after the configured **30 minutes**.  
+
+---
+
+✅ With this configuration, repeated brute-force password attempts against domain accounts are mitigated by temporary account lockouts, reducing the risk of credential-guessing attacks.
