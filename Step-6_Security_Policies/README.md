@@ -8,14 +8,14 @@ To enforce strong password standards across the domain, I configured the **Defau
 
 ### Steps
 1. Open **Group Policy Management Console (GPMC)**.  
-   ![Screenshot – Open GPMC](screenshot1.png)
+   ![Open_GPM](images/1_Open_GPM.png)
 
 2. Navigate to **Group Policy Objects**, right-click **Default Domain Policy**, and select **Edit**.  
-   ![Screenshot – Edit Default Domain Policy](screenshot2.png)
+   ![Edit_Default_Domain_Policy](images/2_Edit_Default_Domain_Policy.png)
 
 3. In the Group Policy Management Editor, go to:  
    `Computer Configuration → Policies → Windows Settings → Security Settings → Account Policies → Password Policy`  
-   ![Screenshot – Password Policy Settings](screenshot3.png)
+   ![Before_Password_Policy_Config](images/3_Password_Policy_Before.png)
 
 ---
 
@@ -26,7 +26,7 @@ To enforce strong password standards across the domain, I configured the **Defau
 - **Minimum Password Length:** 12 characters  
 - **Password Must Meet Complexity Requirements:** Enabled  
 
-screenshot 
+![After_Password_Policy_Config](images/4_Password_Policy_After.png)
 ### Why These Settings?
 - **Password History** prevents users from recycling recent passwords.  
 - **Maximum Age** forces regular password changes.  
@@ -35,8 +35,28 @@ screenshot
 
 ---
 
-### Testing
-- On the **IT client** machine, logged in as a domain user.  
-- Attempted to set a weak password (e.g., `password1`) → **Rejected**.  
-- Set a strong password (e.g., `P@ssw0rd!2025`) → **Accepted**.  
-- Verified policy enforcement via **RSOP.msc** and **gpresult /r**.  
+### Testing & Validation
+
+- Forced a password reset for **AliceIT** in **Active Directory Users and Computers (ADUC)**  
+  *(Right-click user → Reset Password → check “User must change password at next logon”).*  
+![ADUC_AliceIT](images/5_ADUC_AliceIT.png)
+![Reset_Password_AliceIT](images/6_Reset_Password_AliceIT.png)
+![Reset_Password_AliceIT2](images/7_Reset_Password_AliceIT2.png)
+
+
+- On the **WIN-11 client (AliceIT)** machine, logged in as a domain user.
+   ![Alice_Password_Change](images/8_Alice_Password_Change.png)
+
+- Attempted to set a weak password (e.g., `password1`) → **Rejected**. ✅
+
+     ![Weak_Password](images/9_Weak_Password.png)
+   ![Unable_Set_Weak_Password](images/10_Unable_Set_Weak_Password.png)
+
+- Set a strong password (e.g., `P@ssw0rd!2025`) → **Accepted**. ✅
+   ![Strong_Password](images/11_Strong_Password.png)
+   ![Alice_Password_Change_Success](images/12_Alice_Password_Change_Success.png)
+
+
+---
+
+✅ With this configuration and testing, all Active Directory users in the **corp.local** domain are now required to follow a strong password policy aligned with enterprise best practices.
