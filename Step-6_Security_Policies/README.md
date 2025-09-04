@@ -1,19 +1,26 @@
 # Step 6 – Implementing Security Policies
 
+To enforce strong password standards across the domain, I configured the **Default Domain Policy** in Group Policy Management
+
 ## Password Policy Configuration
 
+Open Group Policy Management 
+screenshot
+Go to Group Policy Objects and then Default Domain Policy and right click then select edit  
+screenshot
 To enforce strong password standards across the domain, I configured the **Default Domain Policy** in Group Policy Management.  
 
 **Path in GPO Editor:**  
 `Computer Configuration → Policies → Windows Settings → Security Settings → Account Policies → Password Policy`
-
+screenshot
 ### Configured Settings:
-- **Enforce Password History:** 4 passwords remembered  
+- **Enforce Password History:** 24 passwords remembered  
 - **Maximum Password Age:** 60 days  
 - **Minimum Password Age:** 1 day  
-- **Minimum Password Length:** 7 characters  
+- **Minimum Password Length:** 12 characters  
 - **Password Must Meet Complexity Requirements:** Enabled  
 
+screenshot 
 ### Why These Settings?
 - **Password History** prevents users from recycling recent passwords.  
 - **Maximum Age** forces regular password changes.  
