@@ -143,9 +143,16 @@ To enforce **role-based access control (RBAC)** and enhance security, I configur
 
 ### Testing & Validation
 - On the **Windows 11 client (AliceIT)**:  
-  - Confirmed that an **HR_Staff** account cannot log in locally.  
+  - Confirmed that an **HR_Staff** account cannot log in locally.
+![HR_Staff_Login_WINServer](images/27_HR_Staff_Login_WINServer.png)
+![HR_Staff_Denied_WINServer](images/28_HR_Staff_Denied_WINServer.png) 
 - On the **Windows 10 client (EveHR)**:  
-  - Attempted RDP with `HR_Staff` → **Access Denied**.  
+  - Attempted RDP with `HR_Staff` → **Access Denied**.
+![RDP_HR_Connect](images/29_RDP_HR_Connect.png)
+![RDP_HR_Password](images/30_RDP_HR_Password.png) 
+![RDP_HR_Connect_Denied](images/31_RDP_HR_Connect_Denied.png) 
+
+
   - Attempted RDP with `IT_Staff` → **Access Granted** ✅.  
 
 ---
