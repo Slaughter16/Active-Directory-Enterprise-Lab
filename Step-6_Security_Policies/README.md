@@ -100,3 +100,49 @@ To protect against brute-force attacks, I configured an **Account Lockout Policy
 ---
 
 ✅ With this configuration, repeated brute-force password attempts against domain accounts are mitigated by temporary account lockouts, reducing the risk of credential-guessing attacks.
+
+---
+
+## User Rights Assignment Configuration
+
+To enforce **role-based access control (RBAC)** and enhance security, I configured **User Rights Assignment** in the **Default Domain Policy**.
+
+---
+
+### Steps
+1. Open **Group Policy Management Console (GPMC)**.  
+   ![Screenshot – Open GPMC](screenshot7.png)
+
+2. Navigate to **Group Policy Objects**, right-click **Default Domain Policy**, and select **Edit**.  
+   ![Screenshot – Edit Default Domain Policy](screenshot8.png)
+
+3. In the Group Policy Management Editor, go to:  
+   `Computer Configuration → Policies → Windows Settings → Security Settings → Local Policies → User Rights Assignment`  
+   ![Screenshot – User Rights Assignment](screenshot9.png)
+
+---
+
+### Configured Settings
+
+#### 🔒 Deny Log on Locally
+- **Policy:** Deny log on locally  
+- **Applied to:** `HR_Staff` group  
+- **Purpose:** Prevent HR users from logging on directly to servers or domain controllers.  
+
+#### 💻 Allow Log on Through Remote Desktop Services
+- **Policy:** Allow log on through Remote Desktop Services  
+- **Applied to:** `IT_Staff` group  
+- **Purpose:** Restrict remote desktop access to IT administrators only.  
+
+---
+
+### Testing & Validation
+- On the **Windows 11 client (AliceIT)**:  
+  - Confirmed that an **HR_Staff** account cannot log in locally.  
+- On the **Windows 10 client (EveHR)**:  
+  - Attempted RDP with `HR_Staff` → **Access Denied**.  
+  - Attempted RDP with `IT_Staff` → **Access Granted** ✅.  
+
+---
+
+✅ This ensures only authorized IT staff can use RDP for administrative tasks, while HR staff have restricted access, reducing the attack surface and following the principle of least privilege.
