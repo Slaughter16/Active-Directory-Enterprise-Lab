@@ -116,8 +116,7 @@ To enforce **role-based access control (RBAC)** and enhance security, I configur
 ![Edit_Default_RBAC](images/19_Edit_Default_RBAC.png)
 3. In the Group Policy Management Editor, go to:  
    `Computer Configuration → Policies → Windows Settings → Security Settings → Local Policies → User Rights Assignment`  
-   ![Screenshot – User Rights Assignment](screenshot9.png)
-
+![User_Rights_Access](images/20_User_Rights_Access.png)
 ---
 
 ### Configured Settings
@@ -127,10 +126,18 @@ To enforce **role-based access control (RBAC)** and enhance security, I configur
 - **Applied to:** `HR_Staff` group  
 - **Purpose:** Prevent HR users from logging on directly to servers or domain controllers.  
 
+![HR_Staff_Deny](images/21_HR_Staff_Deny.png)
+![HR_Staff_Deny_Add](images/22_HR_Staff_Deny_Add.png)
+![HR_Staff_Deny_Add_Verify](images/23_HR_Staff_Deny_Add_Verify.png)
+
+
 #### 💻 Allow Log on Through Remote Desktop Services
 - **Policy:** Allow log on through Remote Desktop Services  
 - **Applied to:** `IT_Staff` group  
 - **Purpose:** Restrict remote desktop access to IT administrators only.  
+![IT_Staff_Allow](images/24_IT_Staff_Allow.png)
+![IT_Staff_Allow_Add](images/25_IT_Staff_Allow_Add.png)
+![IT_Staff_Allow_Add_Verify](images/26_IT_Staff_Allow_Add_Verify.png)
 
 ---
 
