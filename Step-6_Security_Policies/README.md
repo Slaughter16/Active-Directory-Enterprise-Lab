@@ -84,13 +84,14 @@ To protect against brute-force attacks, I configured an **Account Lockout Policy
 
 ### Configured Settings (Best Practice)
 - **Account Lockout Threshold:** 3 invalid logon attempts  
-- **Account Lockout Duration:** 30 minutes  
-- **Reset Account Lockout Counter After:** 30 minutes  
+- **Account Lockout Duration:** 30 minutes  '
+- **Allow Administrator account lockout:** Disabled
+- **Reset Account Lockout Counter After:** 30 minutes
  ![Config_Lockout_Policy](images/16_Config_Lockout_Policy.png)
 ---
 
 ### Testing & Validation
-- On the **Windows 11 client (AliceIT)**, attempted to log in with the wrong password **3 times in a row**.  
+- On the **Windows 10 client (EveHR)**, attempted to log in with the wrong password **3 times in a row**.  
 - After the 3rd failed attempt → **Account locked out** ✅  
 - Verified lockout message on login screen:  
   *“Your account has been locked. Please contact your administrator or try again later.”*  
