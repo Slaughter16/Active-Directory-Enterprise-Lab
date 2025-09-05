@@ -154,6 +154,9 @@ To enforce **role-based access control (RBAC)** and enhance security, I configur
 
 
   - Attempted RDP with `IT_Staff` → **Access Granted** ✅.  
+![RDP_HR_Connect_Denied](images/32_RDP_IT_Connect.png) 
+![RDP_HR_Connect_Denied](images/33_RDP_IT_Password.png) 
+![RDP_HR_Connect_Denied](images/34_RDP_IT_Connect_Accepted.png) 
 
 ---
 
