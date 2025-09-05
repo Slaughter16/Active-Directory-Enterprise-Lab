@@ -71,14 +71,13 @@ To protect against brute-force attacks, I configured an **Account Lockout Policy
 
 ### Steps
 1. Open **Group Policy Management Console (GPMC)**.  
-   ![Screenshot – Open GPMC](screenshot4.png)
-
+   ![GPMC_Acct_Policy](images/13_GPMC_Acct_Policy.png)
 2. Navigate to **Group Policy Objects**, right-click **Default Domain Policy**, and select **Edit**.  
-   ![Screenshot – Edit Default Domain Policy](screenshot5.png)
+   ![Default_Domain_Acct_Policy](images/14_Default_Domain_Acct_Policy.png)
 
 3. In the Group Policy Management Editor, go to:  
    `Computer Configuration → Policies → Windows Settings → Security Settings → Account Policies → Account Lockout Policy`  
-   ![Screenshot – Account Lockout Settings](screenshot6.png)
+   ![Account_Lockout_Settings](images/15_Account_Lockout_Settings.png)
 
    
 ---
@@ -87,7 +86,7 @@ To protect against brute-force attacks, I configured an **Account Lockout Policy
 - **Account Lockout Threshold:** 3 invalid logon attempts  
 - **Account Lockout Duration:** 30 minutes  
 - **Reset Account Lockout Counter After:** 30 minutes  
-
+ ![Config_Lockout_Policy](images/16_Config_Lockout_Policy.png)
 ---
 
 ### Testing & Validation
@@ -96,7 +95,7 @@ To protect against brute-force attacks, I configured an **Account Lockout Policy
 - Verified lockout message on login screen:  
   *“Your account has been locked. Please contact your administrator or try again later.”*  
 - Account automatically unlocked after the configured **30 minutes**.  
-
+![Verify_WIN10_Lockout](images/17_Verify_WIN10_Lockout.png)
 ---
 
 ✅ With this configuration, repeated brute-force password attempts against domain accounts are mitigated by temporary account lockouts, reducing the risk of credential-guessing attacks.
