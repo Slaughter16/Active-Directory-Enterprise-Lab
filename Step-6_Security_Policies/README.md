@@ -111,11 +111,9 @@ To enforce **role-based access control (RBAC)** and enhance security, I configur
 
 ### Steps
 1. Open **Group Policy Management Console (GPMC)**.  
-   ![Screenshot – Open GPMC](screenshot7.png)
-
+![GPMC_RBAC](images/18_GPMC_RBAC.png)
 2. Navigate to **Group Policy Objects**, right-click **Default Domain Policy**, and select **Edit**.  
-   ![Screenshot – Edit Default Domain Policy](screenshot8.png)
-
+![Edit_Default_RBAC](images/19_Edit_Default_RBAC.png)
 3. In the Group Policy Management Editor, go to:  
    `Computer Configuration → Policies → Windows Settings → Security Settings → Local Policies → User Rights Assignment`  
    ![Screenshot – User Rights Assignment](screenshot9.png)
