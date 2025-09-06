@@ -161,3 +161,91 @@ To enforce **role-based access control (RBAC)** and enhance security, I configur
 ---
 
 ✅ This ensures only authorized IT staff can use RDP for administrative tasks, while HR staff have restricted access, reducing the attack surface and following the principle of least privilege.
+
+---
+
+
+# 🔐 Step 6 – Implement Fine-Grained Password Policies (FGPP)
+
+## 📌 Scenario
+The organization wants stricter password rules for administrative accounts, while standard users follow less stringent requirements.  
+We’ll use **Password Settings Objects (PSOs)** in **Active Directory Administrative Center (ADAC)** to apply different password policies to different groups.
+
+---
+
+## 🛠️ Configuration
+
+### 1️⃣ Open ADAC
+1. On the **Windows Server (Domain Controller)**, open:  
+   **Server Manager → Tools → Active Directory Administrative Center (ADAC)**  
+2. Navigate to:  
+   `corp.local → System → Password Settings Container`  
+
+---
+
+### 2️⃣ Create a Policy for Administrative Accounts
+1. In the right-hand pane, click **New → Password Settings**.  
+2. Configure the following:  
+   - **Name:** `AdminPasswordPolicy`  
+   - **Precedence:** `1` (lowest number = highest priority)  
+   - **Minimum Password Length:** `15`  
+   - **Enforce Password History:** `5`  
+   - **Complexity Requirements:** Enabled  
+3. Under **Directly Applies To → Add**, select the **IT_Staff** group.  
+4. Click **OK** to create the policy.
+
+✅ Outcome: All IT staff (admins) must use strong 15+ character passwords with history enforcement.
+
+---
+
+### 3️⃣ Create a Policy for Standard Users
+1. In the same container, click **New → Password Settings** again.  
+2. Configure the following:  
+   - **Name:** `UserPasswordPolicy`  
+   - **Precedence:** `2`  
+   - **Minimum Password Length:** `10`  
+   - **Enforce Password History:** `5`  
+   - **Complexity Requirements:** Enabled  
+3. Under **Directly Applies To → Add**, select the **HR_Staff** group.  
+4. Click **OK** to create the policy.
+
+✅ Outcome: HR users must use at least 10-character passwords with complexity.
+
+---
+
+### 4️⃣ Verification
+1. Run `ADAC` → check **Password Settings Container** → ensure both PSOs are listed.  
+2. On a client machine (e.g., Windows 10/11), try resetting a password for a user in **IT_Staff** vs. **HR_Staff**.  
+   - IT user (AliceIT) → must set 15+ character password.  
+   - HR user (EveHR) → must set 10+ character password.  
+3. If needed, run:  
+
+```powershell
+Get-ADUserResultantPasswordPolicy -Identity AliceIT
+Get-ADUserResultantPasswordPolicy -Identity EveHR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
