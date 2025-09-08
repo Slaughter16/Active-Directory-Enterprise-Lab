@@ -249,31 +249,31 @@ Get-ADUserResultantPasswordPolicy -Identity EveHR
 
 - Attempted short password → ❌ Failed (did not meet requirements).
 
-[Reset_Eve_Pass_Fail](images/45_Reset_Eve_Pass_Fail.png)
+![Reset_Eve_Pass_Fail](images/45_Reset_Eve_Pass_Fail.png)
 
-[New_Pass_Eve_Fail](images/46_New_Pass_Eve_Fail.png)
+![New_Pass_Eve_Fail](images/46_New_Pass_Eve_Fail.png)
 
-[Verify_Pass_Fail_Eve](images/47_Verify_Pass_Fail_Eve.png)
+![Verify_Pass_Fail_Eve](images/47_Verify_Pass_Fail_Eve.png)
 
 
   
 - Attempted strong 10+ char password → ✅ Success.
-[Eve_Correct_Pass](images/53_Eve_Correct_Pass.png)
-[Verify_Pass_Eve_Change](images/54_Verify_Pass_Eve_Change.png)
+![Eve_Correct_Pass](images/53_Eve_Correct_Pass.png)
+![Verify_Pass_Eve_Change](images/54_Verify_Pass_Eve_Change.png)
 
 
 #### AliceIT (IT Staff – requires 15 chars)
 
 
 - Attempted short password → ❌ Failed (did not meet requirements).
-[Reset_Alice_Pass_Fail](images/48_Reset_Alice_Pass_Fail.png)
-[New_Pass_Alice_Fail](images/49_New_Pass_Alice_Fail.png)
-[Verify_Pass_Fail_Alice](images/50_Verify_Pass_Fail_Alice.png)
+![Reset_Alice_Pass_Fail](images/48_Reset_Alice_Pass_Fail.png)
+![New_Pass_Alice_Fail](images/49_New_Pass_Alice_Fail.png)
+![Verify_Pass_Fail_Alice](images/50_Verify_Pass_Fail_Alice.png)
 
 
 - Attempted strong 15+ char password → ✅ Success.
-[Alice_Correct_Pass](images/51_Alice_Correct_Pass.png)
-[Verify_Pass_Alice_Change](images/52_Verify_Pass_Alice_Change.png)
+![Alice_Correct_Pass](images/51_Alice_Correct_Pass.png)
+![Verify_Pass_Alice_Change](images/52_Verify_Pass_Alice_Change.png)
 
 
 
@@ -284,19 +284,19 @@ Get-ADUserResultantPasswordPolicy -Identity EveHR
 
 - Windows 10, HR user (EveHR) → must set 10+ character password.  
  - First entry doesnt meet requirements, second entry will.
-  [Change_Eve_Pass_Sign](images/55_Change_Eve_Pass_Sign.png)
-  [Fail_Pass_Change_Eve](images/56_Fail_Pass_Change_Eve.png)
-  [Unable_Update_Pass_Eve](images/57_Unable_Update_Pass_Eve.png)
-  [Pass_Change_Eve](images/58_Pass_Change_Eve.png)
-  [Eve_Pass_Change](images/59_Eve_Pass_Change.png)
+  ![Change_Eve_Pass_Sign](images/55_Change_Eve_Pass_Sign.png)
+  ![Fail_Pass_Change_Eve](images/56_Fail_Pass_Change_Eve.png)
+  ![Unable_Update_Pass_Eve](images/57_Unable_Update_Pass_Eve.png)
+  ![Pass_Change_Eve](images/58_Pass_Change_Eve.png)
+  ![Eve_Pass_Change](images/59_Eve_Pass_Change.png)
 
 
 - Windows 11, IT user (AliceIT) → must set 15+ character password.
 
-[Alice_Pass_Change_Sign](images/60_Alice_Pass_Change_Sign.png)
-[Fail_Pass_Change_Alice](images/61_Fail_Pass_Change_Alice.png)
-[Alice_Unable_UpdatePass](images/62_Alice_Unable_UpdatePass.png)
-[Alice_Pass_Change](images/63_Alice_Pass_Change.png)
+![Alice_Pass_Change_Sign](images/60_Alice_Pass_Change_Sign.png)
+![Fail_Pass_Change_Alice](images/61_Fail_Pass_Change_Alice.png)
+![Alice_Unable_UpdatePass](images/62_Alice_Unable_UpdatePass.png)
+![Alice_Pass_Change](images/63_Alice_Pass_Change.png)
 
 
 
