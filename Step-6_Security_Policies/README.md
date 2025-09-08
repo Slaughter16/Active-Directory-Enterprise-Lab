@@ -249,8 +249,10 @@ Get-ADUserResultantPasswordPolicy -Identity EveHR
 
 - Attempted short password → ❌ Failed (did not meet requirements).
 
-- [Reset_Eve_Pass_Fail](images/45_Reset_Eve_Pass_Fail.png)
+[Reset_Eve_Pass_Fail](images/45_Reset_Eve_Pass_Fail.png)
+
 [New_Pass_Eve_Fail](images/46_New_Pass_Eve_Fail.png)
+
 [Verify_Pass_Fail_Eve](images/47_Verify_Pass_Fail_Eve.png)
 
 
