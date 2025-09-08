@@ -232,7 +232,7 @@ We’ll use **Password Settings Objects (PSOs)** in **Active Directory Administr
 1. Run `ADAC` → check **Password Settings Container** → ensure both PSOs are listed.
 ![Verify_User_Password_Policy](images/43_Verify_User_Password_Policy.png)
 
-2.On WIN-Server, confirm applied policies:
+2. On WIN-Server, confirm applied policies:
 
 ```powershell
 Get-ADUserResultantPasswordPolicy -Identity AliceIT
@@ -263,7 +263,7 @@ Get-ADUserResultantPasswordPolicy -Identity EveHR
 
 
 
-3. On a client machine (e.g., Windows 10/11), try resetting a password for a user in **IT_Staff** vs. **HR_Staff**.  
+4. On a client machine (e.g., Windows 10/11), try resetting a password for a user in **IT_Staff** vs. **HR_Staff**.  
    - Windows 11, IT user (AliceIT) → must set 15+ character password.  
    - Windows 10, HR user (EveHR) → must set 10+ character password.  
 
