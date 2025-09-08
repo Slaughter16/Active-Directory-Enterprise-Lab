@@ -262,7 +262,7 @@ sudo realm list
 ![Debian_Verify_Domain](images/41_Verify_Joined_Domain.png)
 
 
-# Lookup Domain Controller
+#### Lookup Domain Controller
 nslookup 192.168.10.10
 
 ![Debian_Lookup](images/41_Lookup_Domain.png)
