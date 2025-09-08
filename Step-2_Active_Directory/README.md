@@ -285,21 +285,41 @@ After joining clients to the domain, it’s important to confirm DNS is working 
 
 - On **Windows 10 / 11** clients, run:
 
-```powershell
+```
 nslookup AliceIT.corp.local
 nslookup EveHR.corp.local
 ```
 Expected Output: Should return the correct IP addresses for each client.
+
+- On **Debian client**, run:
+```powershell
+nslookup AliceIT.corp.local
+nslookup EveHR.corp.local
+```
+
+
+✅ Forward lookup confirms clients’ names resolve to their IP addresses.
+
+---
 
 #### 🖥️ Reverse Lookup Test (PTR Records)
 
 - On **Windows 10 / 11** clients, run:
 
 ```
-nslookup 192.168.10.50 AliceIT
-nslookup 192.168.10.100 EveHR
+nslookup 192.168.10.50 (AliceIT)
+nslookup 192.168.10.100 (EveHR)
 ```
+
+
 Expected Output: Should return AliceIT.corp.local and EveHR.corp.local respectively.
 
+- On **Debian client**, run:
+
+```
+nslookup 192.168.10.50 (AliceIT)
+nslookup 192.168.10.100 (EveHR)
+```
 
 
+✅ Reverse lookup confirms that IP addresses correctly map back to client hostnames.
