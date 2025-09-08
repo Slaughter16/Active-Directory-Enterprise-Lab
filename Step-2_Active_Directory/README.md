@@ -101,7 +101,63 @@ This step builds the foundation for:
 
 ---
 
-### 4️⃣ Join Clients to the Domain
+## 🔐 Secure Domain Controller – Post-Promotion Tasks
+
+After promoting the server to a Domain Controller, I performed two critical security and networking configurations:
+
+1. **Configured DNS Forwarders** – ensures domain clients can resolve external internet names.  
+2. **Renamed the Default Administrator Account** – prevents attackers from targeting the well-known "Administrator" account.
+
+---
+
+## 4️⃣ Configure DNS Forwarders
+
+1. On the **Domain Controller (DC01)**, open **Server Manager** → click **Tools → DNS**.  
+   ![Open_DNS](images/20_Open_DNS.png)
+
+2. In the DNS Manager console, expand the server name → right-click **DC01** → select **Properties**.  
+   ![DNS_Properties](images/21_DNS_Properties.png)
+
+3. Go to the **Forwarders** tab → click **Edit**.  
+   ![DNS_Forwarders_Tab](images/22_DNS_Forwarders_Tab.png)
+
+4. Add public DNS servers (e.g., `8.8.8.8` for Google, `1.1.1.1` for Cloudflare).  
+   ![DNS_Add_Forwarder](images/23_DNS_Add_Forwarder.png)
+
+5. Click **OK** → ensure status shows **validated**.  
+   ![DNS_Forwarder_Validated](images/24_DNS_Forwarder_Validated.png)
+
+✅ Outcome: Domain clients can now resolve both **internal domain names** and **external internet names** reliably.  
+
+---
+
+
+## 5️⃣ Rename the Default Administrator Account
+
+1. Open **Active Directory Users and Computers (ADUC)** from **Server Manager → Tools**.  
+   ![Open_ADUC](images/25_Open_ADUC.png)
+
+2. Navigate to the **Users** container.  
+   ![ADUC_Users_Container](images/26_ADUC_Users.png)
+
+3. Locate the built-in **Administrator** account → right-click → **Rename**.  
+   ![Rename_Admin](images/27_Rename_Admin.png)
+
+4. Rename it to a non-default, unique name (e.g., `SecAdmin01`).  
+   Update:  
+   - **First Name**: Sec  
+   - **Last Name**: Admin01  
+   - **Full Name**: SecAdmin01  
+   - **User logon name (pre-Windows 2000)** will update automatically.  
+   ![Admin_Renamed](images/28_Admin_Renamed.png)
+
+5. Verify that login now requires the new username (`CORP\SecAdmin01`) with the **same password** as before.  
+
+✅ Outcome: The default "Administrator" account is no longer predictable, reducing exposure to brute-force and credential-stuffing attacks.  
+
+---
+
+### 6️⃣ Join Clients to the Domain
 
 #### 🖥️ Windows 10 / 11
 1. Ensure **Preferred DNS** is set to DC (`192.168.10.10`).
