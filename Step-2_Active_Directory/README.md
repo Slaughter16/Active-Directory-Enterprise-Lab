@@ -289,6 +289,11 @@ After joining clients to the domain, it’s important to confirm DNS is working 
 nslookup AliceIT.corp.local
 nslookup EveHR.corp.local
 ```
+![Nslookup_AliceIT](images/53_Nslookup_AliceIT.png)
+![Nslookup_EveHR](images/54_Nslookup_EveHR.png)
+
+
+
 Expected Output: Should return the correct IP addresses for each client.
 
 - On **Debian client**, run:
@@ -296,7 +301,7 @@ Expected Output: Should return the correct IP addresses for each client.
 nslookup AliceIT.corp.local
 nslookup EveHR.corp.local
 ```
-
+![Nslookup_Debian_Forward](images/55_Nslookup_Debian_Forward.png)
 
 ✅ Forward lookup confirms clients’ names resolve to their IP addresses.
 
@@ -310,8 +315,8 @@ nslookup EveHR.corp.local
 nslookup 192.168.10.50 (AliceIT)
 nslookup 192.168.10.100 (EveHR)
 ```
-
-
+![Nslookup_.50](images/56_Nslookup_.50.png)
+![Nslookup_.100](images/57_Nslookup_.100.png)
 Expected Output: Should return AliceIT.corp.local and EveHR.corp.local respectively.
 
 - On **Debian client**, run:
@@ -320,6 +325,6 @@ Expected Output: Should return AliceIT.corp.local and EveHR.corp.local respectiv
 nslookup 192.168.10.50 (AliceIT)
 nslookup 192.168.10.100 (EveHR)
 ```
-
+![Nslookup_Debian_Reverse](images/58_Nslookup_Debian_Reverse.png)
 
 ✅ Reverse lookup confirms that IP addresses correctly map back to client hostnames.
