@@ -224,51 +224,51 @@ After promoting the server to a Domain Controller, I performed two critical secu
 #### 🐧 Debian Client
 
 
-# Ensure the client points to the Domain Controller (DC) for DNS resolution.
+1. Ensure the client points to the Domain Controller (DC) for DNS resolution.
 sudo nano /etc/resolv.conf
 nameserver 192.168.10.10
 
 ![Debian_Verify_DNA](images/35_Verify_Debian_DNS.png)
 
 
-# Install required packages
+2. Install required packages
 sudo apt update && sudo apt install realmd sssd samba-common \
 sudo apt install adcli packagekit samba-commmon-bin -y 
 
 ![Debian_Realm](images/36_Install_Realm.png)
 ![Debian_Package](images/37_Install_Package.png)
 
-# Update & Install all necessary packages for AD integration
+3. Update & Install all necessary packages for AD integration
 sudo apt update
 sudo apt install realmd -y
 
 ![Debian_Update](images/38_Update_Debian.png)
 
 
-# Check that the domain is reachable and discoverable:sudo realm discover corp.local
+4. Check that the domain is reachable and discoverable:sudo realm discover corp.local
 
 ![Debian_Discover_Domain](images/39_Discover_Domain.png)
 
 
-# Use the AD Administrator account to join the domain
+5. Use the AD Administrator account to join the domain
 sudo realm join corp.local -U Administrator
 
 ![Debian_Join_Domain](images/40_Join_Debian.png)
 
 
-# Verify machine successfully join the domain
+6. Verify machine successfully join the domain
 sudo realm list
 
 ![Debian_Verify_Domain](images/41_Verify_Joined_Domain.png)
 
 
-#### Lookup Domain Controller
+7. Lookup Domain Controller
 nslookup 192.168.10.10
 
 ![Debian_Lookup](images/41_Lookup_Domain.png)
 
 
-# Ping the Domain Controller
+8. Ping the Domain Controller
 ping -c 3 192.168.10.10
 
 ![Debian_Ping_DC](images/42_Ping_DC.png)
