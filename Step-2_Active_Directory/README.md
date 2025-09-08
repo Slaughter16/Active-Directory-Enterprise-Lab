@@ -113,19 +113,19 @@ After promoting the server to a Domain Controller, I performed two critical secu
 ## 4️⃣ Configure DNS Forwarders
 
 1. On the **Domain Controller (DC01)**, open **Server Manager** → click **Tools → DNS**.  
-   ![Open_DNS](images/20_Open_DNS.png)
+   ![Open_DNS](images/43_Open_DNS.png)
 
 2. In the DNS Manager console, expand the server name → right-click **DC01** → select **Properties**.  
-   ![DNS_Properties](images/21_DNS_Properties.png)
+   ![DNS_Properties](images/44_DNS_Properties.png)
 
 3. Go to the **Forwarders** tab → click **Edit**.  
-   ![DNS_Forwarders_Tab](images/22_DNS_Forwarders_Tab.png)
+   ![DNS_Forwarders_Tab](images/45_DNS_Forwarders_Tab.png)
 
 4. Add public DNS servers (e.g., `8.8.8.8` for Google, `1.1.1.1` for Cloudflare).  
-   ![DNS_Add_Forwarder](images/23_DNS_Add_Forwarder.png)
+   ![DNS_Add_Forwarder](images/46_DNS_Add_Forwarder.png)
 
 5. Click **OK** → ensure status shows **validated**.  
-   ![DNS_Forwarder_Validated](images/24_DNS_Forwarder_Validated.png)
+   ![DNS_Forwarder_Validated](images/47_DNS_Forwarder_Validated.png)
 
 ✅ Outcome: Domain clients can now resolve both **internal domain names** and **external internet names** reliably.  
 
@@ -135,13 +135,10 @@ After promoting the server to a Domain Controller, I performed two critical secu
 ## 5️⃣ Rename the Default Administrator Account
 
 1. Open **Active Directory Users and Computers (ADUC)** from **Server Manager → Tools**.  
-   ![Open_ADUC](images/25_Open_ADUC.png)
+   ![Open_ADUC](images/48_Open_ADUC.png)
 
-2. Navigate to the **Users** container.  
-   ![ADUC_Users_Container](images/26_ADUC_Users.png)
-
-3. Locate the built-in **Administrator** account → right-click → **Rename**.  
-   ![Rename_Admin](images/27_Rename_Admin.png)
+2. Navigate to the **Users** container and Locate the built-in **Administrator** account → right-click → **Rename**.   
+   ![Rename_Admin](images/49_Rename_Admin.png)
 
 4. Rename it to a non-default, unique name (e.g., `SecAdmin01`).  
    Update:  
@@ -149,10 +146,11 @@ After promoting the server to a Domain Controller, I performed two critical secu
    - **Last Name**: Admin01  
    - **Full Name**: SecAdmin01  
    - **User logon name (pre-Windows 2000)** will update automatically.  
-   ![Admin_Renamed](images/28_Admin_Renamed.png)
+   ![Admin_Renamed](images/50_Admin_Renamed.png)
+![Verify_SecAdmin01](images/51_Verify_SecAdmin01.png)
 
 5. Verify that login now requires the new username (`CORP\SecAdmin01`) with the **same password** as before.  
-
+![Verify_SecAdmin01_Login](images/52_Verify_SecAdmin01_Login.png)
 ✅ Outcome: The default "Administrator" account is no longer predictable, reducing exposure to brute-force and credential-stuffing attacks.  
 
 ---
