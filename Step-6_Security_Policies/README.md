@@ -177,52 +177,96 @@ We’ll use **Password Settings Objects (PSOs)** in **Active Directory Administr
 
 ### 1️⃣ Open ADAC
 1. On the **Windows Server (Domain Controller)**, open:  
-   **Server Manager → Tools → Active Directory Administrative Center (ADAC)**  
-2. Navigate to:  
+   **Server Manager → Tools → Active Directory Administrative Center (ADAC)**
+
+![Open_ADAC](images/35_Open_ADAC.png)
+3. Navigate to:  
    `corp.local → System → Password Settings Container`  
+![Passwords_Settings_Container](images/36_Passwords_Settings_Container.png)
 
 ---
 
 ### 2️⃣ Create a Policy for Administrative Accounts
-1. In the right-hand pane, click **New → Password Settings**.  
-2. Configure the following:  
+1. In the right-hand pane, click **New → Password Settings**.
+
+![Password_Settings_New_Admin](images/37_Password_Settings_New_Admin.png)
+
+3. Configure the following:  
    - **Name:** `AdminPasswordPolicy`  
    - **Precedence:** `1` (lowest number = highest priority)  
    - **Minimum Password Length:** `15`  
    - **Enforce Password History:** `5`  
    - **Complexity Requirements:** Enabled  
-3. Under **Directly Applies To → Add**, select the **IT_Staff** group.  
-4. Click **OK** to create the policy.
+4. Under **Directly Applies To → Add**, select the **IT_Staff** group.
+
+   ![Admin_Password_Policy](images/38_Admin_Password_Policy.png)
+
+6. Click **OK** to create the policy.
+![IT_Staff_Add](images/39_IT_Staff_Add.png)
 
 ✅ Outcome: All IT staff (admins) must use strong 15+ character passwords with history enforcement.
 
 ---
 
 ### 3️⃣ Create a Policy for Standard Users
-1. In the same container, click **New → Password Settings** again.  
-2. Configure the following:  
+1. In the same container, click **New → Password Settings** again.
+![Verify_Admin_Pass_Policy](images/40_Verify_Admin_Pass_Policy.png)
+
+3. Configure the following:  
    - **Name:** `UserPasswordPolicy`  
    - **Precedence:** `2`  
    - **Minimum Password Length:** `10`  
    - **Enforce Password History:** `5`  
-   - **Complexity Requirements:** Enabled  
-3. Under **Directly Applies To → Add**, select the **HR_Staff** group.  
-4. Click **OK** to create the policy.
+   - **Complexity Requirements:** Enabled
+![User_Password_Policy](images/41_User_Password_Policy.png)
+
+4. Under **Directly Applies To → Add**, select the **HR_Staff** group.
+6. Click **OK** to create the policy.
+![HR_Staff_Add](images/42_HR_Staff_Add.png)
 
 ✅ Outcome: HR users must use at least 10-character passwords with complexity.
 
 ---
 
 ### 4️⃣ Verification
-1. Run `ADAC` → check **Password Settings Container** → ensure both PSOs are listed.  
-2. On a client machine (e.g., Windows 10/11), try resetting a password for a user in **IT_Staff** vs. **HR_Staff**.  
-   - IT user (AliceIT) → must set 15+ character password.  
-   - HR user (EveHR) → must set 10+ character password.  
-3. If needed, run:  
+1. Run `ADAC` → check **Password Settings Container** → ensure both PSOs are listed.
+![Verify_User_Password_Policy](images/43_Verify_User_Password_Policy.png)
+
+2.On WIN-Server, confirm applied policies:
 
 ```powershell
 Get-ADUserResultantPasswordPolicy -Identity AliceIT
 Get-ADUserResultantPasswordPolicy -Identity EveHR
+```
+![Power_Shell_Verify](images/44_Power_Shell_Verify.png)
+
+
+3. Test on Server (Resetting Passwords in ADUC)
+- Tried resetting passwords for both users directly in Active Directory Users and Computers (ADUC).
+
+#### AliceIT (IT Staff – requires 15 chars)
+
+- Attempted short password → ❌ Failed (did not meet requirements).
+
+- Attempted strong 15+ char password → ✅ Success.
+
+
+
+
+#### EveHR (HR Staff – requires 10 chars)
+
+- Attempted short password → ❌ Failed.
+
+- Attempted strong 10+ char password → ✅ Success.
+
+
+
+
+
+3. On a client machine (e.g., Windows 10/11), try resetting a password for a user in **IT_Staff** vs. **HR_Staff**.  
+   - Windows 11, IT user (AliceIT) → must set 15+ character password.  
+   - Windows 10, HR user (EveHR) → must set 10+ character password.  
+
 
 
 
