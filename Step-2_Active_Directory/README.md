@@ -273,13 +273,33 @@ ping -c 3 192.168.10.10
 
 ![Debian_Ping_DC](images/42_Ping_DC.png)
 
+---
 
+### 7️⃣ Verify DNS Forward & Reverse Lookup
 
+After joining clients to the domain, it’s important to confirm DNS is working correctly.
 
+---
 
+#### 🖥️ Forward Lookup Test
 
+- On **Windows 10 / 11** clients, run:
 
+```powershell
+nslookup AliceIT.corp.local
+nslookup EveHR.corp.local
+```
+Expected Output: Should return the correct IP addresses for each client.
 
+#### 🖥️ Reverse Lookup Test (PTR Records)
+
+- On **Windows 10 / 11** clients, run:
+
+```
+nslookup 192.168.10.50
+nslookup 192.168.10.100
+```
+Expected Output: Should return AliceIT.corp.local and EveHR.corp.local respectively.
 
 
 
