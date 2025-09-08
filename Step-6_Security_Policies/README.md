@@ -244,20 +244,28 @@ Get-ADUserResultantPasswordPolicy -Identity EveHR
 3. Test on Server (Resetting Passwords in ADUC)
 - Tried resetting passwords for both users directly in Active Directory Users and Computers (ADUC).
 
+#### EveHR (HR Staff – requires 10 chars)
+
+
+[Reset_Eve_Pass_Fail](images/45_Reset_Eve_Pass_Fail.png)
+[New_Pass_Eve_Fail](images/46_New_Pass_Eve_Fail.png)
+[Verify_Pass_Fail_Eve](images/47_Verify_Pass_Fail_Eve.png)
+
+- Attempted short password → ❌ Failed (did not meet requirements).
+- 
+[Reset_Alice_Pass_Fail](images/48_Reset_Alice_Pass_Fail.png)
+[New_Pass_Alice_Fail](images/49_New_Pass_Alice_Fail.png)
+[Verify_Pass_Fail_Alice](images/50_Verify_Pass_Fail_Alice.png)
+- Attempted strong 10+ char password → ✅ Success.
+
+
+
 #### AliceIT (IT Staff – requires 15 chars)
 
 - Attempted short password → ❌ Failed (did not meet requirements).
 
 - Attempted strong 15+ char password → ✅ Success.
 
-
-
-
-#### EveHR (HR Staff – requires 10 chars)
-
-- Attempted short password → ❌ Failed.
-
-- Attempted strong 10+ char password → ✅ Success.
 
 
 
