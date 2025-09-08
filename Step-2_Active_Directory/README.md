@@ -296,8 +296,8 @@ Expected Output: Should return the correct IP addresses for each client.
 - On **Windows 10 / 11** clients, run:
 
 ```
-nslookup 192.168.10.50
-nslookup 192.168.10.100
+nslookup 192.168.10.50 AliceIT
+nslookup 192.168.10.100 EveHR
 ```
 Expected Output: Should return AliceIT.corp.local and EveHR.corp.local respectively.
 
