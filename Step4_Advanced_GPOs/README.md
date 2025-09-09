@@ -10,6 +10,7 @@ This simulates real-world administrative tasks where IT departments enforce poli
 
 ### 🔹 IT Department (OU: LabUsers → IT)
 **GPO Name:** `IT_User_Policy`
+**Security Group:** `IT_Staff`
 
 1. **Set a custom desktop background**  (GPO-Applied Settings)
    - Path: `User Configuration → Policies → Administrative Templates → Desktop → Desktop Wallpaper`
@@ -170,6 +171,7 @@ Navigate in the GPO Editor:   User Configuration → Policies → Administrative
 
 ### 🔹 HR Department (OU: LabUsers → HR)
 **GPO Name:** `HR_User_Policy`
+**Security Group:** `HR_Staff`
 
 We will configure:
 
