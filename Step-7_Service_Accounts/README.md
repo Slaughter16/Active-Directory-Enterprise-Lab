@@ -53,7 +53,7 @@ Set up a **single-purpose computer** to automatically log in with a **service ac
 1. Install **Google Chrome** (if not already installed).  
 2. Open Chrome → **Settings → On startup → Open a specific page or set of pages** → Enter URL.  
 3. Set Chrome shortcut to open in **full screen**:
-   - Right-click Chrome shortcut → **Properties** → add `-start-fullscreen` at the end of the **Target** field → Apply → OK.  
+   - Right-click Chrome shortcut → **Properties** → add `--start-Fullscreen` at the end of the **Target** field → Apply → OK.  
 4. Open **Run → `shell:startup`** and copy the Chrome shortcut there to launch automatically after login.  
 
 ✅ Outcome: Browser opens automatically in full-screen mode showing the desired page.
