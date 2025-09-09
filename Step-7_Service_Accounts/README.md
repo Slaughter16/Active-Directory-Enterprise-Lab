@@ -28,7 +28,6 @@ Set up a **single-purpose computer** to automatically log in with a **service ac
      - Check **User cannot change password**  
      - Check **Password never expires**
    ![Password_Settings](images/4_Password_Settings.png)
-   - Description: *“Auto-login to display websites”*  
 5. Finish creating the account.
 ![Finish_Account](images/5_Finish_Account.png)
 ![Verify_Service_Account](images/6_Verify_Service_Account.png)
