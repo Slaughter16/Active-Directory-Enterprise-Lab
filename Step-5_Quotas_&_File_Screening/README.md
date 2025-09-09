@@ -158,7 +158,7 @@ The file screen is configured to block certain file types (e.g., `.exe`, `.mp3`)
 3. Save the file to the mapped HR share (`Z:\`).
 
 ![Save_Exe_File](images/32_Save_Exe_File.png)
-![Save_File_To_HRData_Z:](images/33_Save_File_To_HRData_Z:.png)
+![Save_File_To_HRData_Z:](images/33_Save_File_To_HRData_Z.png)
 
 4. Attempting to save should be **blocked** with an "Access Denied" error.
 ![Exe_File_Denied](images/34_Exe_File_Denied.png)
