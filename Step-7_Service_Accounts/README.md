@@ -13,7 +13,8 @@ Set up a **single-purpose computer** to automatically log in with a **service ac
 ---
 
 - ### 1️⃣ Create a Service Account in Active Directory
-1. Open **Active Directory Users and Computers (ADUC)** on the Windows Server.  
+1. Open **Active Directory Users and Computers (ADUC)** on the Windows Server.
+   ![Open_ADUC](images/43_Open_ADUC.png)  
 2. (Optional) Create a new **OU** called `ServiceAccounts`.
    ![Created_ServiceAccounts_OU](images/1_Created_ServiceAccounts_OU.png)  
 3. Right-click → **New → User**.
