@@ -27,8 +27,6 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
 3. Inside **Common**, create two subfolders:  
    - `Project`  
    - `Events`  
-4. (Optional) Inside `Project`, create another subfolder `Contracts` to verify inheritance behavior.  
-
 📸 *[Insert screenshot: Folder structure in C:\]*  
 
 ---
@@ -47,7 +45,7 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
 2. Edit → add `Everyone` → assign **Full Control**.  
    - This ensures permissions flow to all subfolders (`Project`, `Events`, `Contracts`).  
 3. Check that **Project** and **Events** inherited the same permissions.  
-
+4. (Optional) Inside `Project`, create another subfolder `Contracts` to verify inheritance behavior.
 📸 *[Insert screenshot: NTFS permissions for Common]*  
 
 ---
