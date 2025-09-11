@@ -10,14 +10,20 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
 ## 🛠️ Steps  
 
 ### 1️⃣ Create Security Group in ADUC  
-1. On **Windows Server**, open **Active Directory Users and Computers (ADUC)**.  
+1. On **Windows Server**, open **Active Directory Users and Computers (ADUC)**.
+![Tools_ADUC](images/1_Tools_ADUC.png)
+ 
 2. Navigate to `LabUsers` OU → **New → Group**.  
    - **Group name:** `Project`  
    - **Group scope:** Global  
-   - **Group type:** Security  
-3. Add users (e.g., Alice, Bob) as members of the `Project` group.  
+   - **Group type:** Security
+![New_Group_Project](images/2_New_Group_Project.png)
+![Group_Name_Project](images/3_Group_Name_Project.png)
+3. Add user (Alice) as member of the `Project` group.  
+![Add_Alice_Group](images/4_Add_Alice_Group.png)
+![Select_Project_Group](images/5_Select_Project_Group.png)
+![Verify_Alice_Added_Group](images/6_Verify_Alice_Added_Group.png)
 
-📸 *[Insert screenshot: ADUC with Project group creation]*  
 
 ---
 
