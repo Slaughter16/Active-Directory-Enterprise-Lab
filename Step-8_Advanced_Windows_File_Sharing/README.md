@@ -39,7 +39,7 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
 ---
 
 ### 3️⃣ Configure Share Permissions  
-1. Right-click **Common** → **Properties** → **Sharing** → **Share** → **Add Everyone** → **Share** → **Advanced Sharing**.
+1. Right-click **Common** → **Properties** → **Sharing** → **Share** → **Add Everyone** → **Share**.
  ![Common_Properties](images/10_Common_Properties.png)
  ![Share_Common_Prop](images/11_Share_Common_Prop.png)
  ![Share_Common_Folder](images/13_Share_Common_Folder.png)
@@ -57,12 +57,23 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
 
 ### 4️⃣ Configure NTFS Permissions (Inheritance)  
 1. On **Common** folder → **Properties → Security** tab.
-![Common_Properties](images/10_Common_Properties.png)
+![Security_Permissions_Common_Everyone](images/18_Security_Permissions_Common_Everyone.png)
 2. Edit → add `Everyone` → assign **Full Control**.  
-   - This ensures permissions flow to all subfolders (`Project`, `Events`, `Contracts`).  
-4. Check that **Project** and **Events** inherited the same permissions.  
-5. (Optional) Inside `Project`, create another subfolder `Contracts` to verify inheritance behavior.
-📸 *[Insert screenshot: NTFS permissions for Common]*  
+   - This ensures permissions flow to all subfolders (`Project`, `Events`, `Contracts`).
+ ![Verify_Security_Everyone_Perm](images/19_Verify_Security_Everyone_Perm.png)  
+4. Check that **Project** and **Events** inherited the same permissions.
+![Events_Prop](images/20_Events_Prop.png)
+![Verify_Events_Everyone_Share](images/21_Verify_Events_Everyone_Share.png)
+![Security_Everyone_Permission_Events](images/22_Security_Everyone_Permission_Events.png)
+
+![Project_Prop](images/23_Project_Prop.png)
+![Project_Everyone_Share](images/24_Project_Everyone_Share.png)
+![Verify_Security_Everyone_Permission_Project](images/25_Verify_Security_Everyone_Permission_Project.png)
+6. (Optional) Inside `Project`, create another subfolder `Contracts` to verify inheritance behavior.
+![Contract_Prop](images/26_Contract_Prop.png)
+![Contract_Prop_Everyone](images/27_Contract_Prop_Everyone.png)
+![Security_Everyone_Contract](images/28_Security_Everyone_Contract.png)
+
 
 ---
 
