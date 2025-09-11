@@ -77,3 +77,93 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
 - `Events` → accessible by everyone (inherits from Common).  
 - `Project` → restricted, only `Project` group members can access.  
 - Inheritance successfully disabled and overridden for `Project`.  
+
+
+
+
+
+# Explicit Deny Permissions in NTFS
+
+In this step, we configure **explicit deny permissions** in NTFS to restrict access for a single user (EveHR) to a confidential folder, while allowing all other employees access.
+
+---
+
+## Scenario
+- A **Project** folder is shared with the **AllEmployees** group.  
+- The folder has two subfolders:  
+  - `Confidential` → should be hidden from or inaccessible to **EveHR**.  
+  - `Materials` → should remain accessible to all employees.  
+
+EveHR is a member of the **AllEmployees** security group, but we need to block her explicitly from accessing the **Confidential** folder without impacting other users.
+
+---
+
+## Steps
+
+### 1. Create Folder Structure
+1. On the server, open **File Explorer**.  
+2. Create the following folders on `C:\`:  
+   - `Project`  
+   - Inside `Project`, create:
+     - `Confidential`  
+     - `Materials`  
+
+📸 *Screenshot: Folder structure in File Explorer*
+
+---
+
+### 2. Configure Share Permissions
+1. Right-click **Project → Properties → Sharing → Advanced Sharing**.  
+2. Enable **Share this folder**.  
+3. Add **Everyone** with **Full Control**.  
+   - (Share permissions are typically left open; NTFS handles security restrictions.)  
+
+📸 *Screenshot: Advanced Sharing window*
+
+---
+
+### 3. Configure NTFS Permissions
+1. Right-click the **Project** folder → **Properties → Security → Edit**.  
+2. Ensure **AllEmployees** has **Read/Write (Modify)** permissions.  
+3. Inherit permissions down to both subfolders.
+
+📸 *Screenshot: Project folder permissions*
+
+---
+
+### 4. Apply Explicit Deny for EveHR
+1. Go to **Confidential → Properties → Security → Advanced**.  
+2. **Disable inheritance** → *Convert existing permissions to explicit*.  
+3. Remove unnecessary inherited groups if needed (keep Admins/System).  
+4. Add **EveHR**:  
+   - **Allow** → *This folder only* → ✔️ List folder / read data  
+   - **Deny** → *This folder only* → ❌ Read & execute, ❌ Read  
+
+This ensures EveHR can **see** the `Confidential` folder but will get **Access Denied** when attempting to open it.
+
+📸 *Screenshot: Advanced Security settings for Confidential*
+
+---
+
+### 5. Testing
+- **Log in as Alice (Project member):**  
+  - Can access `Project → Confidential` and `Materials`.  
+- **Log in as EveHR (HR staff):**  
+  - Can see `Project → Materials` normally.  
+  - Can **see the `Confidential` folder**, but receives **Access Denied** when attempting to open it.
+
+📸 *Screenshot: Access Denied message for EveHR*  
+
+---
+
+## Key Notes
+- **Share permissions** = broad access (Everyone: Full).  
+- **NTFS permissions** = precise control (used to enforce restrictions).  
+- **Explicit deny** always overrides allow.  
+- Allowing “List folder / read data” ensures the folder is visible, while denying read/execute prevents entry.  
+
+---
+
+✅ At the end of this step:  
+- All employees except EveHR can access both subfolders.  
+- EveHR sees the Confidential folder but cannot access it.
