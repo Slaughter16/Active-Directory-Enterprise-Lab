@@ -46,7 +46,7 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
  ![Confirm_Folder_Shared](images/14_Confirm_Folder_Shared.png)
 
 
-2.**Common** → **Properties** → **Sharing** → **Advanced Sharing** → **Permissions** → **Allow Full Control** → **Apply** → **Share** 
+2.**Common** → **Properties** → **Sharing** → **Advanced Sharing** → **Permissions** → **Allow Full Control** → **Apply** 
 ![Advanced_Sharing_Common](images/15_Advanced_Sharing_Common.png)
 3. Check **Share this folder** → click **Permissions**. 
 ![Permissions_AdvSharing](images/16_Permissions_AdvSharing.png)
