@@ -28,30 +28,40 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
 ---
 
 ### 2️⃣ Create Folder Structure  
-1. On the server, open **File Explorer** → `C:\`.  
-2. Create a new folder named **Common**.  
+1. On the server, open **File Explorer** → `C:\`.
+![Goto_Local_Disk](image/7_Goto_Local_Disk.png)  
+2. Create a new folder named **Common**.
+![Create_Common_Folder](images/8_Create_Common_Folder.png)
 3. Inside **Common**, create two subfolders:  
    - `Project`  
    - `Events`  
-📸 *[Insert screenshot: Folder structure in C:\]*  
-
+![Create_Subfolders](images/9_Create_Subfolders.png)
 ---
 
 ### 3️⃣ Configure Share Permissions  
-1. Right-click **Common** → **Properties** → **Sharing** → **Advanced Sharing**.  
-2. Check **Share this folder** → click **Permissions**.  
-3. Add `Everyone` → assign **Full Control**.  
+1. Right-click **Common** → **Properties** → **Sharing** → **Share** → **Add Everyone** → **Share** → **Advanced Sharing**.
+ ![Common_Properties](images/10_Common_Properties.png)
+ ![Share_Common_Prop](images/11_Share_Common_Prop.png)
+ ![Share_Common_Folder](images/13_Share_Common_Folder.png)
+ ![Confirm_Folder_Shared](images/14_Confirm_Folder_Shared.png)
 
-📸 *[Insert screenshot: Share permissions for Everyone]*  
+
+2.**Common** → **Properties** → **Sharing** → **Advanced Sharing** → **Permissions** → **Allow Full Control** → **Apply** → **Share** 
+![Advanced_Sharing_Common](images/15_Advanced_Sharing_Common.png)
+3. Check **Share this folder** → click **Permissions**. 
+![Permissions_AdvSharing](images/16_Permissions_AdvSharing.png)
+4. Add `Everyone` → assign **Full Control**.  
+![Allow_FullControl_Everyone](images/17_Allow_FullControl_Everyone.png)
 
 ---
 
 ### 4️⃣ Configure NTFS Permissions (Inheritance)  
-1. On **Common** folder → **Properties → Security** tab.  
+1. On **Common** folder → **Properties → Security** tab.
+![Common_Properties](images/10_Common_Properties.png)
 2. Edit → add `Everyone` → assign **Full Control**.  
    - This ensures permissions flow to all subfolders (`Project`, `Events`, `Contracts`).  
-3. Check that **Project** and **Events** inherited the same permissions.  
-4. (Optional) Inside `Project`, create another subfolder `Contracts` to verify inheritance behavior.
+4. Check that **Project** and **Events** inherited the same permissions.  
+5. (Optional) Inside `Project`, create another subfolder `Contracts` to verify inheritance behavior.
 📸 *[Insert screenshot: NTFS permissions for Common]*  
 
 ---
