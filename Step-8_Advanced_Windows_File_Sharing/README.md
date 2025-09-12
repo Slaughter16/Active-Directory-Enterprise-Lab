@@ -129,7 +129,7 @@ In this step, we configure **explicit deny permissions** in NTFS to restrict acc
 ---
 
 ## Scenario
-- A **Project** folder is shared with the **AllEmployees** group.  
+- A **Project** folder is shared with the **Everyone** group.  
 - The folder has two subfolders:  
   - `Confidential` → should be hidden from or inaccessible to **EveHR**.  
   - `Materials` → should remain accessible to all employees.  
@@ -143,42 +143,48 @@ EveHR is a member of the **AllEmployees** security group, but we need to block h
 ### 1. Create Folder Structure
 1. On the server, open **File Explorer**.  
 2. Create the following folders on `C:\`:  
-   - `Project`  
+   - `Project`
+![Create_Project_Folder](images/45_Create_Project_Folder.png)
    - Inside `Project`, create:
      - `Confidential`  
      - `Materials`  
-
+![Create_Subfolder_Conf_Mat](images/46_Create_Subfolder_Conf_Mat.png)
 📸 *Screenshot: Folder structure in File Explorer*
 
 ---
 
 ### 2. Configure Share Permissions
-1. Right-click **Project → Properties → Sharing → Advanced Sharing**.  
-2. Enable **Share this folder**.  
-3. Add **Everyone** with **Full Control**.  
+1. Right-click **Project → Properties → Sharing → Advanced Sharing**.
+![Project_Advanced_Sharing](images/47_Project_Advanced_Sharing.png)
+3. Enable **Share this folder**.  
+4. Add **Everyone** with **Full Control**.  
    - (Share permissions are typically left open; NTFS handles security restrictions.)  
 
-📸 *Screenshot: Advanced Sharing window*
+![Project_Everyone_Permissions](images/48_Project_Everyone_Permissions.png)
+![Verify_Share_Project_Folder](images/49_Verify_Share_Project_Folder.png)
 
 ---
 
 ### 3. Configure NTFS Permissions
-1. Right-click the **Project** folder → **Properties → Security → Edit**.  
-2. Ensure **Everyone** has **Read/Write (Modify)** permissions.  
-3. Inherit permissions down to both subfolders.
+1. Right-click the **Project** folder → **Properties → Security → Edit**.
+ ![Project_Security_Edit_Permission](images/50_Project_Security_Edit_Permission.png)  
+3. Ensure **Everyone** has **Read/Write (Modify)** permissions.
+![Add_Everyone_Project_Permission](images/51_Add_Everyone_Project_Permission.png)
+
+5. Inherit permissions down to both subfolders.
 
 📸 *Screenshot: Project folder permissions*
 
 ---
 
 ### 4. Apply Explicit Deny for EveHR
-1. Go to **Confidential → Properties → Security → Advanced**.  
-2. **Disable inheritance** → *Convert existing permissions to explicit*.  
-3. Remove unnecessary inherited groups if needed (keep Admins/System).  
-4. Add **EveHR**:  
-   - **Allow** → *This folder only* → ✔️ List folder / read data  
-   - **Deny** → *This folder only* → ❌ Read & execute, ❌ Read  
-
+1. Go to **Confidential → Properties → Security → Advanced**.
+![Confidential_Prop](images/52_Confidential_Prop.png)
+5. Add **EveHR**:  
+   - **Deny** → ❌ Read  
+![Add_Evehr_Deny_Read_Permission](images/53_Add_Evehr_Deny_Read_Permission.png)
+3. Click **Yes** for Deny permission
+![Confirm_Deny_Permission](images/54_Confirm_Deny_Permission.png)
 This ensures EveHR can **see** the `Confidential` folder but will get **Access Denied** when attempting to open it.
 
 📸 *Screenshot: Advanced Security settings for Confidential*
@@ -187,12 +193,17 @@ This ensures EveHR can **see** the `Confidential` folder but will get **Access D
 
 ### 5. Testing
 - **Log in as Alice (Project member):**  
-  - Can access `Project → Confidential` and `Materials`.  
+  - Can access `Project → Confidential` and `Materials`.
+![Alice_Project_Folder](images/55_Alice_Project_Folder.png)
+![Alice_Open_Confidential_Success](images/56_Alice_Open_Confidential_Success.png)
+![Alice_Open_Materials_Success](images/57_Alice_Open_Materials_Success.png)
 - **Log in as EveHR (HR staff):**  
-  - Can see `Project → Materials` normally.  
+  - Can see `Project → Materials` normally.
+  ![Evehr_Open_Project](images/58_Evehr_Open_Project.png)
+![Evehr_Materials_Access_Granted](images/59_Evehr_Materials_Access_Granted.png)
   - Can **see the `Confidential` folder**, but receives **Access Denied** when attempting to open it.
-
-📸 *Screenshot: Access Denied message for EveHR*  
+![Attempt_Confidential_Folder_Access](images/60_Attempt_Confidential_Folder_Access.png)
+![Evehr_Deny_Confidential_Access](images/61_Evehr_Deny_Confidential_Access.png)
 
 ---
 
