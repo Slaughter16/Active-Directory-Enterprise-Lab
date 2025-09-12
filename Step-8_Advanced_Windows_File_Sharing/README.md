@@ -107,9 +107,8 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
 - **Login as a non-Project user (e.g., EveHR):**  
   - Should access `Common` and `Events`.
  ![WIN10_WIN_SERVER_COMMMON](images/43_WIN10_WIN_SERVER_COMMMON.png)
+- Only Events is visible, since EveHR is not in the Project group. This demonstrates the restriction.
 ![WIN10_Common_Events](images/44_WIN10_Common_Events.png)
-  - Should be denied access to `Project`.  
-📸 *[Insert screenshot: Access test results]*  
 
 ---
 
