@@ -164,7 +164,7 @@ EveHR is a member of the **AllEmployees** security group, but we need to block h
 
 ### 3. Configure NTFS Permissions
 1. Right-click the **Project** folder → **Properties → Security → Edit**.  
-2. Ensure **AllEmployees** has **Read/Write (Modify)** permissions.  
+2. Ensure **Everyone** has **Read/Write (Modify)** permissions.  
 3. Inherit permissions down to both subfolders.
 
 📸 *Screenshot: Project folder permissions*
