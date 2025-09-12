@@ -97,12 +97,18 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
 ---
 
 ### 6️⃣ Verify Permissions  
-- **Login as a Project group member (e.g., AliceIT):**  
-  - Should access `Common`, `Events`, and `Project`.  
+- **Login as a Project group member (AliceIT, WIN11):**  
+  - Should access `Common`, `Events`, and `Project`.
+ ![WIN_SERVER_COMMMON_WIN11](images/38_WIN_SERVER_COMMMON_WIN11.png)
+![Common_Events_Project_WIN11](images/39_Common_Events_Project_WIN11.png)
+![Events_WIN11](images/40_Events_WIN11.png)
+![Project_ContractsFolder_WIN11](images/41_Project_ContractsFolder_WIN11.png)
+![Project_Contracts_WIN11](images/42_Project_Contracts_WIN11.png)
 - **Login as a non-Project user (e.g., EveHR):**  
-  - Should access `Common` and `Events`.  
+  - Should access `Common` and `Events`.
+ ![WIN10_WIN_SERVER_COMMMON](images/43_WIN10_WIN_SERVER_COMMMON.png)
+![WIN10_Common_Events](images/44_WIN10_Common_Events.png)
   - Should be denied access to `Project`.  
-
 📸 *[Insert screenshot: Access test results]*  
 
 ---
