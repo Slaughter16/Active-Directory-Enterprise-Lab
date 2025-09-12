@@ -3,14 +3,17 @@
 ## 📌 Objective  
 Demonstrate **explicit permissions, inheritance, group memberships, and deny permissions** using NTFS and file sharing.  
 
-We will create a **Common** folder accessible to everyone, but restrict the **Project** subfolder so only members of the `Project` security group have access. The **Events** subfolder will remain fully accessible to all.  
+- **Common** folder → accessible to everyone.  
+- **Project** subfolder → restricted to `Project` security group members.  
+- **Events** subfolder → fully accessible to all.
+
 
 ---
 
 ## 🛠️ Steps  
 
 ### 1️⃣ Create Security Group in ADUC  
-1. On **Windows Server**, open **Active Directory Users and Computers (ADUC)**.
+1. Open **Active Directory Users and Computers (ADUC)** on Windows Server.  
 ![Tools_ADUC](images/1_Tools_ADUC.png)
  
 2. Navigate to `LabUsers` OU → **New → Group**.  
@@ -19,7 +22,7 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
    - **Group type:** Security
 ![New_Group_Project](images/2_New_Group_Project.png)
 ![Group_Name_Project](images/3_Group_Name_Project.png)
-3. Add user (Alice) as member of the `Project` group.  
+3. Add a user (Alice) as member to the `Project` group.  
 ![Add_Alice_Group](images/4_Add_Alice_Group.png)
 ![Select_Project_Group](images/5_Select_Project_Group.png)
 ![Verify_Alice_Added_Group](images/6_Verify_Alice_Added_Group.png)
@@ -36,6 +39,7 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
    - `Project`  
    - `Events`  
 ![Create_Subfolders](images/9_Create_Subfolders.png)
+
 ---
 
 ### 3️⃣ Configure Share Permissions  
@@ -46,7 +50,7 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
  ![Confirm_Folder_Shared](images/14_Confirm_Folder_Shared.png)
 
 
-2.**Common** → **Properties** → **Sharing** → **Advanced Sharing** → **Permissions** → **Allow Full Control** → **Apply** 
+2. Click **Advanced Sharing → Permissions → Allow Full Control → Apply**.  
 ![Advanced_Sharing_Common](images/15_Advanced_Sharing_Common.png)
 3. Check **Share this folder** → click **Permissions**. 
 ![Permissions_AdvSharing](images/16_Permissions_AdvSharing.png)
@@ -56,7 +60,7 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
 ---
 
 ### 4️⃣ Configure NTFS Permissions (Inheritance)  
-1. On **Common** folder → **Properties → Security** tab.
+1. Right-click **Common** → **Properties → Security**.  
 ![Security_Permissions_Common_Everyone](images/18_Security_Permissions_Common_Everyone.png)
 2. Edit → add `Everyone` → assign **Full Control**.  
    - This ensures permissions flow to all subfolders (`Project`, `Events`, `Contracts`).
