@@ -214,7 +214,7 @@ This ensures EveHR can **see** the `Confidential` folder but will get **Access D
 ## Key Notes
 - **Share permissions** = broad access (Everyone: Full).  
 - **NTFS permissions** = precise control (used to enforce restrictions).  
-- **Explicit deny** always overrides allow.  
+- **Explicit deny** overrides allow.  
 - Allowing “List folder / read data” ensures the folder is visible, while denying read/execute prevents entry.  
 
 ---
