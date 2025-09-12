@@ -123,6 +123,90 @@ Demonstrate **explicit permissions, inheritance, group memberships, and deny per
 - Inheritance successfully disabled and overridden for `Project`.  
 
 
+# Separate Share for Contracts Subfolder
+
+## 📌 Objective
+Allow **EveHR** to access the `Contracts` folder without granting access to the parent `Project` folder, while keeping full control for the `Project` group. Demonstrates **explicit permissions, inheritance, and NTFS security**.
+
+---
+## 1️⃣ Folder Structure
+- C:\Common
+ - ├─ Project # Restricted to Project group
+ - └─ Contracts # Separate share, accessible to EveHR
+ 
+- **Project** → only `Project` group can access.  
+- **Contracts** → Project members + EveHR can access.
+
+
+---
+
+## 2️⃣ Share Permissions
+
+### Contracts Folder
+1. Right-click `Contracts` → **Properties → Sharing → Advanced Sharing**.  
+2. Check **Share this folder**.  
+3. Click **Permissions** → configure:  
+
+| Group/User | Permission       |
+|------------|----------------|
+| Project    | Full Control    |
+| EveHR      | Read / Change    |
+| Everyone   | Remove (optional) |
+
+4. Apply changes.
+
+> Share permissions can be broad, but NTFS will enforce strict access.
+
+
+---
+
+## 3️⃣ NTFS Permissions
+
+### Configure Explicit Permissions
+1. Right-click `Contracts` → **Properties → Security → Advanced**.  
+2. Click **Disable inheritance** → **Convert inherited permissions to explicit**.  
+3. Remove any groups/users that should **not** have access.  
+4. Add/verify permissions:
+
+| Group/User | Permissions                          | Applies to                        |
+|------------|--------------------------------------|----------------------------------|
+| Project    | Full Control                          | This folder, subfolders, files   |
+| EveHR      | Read / Write (or appropriate access) | This folder, subfolders, files   |
+
+---
+
+### Project Folder
+- Keep **Everyone** or non-HR users **removed**.  
+- Project group retains **Full Control**.  
+- EveHR will **not see** or access Project folder.
+
+---
+## 4️⃣ Test Access
+
+| User      | Path                     | Expected Result                     |
+|-----------|-------------------------|------------------------------------|
+| EveHR     | `\\Server\Contracts`    | Can open & modify files             |
+| EveHR     | `\\Server\Project`      | Denied / folder not visible         |
+| Project   | `\\Server\Project`      | Full access                         |
+| Project   | `\\Server\Contracts`    | Full access                         |
+
+---
+
+## ✅ Outcome
+
+- EveHR can access the `Contracts` subfolder **without seeing Project**.  
+- Project group retains full control over Project and Contracts.  
+- Demonstrates **NTFS explicit permissions, inheritance, and targeted access control**.
+
+---
+
+## 💡 Notes
+- Always apply NTFS permissions **after** share permissions.  
+- Explicit deny is not used here; EveHR access is granted **only on Contracts** via a separate share.  
+- Inheritance is disabled on Contracts to prevent unwanted permission propagation from Project folder.
+
+
+
 
 
 
