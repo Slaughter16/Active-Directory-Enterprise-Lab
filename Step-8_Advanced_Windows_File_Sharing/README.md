@@ -78,14 +78,22 @@ We will create a **Common** folder accessible to everyone, but restrict the **Pr
 ---
 
 ### 5️⃣ Restrict the Project Subfolder  
-1. Right-click `Project` → **Properties → Security → Advanced**.  
+1. Right-click `Project` → **Properties → Security → Advanced**.
+![Project_Properties](images/29_Project_Properties.png)
+![Project_Security_Advanced](images/30_Project_Security_Advanced.png)
 2. Click **Disable inheritance**.  
-3. Choose **Convert inherited permissions into explicit permissions**.  
-4. Remove `Everyone`.  
+3. Choose **Convert inherited permissions into explicit permissions**.
+![Disable_Inheritance_Convert](images/31_Disable_Inheritance_Convert.png)  
+4. Remove `Everyone`.
+![Remove_Everyone](images/32_Remove_Everyone.png)
 5. Add the `Project` security group → assign **Modify** (or **Full Control**).  
+![Add_Project](images/33_Add_Project.png)
+![Select_Project_Permission](images/34_Select_Project_Permission.png)
+![Allow_FullControl_Project](images/35_Allow_FullControl_Project.png)
 
-📸 *[Insert screenshot: Project subfolder advanced permissions]*  
-
+6. Verify Project permission added and Verify permissions of Project in Security tab.
+![Click_Ok_Project_Permissions](images/36_Click_Ok_Project_Permissions.png)
+![Verify_Project_Security_Permissions](images/37_Verify_Project_Security_Permissions.png)
 ---
 
 ### 6️⃣ Verify Permissions  
