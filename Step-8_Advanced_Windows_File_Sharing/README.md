@@ -143,18 +143,20 @@ Allow **EveHR** to access the `Contracts` folder without granting access to the 
 ## 2️⃣ Share Permissions
 
 ### Contracts Folder
-1. Right-click `Contracts` → **Properties → Sharing → Advanced Sharing**.  
-2. Check **Share this folder**.  
-3. Click **Permissions** → configure:  
+1. Right-click `Contracts` → **Properties → Sharing → Advanced Sharing**.
+![Contracts_Advanced_Sharing](images/62_Contracts_Advanced_Sharing.png)
+3. Check **Share this folder**.  
+4. Click **Permissions** → configure:  
 
 | Group/User | Permission       |
 |------------|----------------|
 | Project    | Full Control    |
 | EveHR      | Read / Change    |
 | Everyone   | Remove (optional) |
-
+![Contracts_Eve_Permissions](images/63_Contracts_Eve_Permissions.png)
+![Contracts_Project_Permissions](images/64_Contracts_Project_Permissions.png)
 4. Apply changes.
-
+![Contracts_Adv_Sharing_Folder_Check](images/65_Contracts_Adv_Sharing_Folder_Check.png)
 > Share permissions can be broad, but NTFS will enforce strict access.
 
 
@@ -171,7 +173,9 @@ Allow **EveHR** to access the `Contracts` folder without granting access to the 
 | Group/User | Permissions                          | Applies to                        |
 |------------|--------------------------------------|----------------------------------|
 | Project    | Full Control                          | This folder, subfolders, files   |
-| EveHR      | Read / Write (or appropriate access) | This folder, subfolders, files   |
+| EveHR      | Read / Write / Execute (or appropriate access) | This folder, subfolders, files   |
+
+![Contracts_DisableInher_Add_Eve](images/66_Contracts_DisableInher_Add_Eve.png)
 
 ---
 
@@ -189,6 +193,14 @@ Allow **EveHR** to access the `Contracts` folder without granting access to the 
 | EveHR     | `\\Server\Project`      | Denied / folder not visible         |
 | Project   | `\\Server\Project`      | Full access                         |
 | Project   | `\\Server\Contracts`    | Full access                         |
+
+- EveHR able to open Contracts Folder
+![Eve_Contracts_Run](images/67_Eve_Contracts_Run.png)
+![Eve_Contracts_Open](images/68_Eve_Contracts_Open.png)
+
+- Project member (AliceIT)
+![Alice_Project_Open](images/69_Alice_Project_Open.png)
+![Alice_Project_Contracts_Open](images/70_Alice_Project_Contracts_Open.png)
 
 ---
 
