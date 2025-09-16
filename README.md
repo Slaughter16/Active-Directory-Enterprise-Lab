@@ -45,7 +45,39 @@ This environment replicates **enterprise-style system administration**, suitable
   - Debian client (`dhclient`)  
 
 - 🗂️ [Step-2: Active Directory Setup](./Step-2_Active_Directory)  
-  *Installed AD DS, promoted Domain Controller, joined clients*  
+
+**Objective:**  
+Install AD DS with integrated DNS on Windows Server 2019, configure a new domain (`corp.local`), and join Windows 10, Windows 11, and Debian clients.
+
+**Key Tasks / Highlights:**  
+- 🖥️ **Install AD DS Role** on Windows Server 2019  
+  - Add Roles & Features → AD DS  
+  - Promote server to **Domain Controller**  
+  - Configure new forest/domain (`corp.local`)  
+  - Set DSRM password for recovery  
+
+- 🌐 **Configure DNS**  
+  - Integrated with AD for seamless name resolution  
+  - Configure **Forwarders** for external internet access  
+
+- 🔐 **Secure Domain Controller**  
+  - Rename default Administrator to `SecAdmin01`  
+  - Confirm login with new credentials  
+  - Reduce attack surface / brute-force risk  
+
+- 🖥️ **Join Clients to Domain**  
+  - Windows 10 / 11 clients  
+    - Set preferred DNS to DC (`192.168.10.10`)  
+    - Change computer name (AliceIT, EveHR)  
+    - Join domain and reboot  
+  - Debian client  
+    - Configure DNS  
+    - Install required packages (realmd, sssd, adcli, samba-common)  
+    - Discover domain & join using `realm join corp.local -U Administrator`  
+
+- 🔍 **Verify DNS Forward & Reverse Lookups**  
+  - Confirm clients resolve correctly to IPs  
+  - Ensure PTR records map IP → hostname  
 
 - 🏢 [Step-3: Organize Active Directory](./Step-3_Organize_AD)  
   *Created OUs, users, security groups for structured management*  
