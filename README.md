@@ -28,8 +28,8 @@ This environment replicates **enterprise-style system administration**, suitable
 
 ## 📚 Table of Contents  
 
-1. [Step-1_DHCP_Win2019](./Step-1_DHCP_Win2019)  
-   - Configure DHCP server and scopes for AD clients  
+- 🖧 [Step-1: DHCP on Windows Server 2019](./Step-1_DHCP_Win2019)  
+  *Configured DHCP server and scopes for AD clients* 
 
 2. [Step-2_Active_Directory](./Step-2_Active_Directory)  
    - Install and configure AD DS, promote Domain Controller  
@@ -89,3 +89,9 @@ By the end of this lab:
 - Validated **real-world enterprise practices** in Active Directory and Windows Server management  
 
 This project serves as a portfolio-ready showcase of **enterprise IT and cybersecurity skills**.  
+
+---
+
+## 📇 Contact
+
+🔗 [LinkedIn: John Slaughter](https://www.linkedin.com/in/john-slaughter-08a872262/)
