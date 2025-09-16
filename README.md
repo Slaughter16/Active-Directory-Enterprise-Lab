@@ -30,530 +30,132 @@ This environment replicates **enterprise-style system administration**, suitable
 
 ## 🖧 [Step-1: DHCP on Windows Server 2019](./Step-1_DHCP_Win2019)  
 
-- 🖥️ Assigned a **static IP** to Windows Server 2019 for VLAN 10  
-- 🔒 Disabled **pfSense DHCP service** on VLAN 10  
-- 📦 Installed & authorized the **DHCP Server role** in Active Directory  
-- 📑 Created & activated a **DHCP Scope**  
-  - Scope Name: `VLAN10-Scope`  
-  - Range: `192.168.10.50 – 192.168.10.200`  
-  - Exclusions: `192.168.10.1 – 192.168.10.49`  
-  - Default Gateway: `192.168.10.1`  
-  - DNS: `192.168.10.10, 192.168.20.2`  
-  - Lease Duration: **8 Days**  
-- 🧪 Verified DHCP leases on:  
-  - Windows 10 client (`ipconfig /renew`)  
-  - Windows 11 client (`ipconfig /renew`)  
-  - Debian client (`dhclient`)  
+**Objective:**  
+Configure DHCP to provide IP addressing for VLAN 10 clients.
+
+**Key Skills & Outcomes:**  
+- Assigned **static IP** to Windows Server for VLAN 10  
+- Disabled pfSense DHCP to avoid conflicts  
+- Installed & authorized **DHCP Server role** in Active Directory  
+- Created/activated **VLAN10-Scope**: `192.168.10.50–192.168.10.200` with exclusions, gateway, DNS, and 8-day lease  
+- Verified DHCP leases on Windows 10/11 and Debian clients  
+
+✅ Demonstrates **DHCP deployment, scope management, and cross-platform client verification**
+
+---
 
 ## 🗂️ [Step-2: Active Directory Setup](./Step-2_Active_Directory)  
 
 **Objective:**  
-Install AD DS with integrated DNS on Windows Server 2019, configure a new domain (`corp.local`), and join Windows 10, Windows 11, and Debian clients.
+Install AD DS with integrated DNS, create domain `corp.local`, and join Windows & Debian clients.
 
-**Key Tasks / Highlights:**  
-- 🖥️ **Install AD DS Role** on Windows Server 2019  
-  - Add Roles & Features → AD DS  
-  - Promote server to **Domain Controller**  
-  - Configure new forest/domain (`corp.local`)  
-  - Set DSRM password for recovery  
+**Key Skills & Outcomes:**  
+- Installed AD DS on Windows Server 2019 and promoted to **Domain Controller**  
+- Configured AD-integrated DNS with forwarders for external resolution  
+- Secured DC by renaming default admin (`SecAdmin01`)  
+- Joined clients: Windows 10/11 (AliceIT, EveHR) and Debian (realmd + sssd)  
+- Verified forward/reverse DNS resolution for all clients  
 
-- 🌐 **Configure DNS**  
-  - Integrated with AD for seamless name resolution  
-  - Configure **Forwarders** for external internet access  
+✅ Demonstrates **domain deployment, DNS integration, client joining, and security best practices**
 
-- 🔐 **Secure Domain Controller**  
-  - Rename default Administrator to `SecAdmin01`  
-  - Confirm login with new credentials  
-  - Reduce attack surface / brute-force risk  
-
-- 🖥️ **Join Clients to Domain**  
-  - Windows 10 / 11 clients  
-    - Set preferred DNS to DC (`192.168.10.10`)  
-    - Change computer name (AliceIT, EveHR)  
-    - Join domain and reboot  
-  - Debian client  
-    - Configure DNS  
-    - Install required packages (realmd, sssd, adcli, samba-common)  
-    - Discover domain & join using `realm join corp.local -U Administrator`  
-
-- 🔍 **Verify DNS Forward & Reverse Lookups**  
-  - Confirm clients resolve correctly to IPs  
-  - Ensure PTR records map IP → hostname  
-
-**Outcome:**  
-- Centralized authentication & authorization for all clients  
-- AD-integrated DNS functioning properly for forward & reverse lookups  
-- Clients successfully joined to domain  
-- Enhanced security by renaming default admin account
-
+---
 
 ## 🏢 [Step-3: Organize Active Directory](./Step-3_Organize_AD)
-  
+
 **Objective:**  
-Structure Active Directory with OUs, user accounts, and security groups for centralized administration, policy enforcement, and role-based access control.
+Structure AD with OUs, users, and security groups for centralized management and role-based access.
 
-**Key Tasks / Highlights:**  
+**Key Skills & Outcomes:**  
+- Created OUs: `LabUsers` (IT, HR), `LabComputers` (Workstations, Servers), `LabGroups`  
+- Added users: IT (`Alice IT`, `Bob IT`), HR (`Eve HR`, `John Doe`, `Charlie HR`)  
+- Created security groups (`IT_Staff`, `HR_Staff`) and assigned users  
+- Linked department-specific GPOs (`IT_User_Policy`, `HR_User_Policy`)  
+- Verified on Windows & Debian clients (`gpupdate /force`, `realm list`, `nslookup`)  
 
-- 🏢 **Create Organizational Units (OUs)**  
-  - `LabUsers` → `IT`, `HR`  
-  - `LabComputers` → `Workstations`, `Servers`  
-  - `LabGroups` for grouping users logically  
+✅ Demonstrates **AD structuring, user/group management, and GPO deployment**
 
-- 👤 **Create User Accounts**  
-  - Users for IT: `Alice IT`, `Bob IT`  
-  - Users for HR: `Eve HR`, `John Doe`, `Charlie HR`  
-  - Set initial passwords and enforce change at first logon  
-
-- 🔒 **Create Security Groups & Add Users**  
-  - `IT_Staff` → IT OU users  
-  - `HR_Staff` → HR OU users  
-  - Assign users to respective groups for role-based permissions  
-
-- 📜 **Create and Link Group Policies (GPOs)**  
-  - IT OU → `IT_User_Policy` (e.g., desktop wallpaper, disable Control Panel)  
-  - HR OU → `HR_User_Policy` (e.g., folder redirection, password-protected screensaver)  
-  - Link GPOs to OUs and verify application  
-
-- ✅ **Verify Setup**  
-  - Windows 10 / 11 clients: log in, refresh policies (`gpupdate /force`)  
-  - Debian client: verify domain join and DNS (`realm list`, `nslookup`)  
-  - Confirm OU hierarchy, user accounts, groups, and GPO links  
-
-**Outcome:**  
-- AD is structured for logical management.  
-- Users and groups organized for simplified permission management.  
-- GPOs applied to enforce policies per OU.  
-- Lab environment ready for file server permissions, remote management, and further security configurations.
-
+---
 
 ## ⚙️ [Step-4: Advanced Group Policies](./Step-4_Advanced_GPOs)
 
 **Objective:**  
-Apply realistic department-specific policies to IT and HR OUs to enforce security, usability, and compliance in a lab environment.
+Implement department-specific policies for IT and HR to enforce security, compliance, and usability.
+
+**Key Skills & Outcomes:**  
+- **IT OU (`LabUsers → IT`)**
+  - Desktop wallpaper via GPO  
+  - Disabled Control Panel access for standardization & security  
+- **HR OU (`LabUsers → HR`)**
+  - Folder redirection to server (`HRData$`)  
+  - Password-protected screensaver  
+  - USB storage restrictions  
+- Verified policy application on clients (`gpupdate /force`)  
+
+✅ Demonstrates **GPO design, OU-specific policies, and enterprise-level security enforcem
 
 ---
-
-**IT Department (OU: LabUsers → IT)**  
-**GPO Name:** `IT_User_Policy` | **Security Group:** `IT_Staff`  
-
-- 🖼️ **Desktop Wallpaper**  
-  - Store image in shared folder: `C:\Wallpapers` → Share with `IT_Staff`  
-  - UNC path: `\\WIN-Server\Wallpapers\ITBackground.jpg`  
-  - Configure via GPO: `User Configuration → Policies → Administrative Templates → Desktop → Desktop Wallpaper`  
-
-- 🚫 **Disable Control Panel Access**  
-  - GPO Path: `User Configuration → Policies → Administrative Templates → Control Panel → Prohibit access to Control Panel`  
-  - Prevents unauthorized changes for IT staff  
-
-- ✅ **Verification**  
-  - Log in as IT user (AliceIT) → `gpupdate /force` → Confirm wallpaper and restricted Control Panel  
-
----
-
-**HR Department (OU: LabUsers → HR)**  
-**GPO Name:** `HR_User_Policy` | **Security Group:** `HR_Staff`  
-
-- 📂 **Folder Redirection**  
-  - Documents redirected to: `\\WIN-SERVER\FOLDERREDIR$`  
-  - Per-user folders automatically created on server  
-  - GPO Path: `User Configuration → Policies → Windows Settings → Folder Redirection → Documents`  
-  - Optional: disable exclusive rights in lab environments  
-
-- 🔒 **Password-Protected Screensaver**  
-  - Timeout: 2–5 minutes (configurable)  
-  - GPO Path: `User Configuration → Administrative Templates → Control Panel → Personalization`  
-
-- 🛡️ **USB Storage Restriction**  
-  - Deny read/write on removable drives  
-  - GPO Path: `User Configuration → Administrative Templates → System → Removable Storage Access`  
-
-- 📁 **HR Shared Folder (`HRData$`)**  
-  - Create on server with NTFS & share permissions for `HR_Staff`  
-  - Optional mapping via GPO → Z: drive for HR users  
-
-- ✅ **Verification**  
-  - Log in as HR user (EveHR) → `gpupdate /force`  
-  - Check folder redirection, screensaver, USB restriction, and access to HR shared folder  
-
----
-
-**Notes:**  
-- IT policies focus on system control and branding  
-- HR policies enforce data protection and compliance  
-- Lab-ready configuration allows testing of realistic enterprise policies  
-- Further expansion possible: software deployment, security hardening, compliance enforcement
-
 
 ## 📦 [Step-5: Quotas & File Screening](./Step-5_Quotas_&_File_Screening)  
 
 **Objective:**  
-Use File Server Resource Manager (FSRM) to manage storage on file server: enforce quotas, block unwanted file types, and generate notifications.
+Implement **FSRM** to manage storage, enforce quotas, block unwanted files, and generate alerts.
+
+**Key Skills & Outcomes:**  
+- Configured **hard quotas** on departmental shares to prevent excessive disk usage  
+- Implemented **file screening** to block unapproved file types (executables, media, compressed files)  
+- Set up **alerts and notifications** to monitor quota usage  
+- Verified enforcement: users blocked from exceeding quotas or saving restricted files  
+
+✅ Demonstrates **centralized storage management, compliance enforcement, and proactive IT administration**
 
 ---
 
-- Install File Server Resource Manager
-
-  - Server Manager → Manage → Add Roles and Features  
-  - Role-based installation → File and iSCSI Services → **File Server Resource Manager**  
-  - Complete installation and verify
-
----
-
-- Configure Quotas
-
-  - Open FSRM → **Quota Management → Create Quota**  
-  - Target folder: `D:\Shares\HRData$`  
-  - **Quota Type:** Hard Quota  
-  - **Size Limit:** Example 500 MB – 1 GB  
-  - Optional: **Notification Thresholds** (e.g., 80%) → Email, Event Log, Command, Report  
-  - Save template: `HRData_Quota`  
-  - Verify quota is created
-
----
-
-- Configure File Screening
-
-  - Open FSRM → **File Screening Management → Create File Screen**  
-  - Target folder: `D:\Shares\HRData$`  
-  - **Active Screening** → Block specific file types:  
-  - Audio/Video, Executables, Compressed files, Images, Web files  
-  - Optional: Save as **Custom Template**  
-  - Verify file screen is applied
-
----
-
-- Verification
-
- - Test Quota
-
-  - On HR client (EveHR, mapped drive `Z:`):
-  ```
-  fsutil file createnew Z:\test1.dat 52428800  # 50 MB
-  fsutil file createnew Z:\test2.dat 62914560  # 60 MB → should fail
-  ```
----
-
-- Verification ✅
-
-### 🔹 Confirm Quota Exceeded
-- On a client (e.g., EveHR – Win10), attempt to create files that exceed the quota limit.  
-- You should see an **error message** such as “Not enough disk space.”  
-- On the server, open **FSRM** to confirm the **quota usage percentage** is updated.
-
----
-
-### 🔹 Test File Screening
-- Attempt to save blocked file types (e.g., `test.exe`, `.mp3`) into the HR share.  
-- The operation should be **denied**.  
-- Verify in FSRM that the **file screen rules** were enforced.
-
----
-
-### 🔹 Check Quota Alerts
-- Open **Event Viewer** → navigate to:  
-  `Custom Views → Administrative Events`  
-- Look for **Warning Events** triggered by FSRM when quota thresholds were exceeded.  
-- Example:  
-  `User CORP\EveHR has exceeded the 80% quota threshold for the quota on C:\Shares\HRData$`
-
----
-
-## 📌 Notes
-- **Centralized Storage Management** → FSRM enforces storage policies across the enterprise.  
-- **Quotas** → Prevent users or departments from consuming excessive disk space.  
-- **File Screening** → Blocks unapproved file types to maintain compliance and reduce risks.  
-- **Notifications** → Alerts allow admins to proactively monitor and respond before issues escalate.  
-
-✅ At this point, **FSRM is fully configured** to control disk usage, block risky files, and notify admins of quota violations.
-
----
 ## 🔐 [Step-6: Security Policies](./Step-6_Security_Policies)  
 
 **Objective:**  
-In this step, we configure domain-wide security policies to enforce strong passwords, account lockouts, and role-based access control. We also implement fine-grained password policies (FGPP) for different groups.
+Enforce **strong password standards, account lockouts, role-based access control (RBAC),** and **fine-grained password policies** for different user groups.
+
+**Key Skills & Outcomes:**  
+- Configured **password policies**: minimum length, complexity, history, and expiration  
+- Implemented **account lockout** to prevent brute-force attacks  
+- Applied **RBAC**: restrict local logins for HR staff, allow RDP for IT admins  
+- Set **Fine-Grained Password Policies (FGPP)**: stricter rules for IT admins vs standard users  
+- Verified policies using ADUC, ADAC, and PowerShell  
+
+✅ Demonstrates **enterprise-level security configuration, compliance, and least-privilege enforcement**
 
 ---
-
-## 1. Password Policy Configuration
-
-### Steps
-1. Open **Group Policy Management Console (GPMC)**.  
-2. Navigate to **Group Policy Objects → Default Domain Policy → Edit**.  
-3. Go to:  
-   `Computer Configuration → Policies → Windows Settings → Security Settings → Account Policies → Password Policy`
-
-### Configured Settings
-- **Enforce Password History:** 24 passwords remembered  
-- **Maximum Password Age:** 60 days  
-- **Minimum Password Age:** 1 day  
-- **Minimum Password Length:** 12 characters  
-- **Password Must Meet Complexity Requirements:** Enabled  
-
-### Testing & Validation
-- Forced a password reset for `AliceIT` in **ADUC**.  
-- Attempted weak password → **Rejected**  
-- Attempted strong password → **Accepted**
-
-✅ Outcome: All users in **corp.local** must follow strong password standards.
-
----
-
-## 2. Account Lockout Policy
-
-### Steps
-1. Open **GPMC** → Default Domain Policy → Edit  
-2. Navigate to:  
-   `Computer Configuration → Policies → Windows Settings → Security Settings → Account Policies → Account Lockout Policy`
-
-### Configured Settings
-- **Account Lockout Threshold:** 3 invalid logon attempts  
-- **Account Lockout Duration:** 30 minutes  
-- **Allow Administrator Account Lockout:** Disabled  
-- **Reset Account Lockout Counter After:** 30 minutes
-
-### Testing & Validation
-- Attempted login with wrong password 3x → **Account locked**  
-- Confirmed lockout message and automatic unlock after 30 minutes
-
-✅ Outcome: Protects against brute-force attacks with temporary lockouts.
-
----
-
-## 3. User Rights Assignment (RBAC)
-
-### Steps
-1. Open **GPMC → Default Domain Policy → Edit**  
-2. Navigate to:  
-   `Computer Configuration → Policies → Windows Settings → Security Settings → Local Policies → User Rights Assignment`
-
-### Configured Settings
-#### Deny Log on Locally
-- Applied to `HR_Staff`  
-- Prevents HR users from logging on to servers or domain controllers
-
-#### Allow Log on Through Remote Desktop Services
-- Applied to `IT_Staff`  
-- Restricts remote desktop access to IT administrators
-
-### Testing & Validation
-- HR staff → local login and RDP **denied**  
-- IT staff → RDP **granted**
-
-✅ Outcome: Enforces least privilege; only authorized users can perform administrative tasks.
-
----
-
-## 4. Fine-Grained Password Policies (FGPP)
-
-### Scenario
-- Admins require stricter password rules than standard users  
-- Implemented via **Password Settings Objects (PSOs)** in ADAC
-
-### Configuration
-#### Admin Accounts (IT_Staff)
-- Minimum Password Length: 15  
-- Enforce Password History: 5  
-- Complexity: Enabled
-
-#### Standard Users (HR_Staff)
-- Minimum Password Length: 10  
-- Enforce Password History: 5  
-- Complexity: Enabled
-
-### Testing & Validation
-- Attempted passwords below requirements → **Rejected**  
-- Passwords meeting requirements → **Accepted**  
-- Verified via ADAC and PowerShell:
-```
-Get-ADUserResultantPasswordPolicy -Identity AliceIT
-Get-ADUserResultantPasswordPolicy -Identity EveHR
-```
 
 ## 👤 [Step-7: Service Accounts](./Step-7_Service_Accounts)  
 
 **Objective:**  
-Set up a single-purpose workstation to automatically log in with a **service account**, launch a specific web page in full-screen mode, and restrict local logon for standard users. Simulates a kiosk-style setup without using Windows Kiosk mode.
+Configure a **dedicated service account** to auto-login a workstation, launch a web page in full-screen, and restrict standard user access—simulating a kiosk setup.
 
-**Prerequisites**
-- Windows Server with AD DS installed  
-- Windows 10 Pro / Enterprise client  
-- Sysinternals Suite  
-- AD security groups (e.g., `LabUsers`)  
-- Web browser (e.g., Chrome)  
+**Key Skills & Outcomes:**  
+- Created **service account** in AD with non-expiring password  
+- Configured **auto-login** on Windows client using Sysinternals Autologon  
+- Set browser to **auto-start in full-screen** with specified webpage  
+- Applied **GPO restrictions** to deny local logon for standard users  
+- Verified auto-login, full-screen launch, and restricted access  
 
----
-
-## 1. Create a Service Account in Active Directory
-1. Open **ADUC** → optionally create `ServiceAccounts` OU.  
-2. Create a new user:  
-   - **Name:** `Website_FirstName LastName Login`  
-   - **User logon name:** `$Website-Login`  
-   - **Password settings:**  
-     - Uncheck “User must change password at next logon”  
-     - Check “User cannot change password”  
-     - Check “Password never expires”  
-3. Add a description: *“Auto-login to display websites”*
-
-✅ Outcome: Service account created and ready for auto-login.
+✅ Demonstrates **service account management, kiosk automation, and secure access control**
 
 ---
 
-## 2. Install Sysinternals Suite on Client
-1. Download and extract **Sysinternals Suite** to a network-accessible folder.  
-2. Launch **Autologon64.exe**.
-
----
-
-## 3. Configure Auto-Login for the Service Account
-1. Open **Autologon64** → enter:  
-   - Username: `$Website-Login`  
-   - Domain: `corp.local`  
-   - Password: [service account password]  
-2. Click **Enable** → reboot client.
-
-✅ Outcome: Windows logs in automatically with the service account.
-
----
-
-## 4. Set Browser to Auto-Start with Specific Web Page
-1. Install Chrome → Settings → On startup → Open a specific page → Enter URL.  
-2. Modify Chrome shortcut → append `--start-Fullscreen` → copy shortcut to `shell:startup`.
-
-✅ Outcome: Browser opens automatically in full-screen showing the desired webpage.
-
----
-
-## 5. Configure System Settings
-- Prevent sleep: Settings → Power & Sleep → Sleep → Never.  
-- Test reboot → Chrome should auto-launch in full-screen.
-
----
-
-## 6. Restrict Local Logon Using Group Policy
-1. Open **GPMC** → create new GPO: `Restrict Logon to Service Account`.  
-2. Edit → Computer Configuration → Policies → Windows Settings → Security Settings → Local Policies → User Rights Assignment.  
-3. Configure **Deny log on locally** → add `AllEmployees` (standard users).  
-4. Link GPO to OU containing kiosk client → run `gpupdate /force`.
-
-✅ Outcome: Only service account can log in locally; standard users are denied.
-
----
-
-## 7. Verification
-- Reboot client → auto-login with service account.  
-- Chrome opens full-screen with the configured page.  
-- Attempt login with standard user → access denied.
-
----
-
-## Notes
-- **Service Account:** Dedicated for kiosk use, prevents password expiry and changes.  
-- **Auto-Login:** Ensures workstation starts without manual intervention.  
-- **Full-Screen Browser:** Displays desired content automatically.  
-- **Restricted Logon:** Enhances security by preventing unauthorized local access.
-  
 ## 📁 [Step-8: Effective Permissions & Inheritance](./Step-8_Advanced_Windows_File_Sharing)
 
-**Objective:**
-Demonstrate **explicit permissions, inheritance, group memberships, and deny permissions** using NTFS and file sharing.
+**Objective:**  
+Demonstrate **NTFS permissions, inheritance, group-based access, and explicit deny** using shared folders.
 
-- `Common` folder → accessible by everyone  
-- `Project` subfolder → restricted to `Project` security group members  
-- `Events` subfolder → fully accessible to all  
+**Key Skills & Outcomes:**  
+- Created **Project security group** in AD and assigned users  
+- Set up **folder structure**: Common (everyone), Project (restricted), Events (all)  
+- Configured **share and NTFS permissions** with inheritance  
+- Restricted **Project folder** to group members, applied **explicit deny** for sensitive subfolders  
+- Created **Contracts subfolder** with selective access for specific users  
+- Verified access: members vs non-members  
 
----
-
-## 1. Create Security Group in ADUC
-1. Open **Active Directory Users and Computers (ADUC)**.  
-2. Navigate to `LabUsers` OU → **New → Group**  
-   - Name: `Project`  
-   - Scope: Global  
-   - Type: Security  
-3. Add Alice as a member of `Project` group.
-
-✅ Outcome: Project security group created and populated.
-
----
-
-## 2. Create Folder Structure
-1. On the server, open `C:\` → create **Common** folder.  
-2. Inside Common, create subfolders: `Project` and `Events`.
-
----
-
-## 3. Configure Share Permissions
-1. Right-click **Common** → Properties → Sharing → Share → Add `Everyone` → Share.  
-2. Advanced Sharing → Permissions → Allow **Full Control** for Everyone.  
-
-✅ Outcome: Common folder shared with full control for all users.
-
----
-
-## 4. Configure NTFS Permissions (Inheritance)
-1. Right-click **Common** → Properties → Security → add `Everyone` → Full Control.  
-2. Ensure permissions **inherit** to subfolders `Project` and `Events`.  
-
-✅ Outcome: All subfolders initially inherit permissions from Common.
-
----
-
-## 5. Restrict the Project Subfolder
-1. Right-click `Project` → Properties → Security → Advanced → Disable Inheritance → Convert to Explicit Permissions.  
-2. Remove `Everyone` → Add `Project` group → assign **Modify/Full Control**.  
-
-✅ Outcome: Only Project group members can access the Project folder; inheritance overridden.
-
----
-
-## 6. Verify Permissions
-- **Project member (AliceIT)** → Can access `Common`, `Events`, and `Project`.  
-- **Non-member (EveHR)** → Can access `Common` and `Events`, denied access to Project.  
-
----
-
-### Separate Share for Contracts Subfolder
-**Objective:**
-Allow **EveHR** access to `Contracts` folder without granting access to parent Project folder.
-
-1. Create `Contracts` inside `Project`.  
-2. Share `Contracts` → add permissions:
-   - Project: Full Control  
-   - EveHR: Read/Write  
-   - Everyone: Remove  
-3. NTFS: Disable inheritance → convert to explicit permissions → assign same permissions.
-
-✅ Outcome: EveHR accesses Contracts without seeing Project. Project group retains full control.
-
----
-
-## Explicit Deny Permissions
-
-### Scenario
-Restrict **EveHR** from accessing a confidential folder while allowing all other employees access.
-
-1. Folder structure:  
-   - `Project\Confidential` → EveHR denied  
-   - `Project\Materials` → accessible by all  
-
-2. Share Project → Everyone: Full Control  
-3. NTFS: Explicit Deny for EveHR on `Confidential` folder.  
-
-### Testing
-- Alice (Project member) → Full access to Confidential & Materials  
-- EveHR → Sees Confidential but receives **Access Denied**, can access Materials  
-
----
-
-## Key Notes
-- **Share permissions**: broad access  
-- **NTFS permissions**: precise control, override share permissions  
-- **Explicit deny**: overrides allows, prevents unauthorized access while keeping folder visible  
-- Disable inheritance when you need unique permissions on subfolders  
-
-✅ Outcome:  
-- Effective use of NTFS inheritance and explicit permissions  
-- Granular control for users and groups  
-- Demonstrated explicit deny without affecting others
+✅ Demonstrates **granular access control, group-based permissions, and enterprise-level file security**
 
 ---
 
