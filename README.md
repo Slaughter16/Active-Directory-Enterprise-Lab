@@ -31,26 +31,26 @@ This environment replicates **enterprise-style system administration**, suitable
 - 🖧 [Step-1: DHCP on Windows Server 2019](./Step-1_DHCP_Win2019)  
   *Configured DHCP server and scopes for AD clients* 
 
-2. [Step-2_Active_Directory](./Step-2_Active_Directory)  
-   - Install and configure AD DS, promote Domain Controller  
+- 🗂️ [Step-2: Active Directory Setup](./Step-2_Active_Directory)  
+  *Installed AD DS, promoted Domain Controller, joined clients*  
 
-3. [Step-3_Organize_AD](./Step-3_Organize_AD)  
-   - Create Organizational Units (OUs), users, and security groups  
+- 🏢 [Step-3: Organize Active Directory](./Step-3_Organize_AD)  
+  *Created OUs, users, security groups for structured management*  
 
-4. [Step-4_Advanced_GPOs](./Step-4_Advanced_GPOs)  
-   - Apply advanced Group Policy Objects (password policies, drive mappings, restrictions)  
+- ⚙️ [Step-4: Advanced Group Policies](./Step-4_Advanced_GPOs)  
+  *Applied password policies, login restrictions, mapped drives*  
 
-5. [Step-5_Quotas_&_File_Screening](./Step-5_Quotas_&_File_Screening)  
-   - Implement quotas and file screening with FSRM  
+- 📦 [Step-5: Quotas & File Screening](./Step-5_Quotas_&_File_Screening)  
+  *Implemented FSRM quotas, file screening for storage governance*  
 
-6. [Step-6_Security_Policies](./Step-6_Security_Policies)  
-   - Configure account lockout, auditing, and password rules  
+- 🔐 [Step-6: Security Policies](./Step-6_Security_Policies)  
+  *Configured account lockout, auditing, and password rules*  
 
-7. [Step-7_Service_Accounts](./Step-7_Service_Accounts)  
-   - Create and delegate least-privilege service accounts  
-
-8. [Step-8_Effective_Permissions_and_Inheritance](./Step-8_Effective_Permissions_and_Inheritance)  
-   - Configure NTFS/share permissions with:  
+- 👤 [Step-7: Service Accounts](./Step-7_Service_Accounts)  
+  *Created and delegated least-privilege service accounts*
+  
+- 📁 [Step-8: Effective Permissions & Inheritance](./Step-8_Effective_Permissions_and_Inheritance)
+  - Configure NTFS/share permissions with:  
      - Inheritance vs explicit permissions  
      - Group-based access (Project group)  
      - Separate share for Contracts folder (selective access)  
