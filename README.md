@@ -186,14 +186,273 @@ Apply realistic department-specific policies to IT and HR OUs to enforce securit
 
 ## 📦 [Step-5: Quotas & File Screening](./Step-5_Quotas_&_File_Screening)  
 
-  *Implemented FSRM quotas, file screening for storage governance*  
+# Step 5 – Quotas & File Screening (FSRM) 🗄️🔒
 
+**Objective:**  
+Use File Server Resource Manager (FSRM) to manage storage on file server: enforce quotas, block unwanted file types, and generate notifications.
+
+---
+
+## 1️⃣ Install File Server Resource Manager
+
+- Server Manager → Manage → Add Roles and Features  
+- Role-based installation → File and iSCSI Services → **File Server Resource Manager**  
+- Complete installation and verify
+
+---
+
+## 2️⃣ Configure Quotas
+
+- Open FSRM → **Quota Management → Create Quota**  
+- Target folder: `D:\Shares\HRData$`  
+- **Quota Type:** Hard Quota  
+- **Size Limit:** Example 500 MB – 1 GB  
+- Optional: **Notification Thresholds** (e.g., 80%) → Email, Event Log, Command, Report  
+- Save template: `HRData_Quota`  
+- Verify quota is created
+
+---
+
+## 3️⃣ Configure File Screening
+
+- Open FSRM → **File Screening Management → Create File Screen**  
+- Target folder: `D:\Shares\HRData$`  
+- **Active Screening** → Block specific file types:  
+  - Audio/Video, Executables, Compressed files, Images, Web files  
+- Optional: Save as **Custom Template**  
+- Verify file screen is applied
+
+---
+
+## 4️⃣ Verification
+
+### Test Quota
+
+- On HR client (EveHR, mapped drive `Z:`):
+  ```powershell
+  fsutil file createnew Z:\test1.dat 52428800  # 50 MB
+  fsutil file createnew Z:\test2.dat 62914560  # 60 MB → should fail
+
+---
+
+## 4. Verification ✅
+
+### 🔹 Confirm Quota Exceeded
+- On a client (e.g., EveHR – Win10), attempt to create files that exceed the quota limit.  
+- You should see an **error message** such as “Not enough disk space.”  
+- On the server, open **FSRM** to confirm the **quota usage percentage** is updated.
+
+---
+
+### 🔹 Test File Screening
+- Attempt to save blocked file types (e.g., `test.exe`, `.mp3`) into the HR share.  
+- The operation should be **denied**.  
+- Verify in FSRM that the **file screen rules** were enforced.
+
+---
+
+### 🔹 Check Quota Alerts
+- Open **Event Viewer** → navigate to:  
+  `Custom Views → Administrative Events`  
+- Look for **Warning Events** triggered by FSRM when quota thresholds were exceeded.  
+- Example:  
+  `User CORP\EveHR has exceeded the 80% quota threshold for the quota on C:\Shares\HRData$`
+
+---
+
+## 📌 Notes
+- **Centralized Storage Management** → FSRM enforces storage policies across the enterprise.  
+- **Quotas** → Prevent users or departments from consuming excessive disk space.  
+- **File Screening** → Blocks unapproved file types to maintain compliance and reduce risks.  
+- **Notifications** → Alerts allow admins to proactively monitor and respond before issues escalate.  
+
+✅ At this point, **FSRM is fully configured** to control disk usage, block risky files, and notify admins of quota violations.
+
+---
 ## 🔐 [Step-6: Security Policies](./Step-6_Security_Policies)  
-  *Configured account lockout, auditing, and password rules*  
+
+**Objective:**  
+In this step, we configure domain-wide security policies to enforce strong passwords, account lockouts, and role-based access control. We also implement fine-grained password policies (FGPP) for different groups.
+
+---
+
+## 1. Password Policy Configuration
+
+### Steps
+1. Open **Group Policy Management Console (GPMC)**.  
+2. Navigate to **Group Policy Objects → Default Domain Policy → Edit**.  
+3. Go to:  
+   `Computer Configuration → Policies → Windows Settings → Security Settings → Account Policies → Password Policy`
+
+### Configured Settings
+- **Enforce Password History:** 24 passwords remembered  
+- **Maximum Password Age:** 60 days  
+- **Minimum Password Age:** 1 day  
+- **Minimum Password Length:** 12 characters  
+- **Password Must Meet Complexity Requirements:** Enabled  
+
+### Testing & Validation
+- Forced a password reset for `AliceIT` in **ADUC**.  
+- Attempted weak password → **Rejected**  
+- Attempted strong password → **Accepted**
+
+✅ Outcome: All users in **corp.local** must follow strong password standards.
+
+---
+
+## 2. Account Lockout Policy
+
+### Steps
+1. Open **GPMC** → Default Domain Policy → Edit  
+2. Navigate to:  
+   `Computer Configuration → Policies → Windows Settings → Security Settings → Account Policies → Account Lockout Policy`
+
+### Configured Settings
+- **Account Lockout Threshold:** 3 invalid logon attempts  
+- **Account Lockout Duration:** 30 minutes  
+- **Allow Administrator Account Lockout:** Disabled  
+- **Reset Account Lockout Counter After:** 30 minutes
+
+### Testing & Validation
+- Attempted login with wrong password 3x → **Account locked**  
+- Confirmed lockout message and automatic unlock after 30 minutes
+
+✅ Outcome: Protects against brute-force attacks with temporary lockouts.
+
+---
+
+## 3. User Rights Assignment (RBAC)
+
+### Steps
+1. Open **GPMC → Default Domain Policy → Edit**  
+2. Navigate to:  
+   `Computer Configuration → Policies → Windows Settings → Security Settings → Local Policies → User Rights Assignment`
+
+### Configured Settings
+#### Deny Log on Locally
+- Applied to `HR_Staff`  
+- Prevents HR users from logging on to servers or domain controllers
+
+#### Allow Log on Through Remote Desktop Services
+- Applied to `IT_Staff`  
+- Restricts remote desktop access to IT administrators
+
+### Testing & Validation
+- HR staff → local login and RDP **denied**  
+- IT staff → RDP **granted**
+
+✅ Outcome: Enforces least privilege; only authorized users can perform administrative tasks.
+
+---
+
+## 4. Fine-Grained Password Policies (FGPP)
+
+### Scenario
+- Admins require stricter password rules than standard users  
+- Implemented via **Password Settings Objects (PSOs)** in ADAC
+
+### Configuration
+#### Admin Accounts (IT_Staff)
+- Minimum Password Length: 15  
+- Enforce Password History: 5  
+- Complexity: Enabled
+
+#### Standard Users (HR_Staff)
+- Minimum Password Length: 10  
+- Enforce Password History: 5  
+- Complexity: Enabled
+
+### Testing & Validation
+- Attempted passwords below requirements → **Rejected**  
+- Passwords meeting requirements → **Accepted**  
+- Verified via ADAC and PowerShell:
+```
+Get-ADUserResultantPasswordPolicy -Identity AliceIT
+Get-ADUserResultantPasswordPolicy -Identity EveHR
+```
 
 ## 👤 [Step-7: Service Accounts](./Step-7_Service_Accounts)  
-  *Created and delegated least-privilege service accounts*
-  
+
+**Objective:**  
+Set up a single-purpose workstation to automatically log in with a **service account**, launch a specific web page in full-screen mode, and restrict local logon for standard users. Simulates a kiosk-style setup without using Windows Kiosk mode.
+
+**Prerequisites**
+- Windows Server with AD DS installed  
+- Windows 10 Pro / Enterprise client  
+- Sysinternals Suite  
+- AD security groups (e.g., `LabUsers`)  
+- Web browser (e.g., Chrome)  
+
+---
+
+## 1. Create a Service Account in Active Directory
+1. Open **ADUC** → optionally create `ServiceAccounts` OU.  
+2. Create a new user:  
+   - **Name:** `Website_FirstName LastName Login`  
+   - **User logon name:** `$Website-Login`  
+   - **Password settings:**  
+     - Uncheck “User must change password at next logon”  
+     - Check “User cannot change password”  
+     - Check “Password never expires”  
+3. Add a description: *“Auto-login to display websites”*
+
+✅ Outcome: Service account created and ready for auto-login.
+
+---
+
+## 2. Install Sysinternals Suite on Client
+1. Download and extract **Sysinternals Suite** to a network-accessible folder.  
+2. Launch **Autologon64.exe**.
+
+---
+
+## 3. Configure Auto-Login for the Service Account
+1. Open **Autologon64** → enter:  
+   - Username: `$Website-Login`  
+   - Domain: `corp.local`  
+   - Password: [service account password]  
+2. Click **Enable** → reboot client.
+
+✅ Outcome: Windows logs in automatically with the service account.
+
+---
+
+## 4. Set Browser to Auto-Start with Specific Web Page
+1. Install Chrome → Settings → On startup → Open a specific page → Enter URL.  
+2. Modify Chrome shortcut → append `--start-Fullscreen` → copy shortcut to `shell:startup`.
+
+✅ Outcome: Browser opens automatically in full-screen showing the desired webpage.
+
+---
+
+## 5. Configure System Settings
+- Prevent sleep: Settings → Power & Sleep → Sleep → Never.  
+- Test reboot → Chrome should auto-launch in full-screen.
+
+---
+
+## 6. Restrict Local Logon Using Group Policy
+1. Open **GPMC** → create new GPO: `Restrict Logon to Service Account`.  
+2. Edit → Computer Configuration → Policies → Windows Settings → Security Settings → Local Policies → User Rights Assignment.  
+3. Configure **Deny log on locally** → add `AllEmployees` (standard users).  
+4. Link GPO to OU containing kiosk client → run `gpupdate /force`.
+
+✅ Outcome: Only service account can log in locally; standard users are denied.
+
+---
+
+## 7. Verification
+- Reboot client → auto-login with service account.  
+- Chrome opens full-screen with the configured page.  
+- Attempt login with standard user → access denied.
+
+---
+
+## Notes
+- **Service Account:** Dedicated for kiosk use, prevents password expiry and changes.  
+- **Auto-Login:** Ensures workstation starts without manual intervention.  
+- **Full-Screen Browser:** Displays desired content automatically.  
+- **Restricted Logon:** Enhances security by preventing unauthorized local access.
   
 ## 📁 [Step-8: Effective Permissions & Inheritance](./Step-8_Advanced_Windows_File_Sharing)
   - Configure NTFS/share permissions with:  
