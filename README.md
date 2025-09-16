@@ -49,7 +49,7 @@ This environment replicates **enterprise-style system administration**, suitable
 - 👤 [Step-7: Service Accounts](./Step-7_Service_Accounts)  
   *Created and delegated least-privilege service accounts*
   
-- 📁 [Step-8: Effective Permissions & Inheritance](./Step-8_Effective_Permissions_and_Inheritance)
+- 📁 [Step-8: Effective Permissions & Inheritance](./Step-8_Advanced_Windows_File_Sharing)
   - Configure NTFS/share permissions with:  
      - Inheritance vs explicit permissions  
      - Group-based access (Project group)  
