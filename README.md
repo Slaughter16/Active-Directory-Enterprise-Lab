@@ -186,8 +186,6 @@ Apply realistic department-specific policies to IT and HR OUs to enforce securit
 
 ## 📦 [Step-5: Quotas & File Screening](./Step-5_Quotas_&_File_Screening)  
 
-# Step 5 – Quotas & File Screening (FSRM) 🗄️🔒
-
 **Objective:**  
 Use File Server Resource Manager (FSRM) to manage storage on file server: enforce quotas, block unwanted file types, and generate notifications.
 
@@ -455,14 +453,107 @@ Set up a single-purpose workstation to automatically log in with a **service acc
 - **Restricted Logon:** Enhances security by preventing unauthorized local access.
   
 ## 📁 [Step-8: Effective Permissions & Inheritance](./Step-8_Advanced_Windows_File_Sharing)
-  - Configure NTFS/share permissions with:  
-     - Inheritance vs explicit permissions  
-     - Group-based access (Project group)  
-     - Separate share for Contracts folder (selective access)  
-     - Explicit deny for sensitive Confidential folder  
-     - Tested access across multiple users (Alice, EveHR)  
+
+**Objective:**
+Demonstrate **explicit permissions, inheritance, group memberships, and deny permissions** using NTFS and file sharing.
+
+- `Common` folder → accessible by everyone  
+- `Project` subfolder → restricted to `Project` security group members  
+- `Events` subfolder → fully accessible to all  
 
 ---
+
+## 1. Create Security Group in ADUC
+1. Open **Active Directory Users and Computers (ADUC)**.  
+2. Navigate to `LabUsers` OU → **New → Group**  
+   - Name: `Project`  
+   - Scope: Global  
+   - Type: Security  
+3. Add Alice as a member of `Project` group.
+
+✅ Outcome: Project security group created and populated.
+
+---
+
+## 2. Create Folder Structure
+1. On the server, open `C:\` → create **Common** folder.  
+2. Inside Common, create subfolders: `Project` and `Events`.
+
+---
+
+## 3. Configure Share Permissions
+1. Right-click **Common** → Properties → Sharing → Share → Add `Everyone` → Share.  
+2. Advanced Sharing → Permissions → Allow **Full Control** for Everyone.  
+
+✅ Outcome: Common folder shared with full control for all users.
+
+---
+
+## 4. Configure NTFS Permissions (Inheritance)
+1. Right-click **Common** → Properties → Security → add `Everyone` → Full Control.  
+2. Ensure permissions **inherit** to subfolders `Project` and `Events`.  
+
+✅ Outcome: All subfolders initially inherit permissions from Common.
+
+---
+
+## 5. Restrict the Project Subfolder
+1. Right-click `Project` → Properties → Security → Advanced → Disable Inheritance → Convert to Explicit Permissions.  
+2. Remove `Everyone` → Add `Project` group → assign **Modify/Full Control**.  
+
+✅ Outcome: Only Project group members can access the Project folder; inheritance overridden.
+
+---
+
+## 6. Verify Permissions
+- **Project member (AliceIT)** → Can access `Common`, `Events`, and `Project`.  
+- **Non-member (EveHR)** → Can access `Common` and `Events`, denied access to Project.  
+
+---
+
+### Separate Share for Contracts Subfolder
+**Objective:**
+Allow **EveHR** access to `Contracts` folder without granting access to parent Project folder.
+
+1. Create `Contracts` inside `Project`.  
+2. Share `Contracts` → add permissions:
+   - Project: Full Control  
+   - EveHR: Read/Write  
+   - Everyone: Remove  
+3. NTFS: Disable inheritance → convert to explicit permissions → assign same permissions.
+
+✅ Outcome: EveHR accesses Contracts without seeing Project. Project group retains full control.
+
+---
+
+## Explicit Deny Permissions
+
+### Scenario
+Restrict **EveHR** from accessing a confidential folder while allowing all other employees access.
+
+1. Folder structure:  
+   - `Project\Confidential` → EveHR denied  
+   - `Project\Materials` → accessible by all  
+
+2. Share Project → Everyone: Full Control  
+3. NTFS: Explicit Deny for EveHR on `Confidential` folder.  
+
+### Testing
+- Alice (Project member) → Full access to Confidential & Materials  
+- EveHR → Sees Confidential but receives **Access Denied**, can access Materials  
+
+---
+
+## Key Notes
+- **Share permissions**: broad access  
+- **NTFS permissions**: precise control, override share permissions  
+- **Explicit deny**: overrides allows, prevents unauthorized access while keeping folder visible  
+- Disable inheritance when you need unique permissions on subfolders  
+
+✅ Outcome:  
+- Effective use of NTFS inheritance and explicit permissions  
+- Granular control for users and groups  
+- Demonstrated explicit deny without affecting others
 
 ---
 
