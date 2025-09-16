@@ -28,7 +28,8 @@ This environment replicates **enterprise-style system administration**, suitable
 
 ## 📚 Table of Contents  
 
-- 🖧 [Step-1: DHCP on Windows Server 2019](./Step-1_DHCP_Win2019)  
+## 🖧 [Step-1: DHCP on Windows Server 2019](./Step-1_DHCP_Win2019)  
+
 - 🖥️ Assigned a **static IP** to Windows Server 2019 for VLAN 10  
 - 🔒 Disabled **pfSense DHCP service** on VLAN 10  
 - 📦 Installed & authorized the **DHCP Server role** in Active Directory  
@@ -86,7 +87,7 @@ Install AD DS with integrated DNS on Windows Server 2019, configure a new domain
 - Enhanced security by renaming default admin account
 
 
-- 🏢 [Step-3: Organize Active Directory](./Step-3_Organize_AD)
+## 🏢 [Step-3: Organize Active Directory](./Step-3_Organize_AD)
   
 **Objective:**  
 Structure Active Directory with OUs, user accounts, and security groups for centralized administration, policy enforcement, and role-based access control.
@@ -125,7 +126,7 @@ Structure Active Directory with OUs, user accounts, and security groups for cent
 - Lab environment ready for file server permissions, remote management, and further security configurations.
 
 
-- ⚙️ [Step-4: Advanced Group Policies](./Step-4_Advanced_GPOs)
+## ⚙️ [Step-4: Advanced Group Policies](./Step-4_Advanced_GPOs)
 
 **Objective:**  
 Apply realistic department-specific policies to IT and HR OUs to enforce security, usability, and compliance in a lab environment.
@@ -183,16 +184,18 @@ Apply realistic department-specific policies to IT and HR OUs to enforce securit
 - Further expansion possible: software deployment, security hardening, compliance enforcement
 
 
-- 📦 [Step-5: Quotas & File Screening](./Step-5_Quotas_&_File_Screening)  
+## 📦 [Step-5: Quotas & File Screening](./Step-5_Quotas_&_File_Screening)  
+
   *Implemented FSRM quotas, file screening for storage governance*  
 
-- 🔐 [Step-6: Security Policies](./Step-6_Security_Policies)  
+## 🔐 [Step-6: Security Policies](./Step-6_Security_Policies)  
   *Configured account lockout, auditing, and password rules*  
 
-- 👤 [Step-7: Service Accounts](./Step-7_Service_Accounts)  
+## 👤 [Step-7: Service Accounts](./Step-7_Service_Accounts)  
   *Created and delegated least-privilege service accounts*
   
-- 📁 [Step-8: Effective Permissions & Inheritance](./Step-8_Advanced_Windows_File_Sharing)
+  
+## 📁 [Step-8: Effective Permissions & Inheritance](./Step-8_Advanced_Windows_File_Sharing)
   - Configure NTFS/share permissions with:  
      - Inheritance vs explicit permissions  
      - Group-based access (Project group)  
