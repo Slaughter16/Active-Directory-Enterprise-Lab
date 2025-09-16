@@ -29,7 +29,20 @@ This environment replicates **enterprise-style system administration**, suitable
 ## 📚 Table of Contents  
 
 - 🖧 [Step-1: DHCP on Windows Server 2019](./Step-1_DHCP_Win2019)  
-  *Configured DHCP server and scopes for AD clients* 
+- 🖥️ Assigned a **static IP** to Windows Server 2019 for VLAN 10  
+- 🔒 Disabled **pfSense DHCP service** on VLAN 10  
+- 📦 Installed & authorized the **DHCP Server role** in Active Directory  
+- 📑 Created & activated a **DHCP Scope**  
+  - Scope Name: `VLAN10-Scope`  
+  - Range: `192.168.10.50 – 192.168.10.200`  
+  - Exclusions: `192.168.10.1 – 192.168.10.49`  
+  - Default Gateway: `192.168.10.1`  
+  - DNS: `192.168.10.10, 192.168.20.2`  
+  - Lease Duration: **8 Days**  
+- 🧪 Verified DHCP leases on:  
+  - Windows 10 client (`ipconfig /renew`)  
+  - Windows 11 client (`ipconfig /renew`)  
+  - Debian client (`dhclient`)  
 
 - 🗂️ [Step-2: Active Directory Setup](./Step-2_Active_Directory)  
   *Installed AD DS, promoted Domain Controller, joined clients*  
