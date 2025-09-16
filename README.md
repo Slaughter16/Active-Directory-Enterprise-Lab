@@ -44,7 +44,7 @@ This environment replicates **enterprise-style system administration**, suitable
   - Windows 11 client (`ipconfig /renew`)  
   - Debian client (`dhclient`)  
 
-- 🗂️ [Step-2: Active Directory Setup](./Step-2_Active_Directory)  
+## 🗂️ [Step-2: Active Directory Setup](./Step-2_Active_Directory)  
 
 **Objective:**  
 Install AD DS with integrated DNS on Windows Server 2019, configure a new domain (`corp.local`), and join Windows 10, Windows 11, and Debian clients.
