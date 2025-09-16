@@ -86,7 +86,8 @@ Install AD DS with integrated DNS on Windows Server 2019, configure a new domain
 - Enhanced security by renaming default admin account
 
 
-- 🏢 [Step-3: Organize Active Directory](./Step-3_Organize_AD)  
+- 🏢 [Step-3: Organize Active Directory](./Step-3_Organize_AD)
+  
 **Objective:**  
 Structure Active Directory with OUs, user accounts, and security groups for centralized administration, policy enforcement, and role-based access control.
 
