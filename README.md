@@ -199,41 +199,41 @@ Use File Server Resource Manager (FSRM) to manage storage on file server: enforc
 
 ---
 
-## 2️⃣ Configure Quotas
+- Configure Quotas
 
-- Open FSRM → **Quota Management → Create Quota**  
-- Target folder: `D:\Shares\HRData$`  
-- **Quota Type:** Hard Quota  
-- **Size Limit:** Example 500 MB – 1 GB  
-- Optional: **Notification Thresholds** (e.g., 80%) → Email, Event Log, Command, Report  
-- Save template: `HRData_Quota`  
-- Verify quota is created
+  - Open FSRM → **Quota Management → Create Quota**  
+  - Target folder: `D:\Shares\HRData$`  
+  - **Quota Type:** Hard Quota  
+  - **Size Limit:** Example 500 MB – 1 GB  
+  - Optional: **Notification Thresholds** (e.g., 80%) → Email, Event Log, Command, Report  
+  - Save template: `HRData_Quota`  
+  - Verify quota is created
 
 ---
 
-## 3️⃣ Configure File Screening
+- Configure File Screening
 
-- Open FSRM → **File Screening Management → Create File Screen**  
-- Target folder: `D:\Shares\HRData$`  
-- **Active Screening** → Block specific file types:  
+  - Open FSRM → **File Screening Management → Create File Screen**  
+  - Target folder: `D:\Shares\HRData$`  
+  - **Active Screening** → Block specific file types:  
   - Audio/Video, Executables, Compressed files, Images, Web files  
-- Optional: Save as **Custom Template**  
-- Verify file screen is applied
+  - Optional: Save as **Custom Template**  
+  - Verify file screen is applied
 
 ---
 
-## 4️⃣ Verification
+- Verification
 
-### Test Quota
+ - Test Quota
 
-- On HR client (EveHR, mapped drive `Z:`):
-  ```powershell
+  - On HR client (EveHR, mapped drive `Z:`):
+  ```
   fsutil file createnew Z:\test1.dat 52428800  # 50 MB
   fsutil file createnew Z:\test2.dat 62914560  # 60 MB → should fail
-
+  ```
 ---
 
-## 4. Verification ✅
+- Verification ✅
 
 ### 🔹 Confirm Quota Exceeded
 - On a client (e.g., EveHR – Win10), attempt to create files that exceed the quota limit.  
