@@ -191,11 +191,11 @@ Use File Server Resource Manager (FSRM) to manage storage on file server: enforc
 
 ---
 
-## 1️⃣ Install File Server Resource Manager
+- Install File Server Resource Manager
 
-- Server Manager → Manage → Add Roles and Features  
-- Role-based installation → File and iSCSI Services → **File Server Resource Manager**  
-- Complete installation and verify
+  - Server Manager → Manage → Add Roles and Features  
+  - Role-based installation → File and iSCSI Services → **File Server Resource Manager**  
+  - Complete installation and verify
 
 ---
 
