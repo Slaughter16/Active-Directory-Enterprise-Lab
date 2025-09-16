@@ -79,11 +79,108 @@ Install AD DS with integrated DNS on Windows Server 2019, configure a new domain
   - Confirm clients resolve correctly to IPs  
   - Ensure PTR records map IP → hostname  
 
-- 🏢 [Step-3: Organize Active Directory](./Step-3_Organize_AD)  
-  *Created OUs, users, security groups for structured management*  
+**Outcome:**  
+- Centralized authentication & authorization for all clients  
+- AD-integrated DNS functioning properly for forward & reverse lookups  
+- Clients successfully joined to domain  
+- Enhanced security by renaming default admin account
 
-- ⚙️ [Step-4: Advanced Group Policies](./Step-4_Advanced_GPOs)  
-  *Applied password policies, login restrictions, mapped drives*  
+
+- 🏢 [Step-3: Organize Active Directory](./Step-3_Organize_AD)  
+**Objective:**  
+Structure Active Directory with OUs, user accounts, and security groups for centralized administration, policy enforcement, and role-based access control.
+
+**Key Tasks / Highlights:**  
+
+- 🏢 **Create Organizational Units (OUs)**  
+  - `LabUsers` → `IT`, `HR`  
+  - `LabComputers` → `Workstations`, `Servers`  
+  - `LabGroups` for grouping users logically  
+
+- 👤 **Create User Accounts**  
+  - Users for IT: `Alice IT`, `Bob IT`  
+  - Users for HR: `Eve HR`, `John Doe`, `Charlie HR`  
+  - Set initial passwords and enforce change at first logon  
+
+- 🔒 **Create Security Groups & Add Users**  
+  - `IT_Staff` → IT OU users  
+  - `HR_Staff` → HR OU users  
+  - Assign users to respective groups for role-based permissions  
+
+- 📜 **Create and Link Group Policies (GPOs)**  
+  - IT OU → `IT_User_Policy` (e.g., desktop wallpaper, disable Control Panel)  
+  - HR OU → `HR_User_Policy` (e.g., folder redirection, password-protected screensaver)  
+  - Link GPOs to OUs and verify application  
+
+- ✅ **Verify Setup**  
+  - Windows 10 / 11 clients: log in, refresh policies (`gpupdate /force`)  
+  - Debian client: verify domain join and DNS (`realm list`, `nslookup`)  
+  - Confirm OU hierarchy, user accounts, groups, and GPO links  
+
+**Outcome:**  
+- AD is structured for logical management.  
+- Users and groups organized for simplified permission management.  
+- GPOs applied to enforce policies per OU.  
+- Lab environment ready for file server permissions, remote management, and further security configurations.
+
+
+- ⚙️ [Step-4: Advanced Group Policies](./Step-4_Advanced_GPOs)
+
+**Objective:**  
+Apply realistic department-specific policies to IT and HR OUs to enforce security, usability, and compliance in a lab environment.
+
+---
+
+**IT Department (OU: LabUsers → IT)**  
+**GPO Name:** `IT_User_Policy` | **Security Group:** `IT_Staff`  
+
+- 🖼️ **Desktop Wallpaper**  
+  - Store image in shared folder: `C:\Wallpapers` → Share with `IT_Staff`  
+  - UNC path: `\\WIN-Server\Wallpapers\ITBackground.jpg`  
+  - Configure via GPO: `User Configuration → Policies → Administrative Templates → Desktop → Desktop Wallpaper`  
+
+- 🚫 **Disable Control Panel Access**  
+  - GPO Path: `User Configuration → Policies → Administrative Templates → Control Panel → Prohibit access to Control Panel`  
+  - Prevents unauthorized changes for IT staff  
+
+- ✅ **Verification**  
+  - Log in as IT user (AliceIT) → `gpupdate /force` → Confirm wallpaper and restricted Control Panel  
+
+---
+
+**HR Department (OU: LabUsers → HR)**  
+**GPO Name:** `HR_User_Policy` | **Security Group:** `HR_Staff`  
+
+- 📂 **Folder Redirection**  
+  - Documents redirected to: `\\WIN-SERVER\FOLDERREDIR$`  
+  - Per-user folders automatically created on server  
+  - GPO Path: `User Configuration → Policies → Windows Settings → Folder Redirection → Documents`  
+  - Optional: disable exclusive rights in lab environments  
+
+- 🔒 **Password-Protected Screensaver**  
+  - Timeout: 2–5 minutes (configurable)  
+  - GPO Path: `User Configuration → Administrative Templates → Control Panel → Personalization`  
+
+- 🛡️ **USB Storage Restriction**  
+  - Deny read/write on removable drives  
+  - GPO Path: `User Configuration → Administrative Templates → System → Removable Storage Access`  
+
+- 📁 **HR Shared Folder (`HRData$`)**  
+  - Create on server with NTFS & share permissions for `HR_Staff`  
+  - Optional mapping via GPO → Z: drive for HR users  
+
+- ✅ **Verification**  
+  - Log in as HR user (EveHR) → `gpupdate /force`  
+  - Check folder redirection, screensaver, USB restriction, and access to HR shared folder  
+
+---
+
+**Notes:**  
+- IT policies focus on system control and branding  
+- HR policies enforce data protection and compliance  
+- Lab-ready configuration allows testing of realistic enterprise policies  
+- Further expansion possible: software deployment, security hardening, compliance enforcement
+
 
 - 📦 [Step-5: Quotas & File Screening](./Step-5_Quotas_&_File_Screening)  
   *Implemented FSRM quotas, file screening for storage governance*  
