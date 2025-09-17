@@ -88,7 +88,9 @@ Implement department-specific policies for IT and HR to enforce security, compli
 - **HR OU (`LabUsers → HR`)**
   - Folder redirection to server (`HRData$`)  
   - Password-protected screensaver  
-  - USB storage restrictions  
+  - USB storage restrictions
+  - Shared folder setup
+  - Map network drive via GPO and Manually 
 - Verified policy application on clients (`gpupdate /force`)  
 
 ✅ Demonstrates **GPO design, OU-specific policies, and enterprise-level security enforcem
