@@ -1,4 +1,4 @@
-# 🏢 Active Directory Enterprise IT Infrastructure Lab – Active Directory, Group Policy, Security
+# 🏢 Active Directory Enterprise Lab
 
 ## 📌 Overview  
 This project simulates a **real-world enterprise IT environment** hosted on a **Proxmox mini-PC**.  
