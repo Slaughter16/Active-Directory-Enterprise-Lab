@@ -61,10 +61,10 @@ In this step, we will use **File Server Resource Manager (FSRM)** to enforce sto
 
 ---
 <a id="configure-quotas"></a>
-## 2. Configure Quotas
+## 🗄️ 2. Configure Quotas
 
 Quotas allow administrators to restrict the amount of data stored in a folder.  
-
+<a id="create-quota"></a>
 1. Open **File Server Resource Manager** → expand **Quota Management**.
 
 ![Open_FSRM](images/10_Open_FSRM.png)
@@ -72,6 +72,7 @@ Quotas allow administrators to restrict the amount of data stored in a folder.
 2. Right-click **Quotas** → select **Create Quota**.  
 
 ![Create_Quota](images/12_Create_Quota.png)
+<a id="define-custom-properties"></a>
 3. In the **Quota Path**, select the target shared folder (example: `D:\Shares\HRData$`). 
 ![Quota_Path](images/13_Quota_Path.png)
 4. Choose **Define custom quota properties**.  
