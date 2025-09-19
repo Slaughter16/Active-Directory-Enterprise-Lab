@@ -14,7 +14,7 @@
    - [Define Custom File Screen Properties](#define-custom-file-screen-properties)
    - [Active Screening & Blocked File Types](#active-screening--blocked-file-types)
    - [Save File Screen Template](#save-file-screen-template)
-5. ✅ [Verification](#4-verification)
+5. ✅ [Verification](#verification)
    - [Test Quota](#test-the-100-mb-quota)
    - [Test File Screening](#test-the-file-screen)
    - [Verify Quota Alerts in Event Viewer](#verify-quota-alerts-in-event-viewer)
@@ -141,6 +141,7 @@ File Screening allows administrators to block specific file types in shared fold
 ---
 <a id="verification"></a>
 ## ✅ 4. Verification
+
 <a id="test-the-100-mb-quota"></a>
 ### Test the 100 MB Quota
 
