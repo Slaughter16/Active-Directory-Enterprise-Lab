@@ -3,15 +3,16 @@
 ## 📑 Table of Contents
 🎯 [Objectives](#objectives)
 1. 📝 [Password Policy Configuration](#password-policy-configuration)
+   - [Navigate_Passowrd_Policy](#navigate-to-password-policy)
    - [Configured Settings](#configured-settings)
    - [Testing & Validation](#testing--validation)
-2. 🔒 [Account Lockout Policy Configuration](#account-lockout-policy-configuration)
+3. 🔒 [Account Lockout Policy Configuration](#account-lockout-policy-configuration)
    - [Configured Settings](#configured-settings-lockout)
    - [Testing & Validation](#testing--validation-lockout)
-3. 👥 [User Rights Assignment Configuration](#user-rights-assignment-configuration)
+4. 👥 [User Rights Assignment Configuration](#user-rights-assignment-configuration)
    - [Configured Settings](#configured-settings-user-rights)
    - [Testing & Validation](#testing--validation-user-rights)
-4. 🔐 [Implement Fine-Grained Password Policies (FGPP)](#implement-fine-grained-password-policies-fgpp)
+5. 🔐 [Implement Fine-Grained Password Policies (FGPP)](#implement-fine-grained-password-policies-fgpp)
    - [Password Settings Container](#password-settings-container)
    - [Administrative Accounts](#administrative-accounts)
    - [Standard Users](#standard-users)
@@ -25,7 +26,7 @@ To implement domain-wide password and account security policies using Group Poli
 ---
 <a id="password-policy-configuration"></a>
 ## 📝 Password Policy Configuration
-
+<a id="navigate-to-password-policy"></a>
 ### Steps
 1. Open **Group Policy Management Console (GPMC)**.  
    ![Open_GPM](images/1_Open_GPM.png)
