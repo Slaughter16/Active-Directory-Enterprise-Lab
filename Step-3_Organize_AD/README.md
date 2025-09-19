@@ -1,5 +1,28 @@
 # Step 3 – Organize Active Directory, Create Users & Groups
 
+## 📑 Table of Contents
+- [Objective](#objective)
+- [Background](#background)
+- [Configuration Details](#configuration-details)
+- [Steps Performed](#steps-performed)
+  - [1. Create Organizational Units (OUs)](#create-ous)
+  - [2. Create User Accounts](#create-users)
+  - [3. Create Security Groups & Add Users](#create-groups)
+    - [Decide on Security Groups](#decide-groups)
+    - [Create Security Groups](#make-groups)
+    - [Add Users to Groups](#add-users)
+    - [Verify Group Membership](#verify-membership)
+- [Step 4 – Create and Link Group Policies (GPOs)](#step-4-gpos)
+  - [Create a GPO for IT](#gpo-it)
+  - [Create a GPO for HR](#gpo-hr)
+- [Step 5 – Verify Users, Groups, and GPO Application](#step-5-verification)
+  - [Windows 10 Client – Eve HR](#verify-win10)
+  - [Windows 11 Client – Alice IT](#verify-win11)
+  - [Debian Client](#verify-debian)
+- [Outcome](#outcome)
+
+---
+
 ## 📌 Objective
 Organize Active Directory by creating Organizational Units (OUs), user accounts, and security groups.  
 This enables structured administration, targeted Group Policy application, and role-based access management in your lab environment.
