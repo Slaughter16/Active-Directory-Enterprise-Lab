@@ -24,7 +24,7 @@ This simulates real-world administrative tasks where IT departments enforce poli
 
 ---
 
-
+<a id="policies-to-configure"></a>
 ## 🛠️ Policies to Configure
 
 ### 🔹 IT Department (OU: LabUsers → IT)
@@ -40,9 +40,9 @@ This simulates real-world administrative tasks where IT departments enforce poli
    - Path: `User Configuration → Policies → Administrative Templates → Control Panel → Prohibit access to Control Panel`  
    - This prevents IT staff from making unauthorized changes.
 
+---
 
-
-
+<a id="create-wallpaper-folder"></a>
 ## 1️⃣ Create a Wallpaper Folder
 
 1. Open **File Explorer** → navigate to `C:\`  
@@ -59,7 +59,7 @@ Now you have a dedicated folder to store all GPO wallpapers.
 ![Save_Image_Wallpapers](images/2_Save_Image_Wallpapers.png)
 
 ---
-
+<a id="share-folder"></a>
 ## 2️⃣ Share the Folder
 
 Right-click → Properties → Sharing → Advanced Sharing → Share this folder
@@ -80,9 +80,9 @@ Right-click → Properties → Sharing → Advanced Sharing → Share this folde
 ![Object_Name_IT_Staff](images/5_Object_Name_IT_Staff.png)
 ![Share_Permissions_Wallpapers](images/6_Share_Permissions_Wallpapers.png)
 
-
-
-3️⃣ Apply the wallpaper via GPO
+---
+<a id="apply-wallpaper-gpo"></a>
+## 3️⃣ Apply the wallpaper via GPO
 
 Open Group Policy Management → Your IT OU GPO
 
@@ -122,7 +122,9 @@ User Configuration → Policies → Administrative Templates → Desktop → Des
    - Example: `\\WIN-Server\Wallpapers\IT_Wallpaper.jpg`  
    - This ensures IT staff see a standardized background (branding, security reminder, etc.).
 
+---
 
+<a id="disable-control-panel"></a>
 # 🖥️ IT GPO – Disable Control Panel Access
 
 This section shows how to **disable Control Panel access** for IT users (e.g., AliceIT) using the existing IT_User_Policy GPO.
@@ -184,10 +186,8 @@ Navigate in the GPO Editor:   User Configuration → Policies → Administrative
 - Combined with the wallpaper policy, IT_User_Policy now enforces both branding and system restrictions
 
 
-
-
 ---
-
+<a id="hr-department"></a>
 ### 🔹 HR Department (OU: LabUsers → HR)
 **GPO Name:** `HR_User_Policy`
 **Security Group:** `HR_Staff`
@@ -200,7 +200,7 @@ We will configure:
 4. **Shared Folder** (\\WIN-SERVER\HRData$) (Server-Side Config 'NTFS & share permissions')
 
 ---
-
+<a id="folder-redirection"></a>
  # 📂 Folder Redirection Setup (HR Department)
 
 This guide explains how to configure Folder Redirection in Active Directory for the **HR department**.  
@@ -389,21 +389,7 @@ In a real-world environment, this setting would typically be enabled for user pr
 ---
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<a id="password-screensaver"></a>
 ## 2️⃣ Password-Protected Screensaver (HR_User_Policy)
 
 ---
@@ -465,9 +451,9 @@ Verify:
 ![PasswordProtect_Applied](images/56_PasswordProtect_Applied.png)
 ![Back_To_LoginEveHR](images/57_Back_To_LoginEveHR.png)
 
+---
 
-
-
+<a id="disable-usb"></a>
 3️⃣ Disable USB Storage for HR Users
 
 ## Objective
@@ -558,7 +544,7 @@ HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices Lo
 
 
 ---
-
+<a id="hr-shared-folder"></a>
 # HR Shared Folder Setup
 
 ## Objective
@@ -681,13 +667,8 @@ User Configuration → Preferences → Windows Settings → Drive Maps
 
 
 
-  
 
-
-
-
-
-
+<a id="real-world-notes"></a>
 ## 🎯 Real-World Notes
 
 - These examples are **realistic** policies seen in corporate environments.  
