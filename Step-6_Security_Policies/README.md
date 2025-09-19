@@ -17,6 +17,7 @@
    - [Verification](#verification-fgpp)
 
 ---
+<a id="objectives"></a>
 ## 🎯 Objectives
 To enforce strong password standards across the domain, I configured the **Default Domain Policy** in Group Policy Management
 
