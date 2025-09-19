@@ -7,12 +7,13 @@
    - [Configured Settings](#configured-settings)
    - [Testing & Validation](#testing--validation)
 3. 🔒 [Account Lockout Policy Configuration](#account-lockout-policy-configuration)
+   - [Navigate to Account Lockout Policy](#navigate-to-account-lockout-policy)
    - [Configured Settings](#configured-settings-lockout)
    - [Testing & Validation](#testing--validation-lockout)
-4. 👥 [User Rights Assignment Configuration](#user-rights-assignment-configuration)
+5. 👥 [User Rights Assignment Configuration](#user-rights-assignment-configuration)
    - [Configured Settings](#configured-settings-user-rights)
    - [Testing & Validation](#testing--validation-user-rights)
-5. 🔐 [Implement Fine-Grained Password Policies (FGPP)](#implement-fine-grained-password-policies-fgpp)
+6. 🔐 [Implement Fine-Grained Password Policies (FGPP)](#implement-fine-grained-password-policies-fgpp)
    - [Password Settings Container](#password-settings-container)
    - [Administrative Accounts](#administrative-accounts)
    - [Standard Users](#standard-users)
@@ -27,7 +28,7 @@ To implement domain-wide password and account security policies using Group Poli
 <a id="password-policy-configuration"></a>
 ## 📝 Password Policy Configuration
 <a id="navigate-to-password-policy"></a>
-### Steps
+### Navigate to Password Policy
 1. Open **Group Policy Management Console (GPMC)**.  
    ![Open_GPM](images/1_Open_GPM.png)
 
@@ -89,7 +90,8 @@ To implement domain-wide password and account security policies using Group Poli
 To protect against brute-force attacks, I configured an **Account Lockout Policy** in the Default Domain Policy. This ensures that repeated invalid login attempts will temporarily lock the user’s account.
 
 ---
-### Steps
+<a id="navigate-to-account-lockout-policy"></a>
+### Navigate to Account Lockout Policy
 1. Open **Group Policy Management Console (GPMC)**.  
    ![GPMC_Acct_Policy](images/13_GPMC_Acct_Policy.png)
 2. Navigate to **Group Policy Objects**, right-click **Default Domain Policy**, and select **Edit**.  
