@@ -152,7 +152,7 @@ This enables centralized management of permissions, policies, and resources in A
 
 ## 🔹 Steps Performed
 <a id="decide-groups"></a>
-### 1.📝 Decide on Security Groups
+### 📝1. Decide on Security Groups
 For this lab, create the following groups:
 
 - `IT_Staff` → All users in the **IT OU**  
