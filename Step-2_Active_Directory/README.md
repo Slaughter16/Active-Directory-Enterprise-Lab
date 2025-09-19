@@ -109,6 +109,7 @@ This step builds the foundation for:
 ![Installation Complete](images/16_Installation_Complete.png)
 
 ---
+<a id="step-3-authorize-dhcp-in-active-directory"></a>
 ### 3️⃣ Authorize DHCP in Active Directory
 - In AD-integrated networks, **only authorized DHCP servers** can issue IP leases.  
 - Without authorization, clients may fail to receive IPs.
@@ -123,7 +124,7 @@ This step builds the foundation for:
 ![Verify_DHCP](images/19_Verify_DHCP.png)
 
 ---
-
+<a id="secure-domain-controller--post-promotion-tasks"></a>
 ## 🔐 Secure Domain Controller – Post-Promotion Tasks
 
 After promoting the server to a Domain Controller, I performed two critical security and networking configurations:
@@ -132,7 +133,7 @@ After promoting the server to a Domain Controller, I performed two critical secu
 2. **Renamed the Default Administrator Account** – prevents attackers from targeting the well-known "Administrator" account.
 
 ---
-
+<a id="step-4-configure-dns-forwarders"></a>
 ## 4️⃣ Configure DNS Forwarders
 
 1. On the **Domain Controller (DC01)**, open **Server Manager** → click **Tools → DNS**.  
@@ -153,8 +154,7 @@ After promoting the server to a Domain Controller, I performed two critical secu
 ✅ Outcome: Domain clients can now resolve both **internal domain names** and **external internet names** reliably.  
 
 ---
-
-
+<a id="step-5-rename-the-default-administrator-account"></a>
 ## 5️⃣ Rename the Default Administrator Account
 
 1. Open **Active Directory Users and Computers (ADUC)** from **Server Manager → Tools**.  
@@ -177,9 +177,10 @@ After promoting the server to a Domain Controller, I performed two critical secu
 ✅ Outcome: The default "Administrator" account is no longer predictable, reducing exposure to brute-force and credential-stuffing attacks.  
 
 ---
-
+<a id="step-6-join-clients-to-the-domain"></a>
 ### 6️⃣ Join Clients to the Domain
 
+<a id="windows-10--11"></a>
 #### 🖥️ Windows 10 / 11
 1. Ensure **Preferred DNS** is set to DC (`192.168.10.10`).
 
@@ -243,7 +244,7 @@ After promoting the server to a Domain Controller, I performed two critical secu
 ![WIN10_Joined_Domain](images/34_WIN10_Joined_Domain.png)
 
 ---
-
+<a id="debian-client"></a>
 #### 🐧 Debian Client
 
 
@@ -297,13 +298,13 @@ ping -c 3 192.168.10.10
 ![Debian_Ping_DC](images/42_Ping_DC.png)
 
 ---
-
+<a id="step-7-verify-dns-forward--reverse-lookup"></a>
 ### 7️⃣ Verify DNS Forward & Reverse Lookup
 
 After joining clients to the domain, it’s important to confirm DNS is working correctly.
 
 ---
-
+<a id="forward-lookup-test"></a>
 #### 🖥️ Forward Lookup Test
 
 - On **Windows 10 / 11** clients, run:
@@ -329,7 +330,7 @@ nslookup EveHR.corp.local
 ✅ Forward lookup confirms clients’ names resolve to their IP addresses.
 
 ---
-
+<a id="reverse-lookup-test-ptr-records"></a>
 #### 🖥️ Reverse Lookup Test (PTR Records)
 
 - On **Windows 10 / 11** clients, run:
