@@ -3,7 +3,7 @@
 ## 📑 Table of Contents
 - [📌 Objective](#-objective)
 - [🔹 Background](#-background)
-- [🛠️ Configuration Details](#-configuration-details)
+- [🛠️ Configuration Details](#configuration-details)
 - [🔹 Steps Performed](#-steps-performed)
   - [1️⃣ Install AD DS on Windows Server 2019](#1-install-ad-ds-on-windows-server-2019)
   - [2️⃣ Promote the Server to a Domain Controller](#step-2-promote-the-server-to-a-domain-controller)
@@ -38,6 +38,7 @@ This step builds the foundation for:
 
 ---
 
+<a id="configuration-details"></a>
 ## 🛠️ Configuration Details
 - **Domain Name:** corp.local  
 - **Domain Controller (DC):** Windows Server 2019 (DC01)  
