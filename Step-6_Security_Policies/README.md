@@ -19,7 +19,7 @@
 ---
 <a id="objectives"></a>
 ## 🎯 Objectives
-To enforce strong password standards across the domain, I configured the **Default Domain Policy** in Group Policy Management
+To implement domain-wide password and account security policies using Group Policy, including strong password enforcement, account lockout thresholds, and role-based access control, thereby strengthening security posture and mitigating potential credential-based threats.
 
 ---
 
