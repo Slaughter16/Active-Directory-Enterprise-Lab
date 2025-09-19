@@ -15,7 +15,7 @@
    - [Configured Settings](#configured-settings-user-rights)
    - [Testing & Validation](#testing--validation-user-rights)
 7. 🔐 [Implement Fine-Grained Password Policies (FGPP)](#implement-fine-grained-password-policies-fgpp)
-   - [Password Settings Container](#password-settings-container)
+   - [Navigate to Password Settings Container](#password-settings-container)
    - [Administrative Accounts](#administrative-accounts)
    - [Standard Users](#standard-users)
    - [Verification](#verification-fgpp)
@@ -197,8 +197,9 @@ To enforce **role-based access control (RBAC)** and enhance security, I configur
 ---
 
 ## 🛠️ Configuration
+
 <a id="password-settings-container"></a>
-### 1️⃣ Open ADAC
+### 1️⃣ Navigate to Password Settings Container
 1. On the **Windows Server (Domain Controller)**, open:  
    **Server Manager → Tools → Active Directory Administrative Center (ADAC)**
 
