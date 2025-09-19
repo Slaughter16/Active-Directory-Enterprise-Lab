@@ -1,5 +1,25 @@
 # Step 2 – Install Active Directory Domain Services (AD DS) & DNS, and Join Clients
 
+## 📑 Table of Contents
+- [📌 Objective](#objective)
+- [🔹 Background](#background)
+- [🛠️ Configuration Details](#configuration-details)
+- [🔹 Steps Performed](#steps-performed)
+  - [1️⃣ Install AD DS on Windows Server 2019](#step-1-install-ad-ds-on-windows-server-2019)
+  - [2️⃣ Promote the Server to a Domain Controller](#step-2-promote-the-server-to-a-domain-controller)
+  - [3️⃣ Authorize DHCP in Active Directory](#step-3-authorize-dhcp-in-active-directory)
+- [🔐 Secure Domain Controller – Post-Promotion Tasks](#secure-domain-controller--post-promotion-tasks)
+  - [4️⃣ Configure DNS Forwarders](#step-4-configure-dns-forwarders)
+  - [5️⃣ Rename the Default Administrator Account](#step-5-rename-the-default-administrator-account)
+- [6️⃣ Join Clients to the Domain](#step-6-join-clients-to-the-domain)
+  - [🖥️ Windows 10 / 11](#windows-10--11)
+  - [🐧 Debian Client](#debian-client)
+- [7️⃣ Verify DNS Forward & Reverse Lookup](#step-7-verify-dns-forward--reverse-lookup)
+  - [🖥️ Forward Lookup Test](#forward-lookup-test)
+  - [🖥️ Reverse Lookup Test (PTR Records)](#reverse-lookup-test-ptr-records)
+
+---
+
 ## 📌 Objective
 Install Active Directory Domain Services (AD DS) with integrated DNS on Windows Server 2019, configure a new domain, and join Windows 10, Windows 11, and Debian clients to the domain.
 
