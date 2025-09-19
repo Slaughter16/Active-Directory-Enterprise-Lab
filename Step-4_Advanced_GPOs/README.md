@@ -10,7 +10,7 @@
     - [3️⃣ Apply the Wallpaper via GPO](#apply-wallpaper-gpo)
     - [🖥️ IT GPO – Disable Control Panel Access](#disable-control-panel)
   - [🔹 HR Department (OU: LabUsers → HR)](#hr-department)
-    - [📂 Folder Redirection Setup](#folder-redirection)
+    - [1️⃣ Folder Redirection Setup](#folder-redirection)
     - [2️⃣ Password-Protected Screensaver](#password-screensaver)
     - [3️⃣ Disable USB Storage for HR Users](#disable-usb)
     - [HR Shared Folder Setup](#hr-shared-folder)
@@ -202,7 +202,7 @@ We will configure:
 
 ---
 <a id="folder-redirection"></a>
- # 📂 Folder Redirection Setup (HR Department)
+ # 1️⃣ Folder Redirection Setup (HR Department)
 
 This guide explains how to configure Folder Redirection in Active Directory for the **HR department**.  
 The configuration redirects each user’s **Documents** folder to a centralized file server share.
