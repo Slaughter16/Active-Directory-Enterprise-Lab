@@ -81,7 +81,7 @@ Quotas allow administrators to restrict the amount of data stored in a folder.
    - **Hard quota** (recommended): Prevents users from exceeding the limit.  
    - Set a space limit (example: `500 MB` or `1 GB`).  
    - Add a description for documentation.
-
+<a id="configure-notification-thresholds"></a>
 ![Hard_Quota](images/15_Hard_Quota.png)
 6. (Optional) Configure **Notification Thresholds**:  
    - Click **Add** → set threshold (example: `80%`).  
@@ -93,7 +93,7 @@ Quotas allow administrators to restrict the amount of data stored in a folder.
 ![Add_Threshold](images/16_Add_Threshold.png)
 ![Click_Yes_NoSMTP](images/17_Click_Yes_NoSMTP.png)
 ![Quota_Properties_Check](images/18_Quota_Properties_Check.png)
-
+<a id="save-quota-template"></a>
 7. Create Quota, Save Template as (HRData_Quota), Verify Quota created)
 
 
@@ -102,22 +102,23 @@ Quotas allow administrators to restrict the amount of data stored in a folder.
 ![Verify_Quota_Created](images/21_Verify_Quota_Created.png)
 
 ---
-
-## 3. Configure File Screening
+<a id="configure-file-screening"></a>
+## 🚫 3. Configure File Screening
 
 File Screening allows administrators to block specific file types in shared folders.  
-
+<a id="create-file-screen"></a>
 1. In **FSRM**, expand **File Screening Management**.
 ![File_Screening_Management](images/22_File_Screening_Management.png)
 
 2. Right-click **File Screens** → select **Create File Screen**.
 ![Create_File_Screen](images/23_Create_File_Screen.png)
- 
+<a id="define-custom-file-screen-properties"></a>
 3. Select the target folder path (example: `D:\Shares\HRData$`).  
 4. Choose configuration method:  
    - **Derive from a template** (preconfigured rules), or  
    - **Define custom file screen properties** (granular control).
      ![Define_Custom_File_Screen_Prop](images/24_Define_Custom_File_Screen_Prop.png)
+<a id="active-screening--blocked-file-types"></a>
 5. For this lab, define a **custom file screen**:  
    - Select **Active Screening** (prevents saving disallowed files).  
    - Block categories such as:  
@@ -129,6 +130,7 @@ File Screening allows administrators to block specific file types in shared fold
    - This ensures only text/document file types are allowed in the HR share.
    ![Active_Screening_HRData](images/25_Active_Screening_HRData.png)
    ![File_Groups_Block](images/26_File_Groups_Block.png)
+<a id="save-file-screen-template"></a>
 6. (Optional) Save this configuration as a **custom template** for reuse.
 
 ![Create_HRData_FileScreen](images/27_Create_HRData_FileScreen.png)
@@ -137,9 +139,9 @@ File Screening allows administrators to block specific file types in shared fold
 ![Verify_FileScreen_Created](images/29_Verify_FileScreen_Created.png)
 
 ---
-
-## 4. Verification
-
+<a id="verification"></a>
+## ✅ 4. Verification
+<a id="test-the-100-mb-quota"></a>
 ### Test the 100 MB Quota
 
 On the **EveHR** (Win10 client):
@@ -165,7 +167,7 @@ You should get an error like “Not enough disk space”.
 - Open FSRM on the server and Verify the quota usage percentage for C:\Shares\HRData$
  ![Quota_Usage_Percentage](images/35_Quota_Usage_Percentage.png)
 
-
+<a id="test-the-file-screen"></a>
 ### Test the File Screen
 
 The file screen is configured to block certain file types (e.g., `.exe`, `.mp3`).
@@ -185,7 +187,7 @@ The file screen is configured to block certain file types (e.g., `.exe`, `.mp3`)
 
 4. Attempting to save should be **blocked** with an "Access Denied" error.
 ![Exe_File_Denied](images/34_Exe_File_Denied.png)
-
+<a id="verify-quota-alerts-in-event-viewer"></a>
 #### Verify Quota Alerts in Event Viewer
 
 - After testing the quota by filling the HRData share, you can confirm that the quota threshold events were logged.
