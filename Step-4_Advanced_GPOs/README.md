@@ -1,5 +1,24 @@
 # 🖥️ Step 4 – Advanced Group Policy Objects (GPOs)
 
+
+## 📑 Table of Contents
+- [🎯 Objectives](#objectives)
+- [🛠️ Policies to Configure](#policies-to-configure)
+  - [🔹 IT Department (OU: LabUsers → IT)](#it-department)
+    - [1️⃣ Create a Wallpaper Folder](#create-wallpaper-folder)
+    - [2️⃣ Share the Folder](#share-folder)
+    - [3️⃣ Apply the Wallpaper via GPO](#apply-wallpaper-gpo)
+    - [🖥️ IT GPO – Disable Control Panel Access](#disable-control-panel)
+  - [🔹 HR Department (OU: LabUsers → HR)](#hr-department)
+    - [📂 Folder Redirection Setup](#folder-redirection)
+    - [2️⃣ Password-Protected Screensaver](#password-screensaver)
+    - [3️⃣ Disable USB Storage for HR Users](#disable-usb)
+    - [HR Shared Folder Setup](#hr-shared-folder)
+- [🎯 Real-World Notes](#real-world-notes)
+
+---
+
+## 🎯 Objectives
 In this step, we will **create and link Group Policies** for different OUs (IT and HR).  
 This simulates real-world administrative tasks where IT departments enforce policies for security, usability, and compliance.    
 
