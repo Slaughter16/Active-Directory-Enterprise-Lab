@@ -202,7 +202,7 @@ We will configure:
 
 ---
 <a id="folder-redirection"></a>
- # 1️⃣ Folder Redirection Setup (HR Department)
+ ### 1️⃣ Folder Redirection Setup (HR Department)
 
 This guide explains how to configure Folder Redirection in Active Directory for the **HR department**.  
 The configuration redirects each user’s **Documents** folder to a centralized file server share.
@@ -391,7 +391,7 @@ In a real-world environment, this setting would typically be enabled for user pr
 
 
 <a id="password-screensaver"></a>
-## 2️⃣ Password-Protected Screensaver (HR_User_Policy)
+### 2️⃣ Password-Protected Screensaver (HR_User_Policy)
 
 ---
 ## Configuration Steps
@@ -455,7 +455,7 @@ Verify:
 ---
 
 <a id="disable-usb"></a>
-3️⃣ Disable USB Storage for HR Users
+### 3️⃣ Disable USB Storage for HR Users
 
 ## Objective
 Prevent users in the HR department from using USB storage devices to help secure sensitive data.
