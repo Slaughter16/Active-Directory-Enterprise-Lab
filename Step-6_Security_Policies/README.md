@@ -245,7 +245,7 @@ To enforce **role-based access control (RBAC)** and enhance security, I configur
 ✅ Outcome: HR users must use at least 10-character passwords with complexity.
 
 ---
-
+<a id="verification-fgpp"></a>
 ### 4️⃣ Verification
 1. Run `ADAC` → check **Password Settings Container** → ensure both PSOs are listed.
 ![Verify_User_Password_Policy](images/43_Verify_User_Password_Policy.png)
