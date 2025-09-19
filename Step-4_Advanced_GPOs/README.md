@@ -61,7 +61,7 @@ Now you have a dedicated folder to store all GPO wallpapers.
 
 ---
 <a id="share-folder"></a>
-## 2️⃣ Share the Folder
+### 2️⃣ Share the Folder
 
 Right-click → Properties → Sharing → Advanced Sharing → Share this folder
 
@@ -83,7 +83,7 @@ Right-click → Properties → Sharing → Advanced Sharing → Share this folde
 
 ---
 <a id="apply-wallpaper-gpo"></a>
-## 3️⃣ Apply the wallpaper via GPO
+### 3️⃣ Apply the wallpaper via GPO
 
 Open Group Policy Management → Your IT OU GPO
 
@@ -126,7 +126,7 @@ User Configuration → Policies → Administrative Templates → Desktop → Des
 ---
 
 <a id="disable-control-panel"></a>
-# 4️⃣ IT GPO – Disable Control Panel Access
+### 4️⃣ IT GPO – Disable Control Panel Access
 
 This section shows how to **disable Control Panel access** for IT users (e.g., AliceIT) using the existing IT_User_Policy GPO.
 
@@ -189,7 +189,7 @@ Navigate in the GPO Editor:   User Configuration → Policies → Administrative
 
 ---
 <a id="hr-department"></a>
-### 🔹 HR Department (OU: LabUsers → HR)
+## 🔹 HR Department (OU: LabUsers → HR)
 **GPO Name:** `HR_User_Policy`
 **Security Group:** `HR_Staff`
 
