@@ -97,7 +97,7 @@ Implement department-specific policies for IT and HR to enforce security, compli
 
 ---
 
-## 📦 [Step-5: Quotas & File Screening](./Step-5_Quotas_&_File_Screening)  
+## 🗂️ [Step-5: Quotas & File Screening](./Step-5_Quotas_&_File_Screening)  
 
 **Objective:**  
 Implement **FSRM** to manage storage, enforce quotas, block unwanted files, and generate alerts.
