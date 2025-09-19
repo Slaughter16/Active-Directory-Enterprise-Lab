@@ -8,7 +8,7 @@
     - [1️⃣ Create a Wallpaper Folder](#create-wallpaper-folder)
     - [2️⃣ Share the Folder](#share-folder)
     - [3️⃣ Apply the Wallpaper via GPO](#apply-wallpaper-gpo)
-    - [🖥️ IT GPO – Disable Control Panel Access](#disable-control-panel)
+    - [4️⃣ IT GPO – Disable Control Panel Access](#disable-control-panel)
   - [🔹 HR Department (OU: LabUsers → HR)](#hr-department)
     - [1️⃣ Folder Redirection Setup](#folder-redirection)
     - [2️⃣ Password-Protected Screensaver](#password-screensaver)
@@ -126,7 +126,7 @@ User Configuration → Policies → Administrative Templates → Desktop → Des
 ---
 
 <a id="disable-control-panel"></a>
-# 🖥️ IT GPO – Disable Control Panel Access
+# 4️⃣ IT GPO – Disable Control Panel Access
 
 This section shows how to **disable Control Panel access** for IT users (e.g., AliceIT) using the existing IT_User_Policy GPO.
 
