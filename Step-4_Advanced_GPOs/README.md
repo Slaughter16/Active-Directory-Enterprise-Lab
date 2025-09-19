@@ -27,6 +27,7 @@ This simulates real-world administrative tasks where IT departments enforce poli
 <a id="policies-to-configure"></a>
 ## 🛠️ Policies to Configure
 
+<a id="it-department"></a>
 ### 🔹 IT Department (OU: LabUsers → IT)
 **GPO Name:** `IT_User_Policy`
 **Security Group:** `IT_Staff`
