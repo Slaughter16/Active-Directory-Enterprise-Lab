@@ -6,7 +6,17 @@ Demonstrate **explicit permissions, inheritance, group memberships, and deny per
 - **Common** folder → accessible to everyone.  
 - **Project** subfolder → restricted to `Project` security group members.  
 - **Events** subfolder → fully accessible to all.
+---
 
+## 📑 Table of Contents  
+- <a href="#create-security-group">1️⃣ Create Security Group in ADUC</a>  
+- <a href="#create-folder-structure">2️⃣ Create Folder Structure</a>  
+- <a href="#share-permissions">3️⃣ Configure Share Permissions</a>  
+- <a href="#ntfs-permissions">4️⃣ Configure NTFS Permissions (Inheritance)</a>  
+- <a href="#restrict-project">5️⃣ Restrict the Project Subfolder</a>  
+- <a href="#verify-permissions">6️⃣ Verify Permissions</a>  
+- <a href="#contracts-subfolder">📂 Separate Share for Contracts Subfolder</a>  
+- <a href="#explicit-deny">🚫 Explicit Deny Permissions in NTFS</a>  
 
 ---
 
