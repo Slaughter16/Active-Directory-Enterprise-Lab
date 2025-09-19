@@ -17,7 +17,7 @@
 - [🎯 Real-World Notes](#real-world-notes)
 
 ---
-
+<a id="objectives"></a>
 ## 🎯 Objectives
 In this step, we will **create and link Group Policies** for different OUs (IT and HR).  
 This simulates real-world administrative tasks where IT departments enforce policies for security, usability, and compliance.    
