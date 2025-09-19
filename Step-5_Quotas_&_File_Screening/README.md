@@ -20,7 +20,7 @@
    - [Verify Quota Alerts in Event Viewer](#verify-quota-alerts-in-event-viewer)
 
 --- 
-
+<a id="objectives"></a>
 ## 🎯 Objectives
 In this step, we will use **File Server Resource Manager (FSRM)** to enforce storage management policies on our file server. This includes:  
 
@@ -30,8 +30,8 @@ In this step, we will use **File Server Resource Manager (FSRM)** to enforce sto
 
 
 ---
-
-## 1. Install File Server Resource Manager
+<a id="install-file-server-resource-manager"></a>
+## 🛠️ 1. Install File Server Resource Manager
 
 1. Open **Server Manager** → **Manage** → **Add Roles and Features**.
 
@@ -60,7 +60,7 @@ In this step, we will use **File Server Resource Manager (FSRM)** to enforce sto
  
 
 ---
-
+<a id="configure-quotas"></a>
 ## 2. Configure Quotas
 
 Quotas allow administrators to restrict the amount of data stored in a folder.  
