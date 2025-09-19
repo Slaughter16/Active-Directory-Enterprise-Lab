@@ -1,5 +1,27 @@
 # Step 5: Quotas & File Screening (FSRM)
 
+## 🗂️ Step 5 – Quotas & File Screening (FSRM) Table of Contents
+
+1. 🎯 [Objectives](#objectives)
+2. 🛠️ [Install File Server Resource Manager (FSRM)](#1-install-file-server-resource-manager)
+3. 🗄️ [Configure Quotas](#2-configure-quotas)
+   - [Create Quota](#create-quota)
+   - [Define Custom Properties](#define-custom-properties)
+   - [Configure Notification Thresholds](#configure-notification-thresholds)
+   - [Save Quota Template](#save-quota-template)
+4. 🚫 [Configure File Screening](#3-configure-file-screening)
+   - [Create File Screen](#create-file-screen)
+   - [Define Custom File Screen Properties](#define-custom-file-screen-properties)
+   - [Active Screening & Blocked File Types](#active-screening--blocked-file-types)
+   - [Save File Screen Template](#save-file-screen-template)
+5. ✅ [Verification](#4-verification)
+   - [Test Quota](#test-the-100-mb-quota)
+   - [Test File Screening](#test-the-file-screen)
+   - [Verify Quota Alerts in Event Viewer](#verify-quota-alerts-in-event-viewer)
+
+--- 
+
+## 🎯 Objectives
 In this step, we will use **File Server Resource Manager (FSRM)** to enforce storage management policies on our file server. This includes:  
 
 - **Quotas** → Limit the amount of storage space users or folders can consume.  
