@@ -98,28 +98,32 @@ Alternate DNS: 192.168.20.2
    - DNS Servers: 192.168.10.10, 192.168.20.2  
    - Activated scope  
 
+- Tools > DHCP
   ![Create_DHCP_Scope](images/19_DHCP_Scope.png)
+- Win-server > IPv4 > More Actions
   ![Create_DHCP_Scope](images/20_DHCP_Scope.png)
+- Click Next in the Wizard scope setup 
   ![Create_DHCP_Scope](images/21_DHCP_Scope.png)
   
   - Scope Name: VLAN10-Scope
   - Description: VLAN10-Leases
   ![Create_DHCP_Scope](images/22_DHCP_Scope.png)
-- IP Range: 192.168.10.50–192.168.10.200
+- IP Range: 192.168.10.50 – 192.168.10.200
 - Length: 24 , Subnet mask: 255.255.255.0
   ![Create_DHCP_Scope](images/23_DHCP_Scope.png)
-   - Exclusions: 192.168.10.1–192.168.10.49
+- Exclusions: 192.168.10.1–192.168.10.49
   ![Create_DHCP_Scope](images/24_DHCP_Scope.png)
-  - Lease Duration: 8 Days
+- Lease Duration: 8 Days
   ![Create_DHCP_Scope](images/25_DHCP_Scope.png)
-  - Yes, Configure DHCP Options
+- Yes, Configure DHCP Options
   ![Create_DHCP_Scope](images/26_DHCP_Scope.png)
-  - Default Gateway: 192.168.10.1
+- Default Gateway: 192.168.10.1
   ![Create_DHCP_Scope](images/27_DHCP_Scope.png)
-  - DNS Servers: 192.168.10.10, 192.168.20.2
+- DNS Servers: 192.168.10.10, 192.168.20.2
   ![Create_DHCP_Scope](images/28_DHCP_Scope.png)
+- Click Next 
   ![Create_DHCP_Scope](images/29_DHCP_Scope.png)
-  - Activated scope
+- Activated scope & Finish
   ![Create_DHCP_Scope](images/30_DHCP_Scope.png)
   ![Create_DHCP_Scope](images/31_DHCP_Scope.png)
 
