@@ -22,7 +22,7 @@ Set up a **single-purpose computer** to automatically log in with a **service ac
 - <a href="#verification">7️⃣ Verification</a>  
 
 ---
-
+<a id="create-service-account"></a>
 - ### 1️⃣ Create a Service Account in Active Directory
 1. Open **Active Directory Users and Computers (ADUC)** on the Windows Server.
    ![Open_ADUC](images/43_Open_ADUC.png)  
@@ -47,7 +47,7 @@ Set up a **single-purpose computer** to automatically log in with a **service ac
 ✅ Outcome: Service account created and ready for auto-login.
 
 ---
-
+<a id="install-sysinternals"></a>
 ### 2️⃣ Install Sysinternals Suite on Windows Client
 1. Download **Sysinternals Suite**.
 ![Sysinternals_Google](images/8_Sysinternals_Google.png)
@@ -57,7 +57,7 @@ Set up a **single-purpose computer** to automatically log in with a **service ac
 3. Launch **Autologon64.exe** from the Sysinternals tools.
 ![Auto_Logon64](images/11_Auto_Logon64.png)
 ---
-
+<a id="configure-autologon"></a>
 ### 3️⃣ Configure Auto-Login for the Service Account
 1. Open **Autologon64** → click **Yes** to agree.
    ![Agree_Sysinternal_Software](images/12_Agree_Sysinternal_Software.png)
@@ -72,7 +72,7 @@ Set up a **single-purpose computer** to automatically log in with a **service ac
 ✅ Outcome: Computer logs in automatically with the service account.
 ![Website_Login_Auto](images/15_Website_Login_Auto.png)
 ---
-
+<a id="configure-browser"></a>
 ### 4️⃣ Set Browser to Auto-Start with Specific Web Page
 1. Install **Google Chrome** (if not already installed).  
 2. Open Chrome → **Settings → On startup → Open a specific page or set of pages** → Enter URL.
@@ -92,7 +92,7 @@ Set up a **single-purpose computer** to automatically log in with a **service ac
 ![Google_Chrome_Startup](images/24_Google_Chrome_Startup.png)
 
 ---
-
+<a id="system-settings"></a>
 ### 5️⃣ Configure System Settings
 1. Prevent the computer from sleeping:
    - Open **Settings → Power & Sleep** → Set **Sleep** to *Never*.
@@ -101,7 +101,7 @@ Set up a **single-purpose computer** to automatically log in with a **service ac
 2. Test by rebooting → Chrome should auto-launch in full screen.
 ![Verify_Sleep](images/27_Verify_Sleep.png)
 ---
-
+<a id="restrict-logon"></a>
 ### 6️⃣ Restrict Local Logon Using Group Policy
 1. Open **GPMC** → navigate to domain → **Create a new GPO**: `Restrict Logon to Service Account`.
 ![GPMC_Service_Acc](images/28_GPMC_Service_Acc.png)
@@ -131,6 +131,9 @@ Set up a **single-purpose computer** to automatically log in with a **service ac
 ![Sign_Into_EveHr](images/40_Sign_Into_EveHr.png)
 ![Verify_Deny_EveHR_Login](images/42_Verify_Deny_EveHR_Login.png)
 
+---
+
+<a id="verification"></a>
 ### 7️⃣ Verified the configurations applied below.
 - Reboot the client machine → should log in automatically with the service account.  
 - Chrome opens full-screen with the configured webpage.  
