@@ -3,7 +3,7 @@
 ## 📑 Table of Contents
 🎯 [Objectives](#objectives)
 1. 📝 [Password Policy Configuration](#password-policy-configuration)
-   - [Navigate_Passowrd_Policy](#navigate-to-password-policy)
+   - [Navigate Password Policy](#navigate-to-password-policy)
    - [Configured Settings](#configured-settings)
    - [Testing & Validation](#testing--validation)
 3. 🔒 [Account Lockout Policy Configuration](#account-lockout-policy-configuration)
