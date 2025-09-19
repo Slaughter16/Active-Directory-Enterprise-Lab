@@ -9,7 +9,7 @@
    - [Define Custom Properties](#define-custom-properties)
    - [Configure Notification Thresholds](#configure-notification-thresholds)
    - [Save Quota Template](#save-quota-template)
-4. 🚫 [Configure File Screening](#3-configure-file-screening)
+4. 🚫 [Configure File Screening](#configure-file-screening)
    - [Create File Screen](#create-file-screen)
    - [Define Custom File Screen Properties](#define-custom-file-screen-properties)
    - [Active Screening & Blocked File Types](#active-screening--blocked-file-types)
