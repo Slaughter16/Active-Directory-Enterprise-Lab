@@ -11,9 +11,10 @@
    - [Configured Settings](#configured-settings-lockout)
    - [Testing & Validation](#testing--validation-lockout)
 5. 👥 [User Rights Assignment Configuration](#user-rights-assignment-configuration)
+   - [Navigate to User Rights Assignment](#navigate-to-user-rights-assignment)
    - [Configured Settings](#configured-settings-user-rights)
    - [Testing & Validation](#testing--validation-user-rights)
-6. 🔐 [Implement Fine-Grained Password Policies (FGPP)](#implement-fine-grained-password-policies-fgpp)
+7. 🔐 [Implement Fine-Grained Password Policies (FGPP)](#implement-fine-grained-password-policies-fgpp)
    - [Password Settings Container](#password-settings-container)
    - [Administrative Accounts](#administrative-accounts)
    - [Standard Users](#standard-users)
@@ -130,8 +131,8 @@ To protect against brute-force attacks, I configured an **Account Lockout Policy
 To enforce **role-based access control (RBAC)** and enhance security, I configured **User Rights Assignment** in the **Default Domain Policy**.
 
 ---
-
-### Steps
+<a id="navigate-to-user-rights-assignment"></a>
+### Navigate to User Rights Assignment
 1. Open **Group Policy Management Console (GPMC)**.  
 ![GPMC_RBAC](images/18_GPMC_RBAC.png)
 2. Navigate to **Group Policy Objects**, right-click **Default Domain Policy**, and select **Edit**.  
