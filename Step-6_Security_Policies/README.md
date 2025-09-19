@@ -23,7 +23,7 @@
 ---
 <a id="objectives"></a>
 ## 🎯 Objectives
-To implement domain-wide password and account security policies using Group Policy, including strong password enforcement, account lockout thresholds, and role-based access control, thereby strengthening security posture and mitigating potential credential-based threats.
+- To implement domain-wide password and account security policies using Group Policy, including strong password enforcement, account lockout thresholds, and role-based access control, thereby strengthening security posture and mitigating potential credential-based threats.
 
 ---
 <a id="password-policy-configuration"></a>
