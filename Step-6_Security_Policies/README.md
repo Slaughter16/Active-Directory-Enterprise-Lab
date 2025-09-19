@@ -81,13 +81,12 @@ To implement domain-wide password and account security policies using Group Poli
 ✅ With this configuration and testing, all Active Directory users in the **corp.local** domain are now required to follow a strong password policy aligned with enterprise best practices.
 
 ---
-
+<a id="account-lockout-policy-configuration"></a>
 ## 🔒 Account Lockout Policy Configuration
 
 To protect against brute-force attacks, I configured an **Account Lockout Policy** in the Default Domain Policy. This ensures that repeated invalid login attempts will temporarily lock the user’s account.
 
 ---
-
 ### Steps
 1. Open **Group Policy Management Console (GPMC)**.  
    ![GPMC_Acct_Policy](images/13_GPMC_Acct_Policy.png)
