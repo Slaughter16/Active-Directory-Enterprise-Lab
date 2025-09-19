@@ -13,7 +13,7 @@
     - [1️⃣ Folder Redirection Setup](#folder-redirection)
     - [2️⃣ Password-Protected Screensaver](#password-screensaver)
     - [3️⃣ Disable USB Storage for HR Users](#disable-usb)
-    - [HR Shared Folder Setup](#hr-shared-folder)
+    - [4️⃣ HR Shared Folder Setup](#hr-shared-folder)
 - [🎯 Real-World Notes](#real-world-notes)
 
 ---
