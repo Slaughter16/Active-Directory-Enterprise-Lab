@@ -1,6 +1,6 @@
-# Step 5: Quotas & File Screening (FSRM)
+# 🗂️ Step 5: Quotas & File Screening (FSRM)
 
-## 🗂️ Step 5 – Quotas & File Screening (FSRM) Table of Contents
+##  Table of Contents
 
 1. 🎯 [Objectives](#objectives)
 2. 🛠️ [Install File Server Resource Manager (FSRM)](#1-install-file-server-resource-manager)
