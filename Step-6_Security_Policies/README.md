@@ -22,8 +22,8 @@
 To implement domain-wide password and account security policies using Group Policy, including strong password enforcement, account lockout thresholds, and role-based access control, thereby strengthening security posture and mitigating potential credential-based threats.
 
 ---
-
-## Password Policy Configuration
+<a id="password-policy-configuration"></a>
+## 📝 Password Policy Configuration
 
 ### Steps
 1. Open **Group Policy Management Console (GPMC)**.  
