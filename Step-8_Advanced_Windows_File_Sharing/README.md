@@ -124,13 +124,13 @@ Demonstrate **explicit permissions, inheritance, group memberships, and deny per
 - Only Events is visible, since EveHR is not in the Project group. This demonstrates the restriction.
 ![WIN10_Common_Events](images/44_WIN10_Common_Events.png)
 
----
-
 ## ✅ Results  
 - `Common` → accessible by everyone.  
 - `Events` → accessible by everyone (inherits from Common).  
 - `Project` → restricted, only `Project` group members can access.  
 - Inheritance successfully disabled and overridden for `Project`.  
+
+---
 
 <a id="contracts-subfolder"></a>
 # 📂 Separate Share for Contracts Subfolder
