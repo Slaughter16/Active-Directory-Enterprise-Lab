@@ -5,7 +5,7 @@
 - [🔹 Background](#-background)
 - [🛠️ Configuration Details](#-configuration-details)
 - [🔹 Steps Performed](#-steps-performed)
-  - [1️⃣ Install AD DS on Windows Server 2019](#step-1-install-ad-ds-on-windows-server-2019)
+  - [1️⃣ Install AD DS on Windows Server 2019](#-1-install-ad-ds-on-windows-server-2019)
   - [2️⃣ Promote the Server to a Domain Controller](#step-2-promote-the-server-to-a-domain-controller)
   - [3️⃣ Authorize DHCP in Active Directory](#step-3-authorize-dhcp-in-active-directory)
 - [🔐 Secure Domain Controller – Post-Promotion Tasks](#secure-domain-controller--post-promotion-tasks)
