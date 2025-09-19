@@ -2,7 +2,10 @@
 
 ## 📑 Table of Contents
 - [📌 Objective](#-objective)
-
+- [🔹 Background](#-background)
+- [🛠️ Configuration Overview](#️-configuration-overview)
+- [🔹 Steps Performed](#-steps-performed)
+- 
 
 
 
