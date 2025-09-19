@@ -92,7 +92,7 @@ Alternate DNS: 192.168.20.2
 
 ---
 
-2. **Disabled DHCP on pfSense VLAN 10**  
+### **Disabled DHCP on pfSense VLAN 10**  
    - Navigated to `Services → DHCP Server`  
    - Disabled DHCP for VLAN 10 only  
    - Save Configuration
