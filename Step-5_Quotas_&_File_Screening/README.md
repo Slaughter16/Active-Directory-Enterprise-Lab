@@ -3,7 +3,7 @@
 ## 📑 Table of Contents
 
 1. 🎯 [Objectives](#objectives)
-2. 🛠️ [Install File Server Resource Manager (FSRM)](#1-install-file-server-resource-manager)
+2. 🛠️ [Install File Server Resource Manager (FSRM)](#install-file-server-resource-manager)
 3. 🗄️ [Configure Quotas](#2-configure-quotas)
    - [Create Quota](#create-quota)
    - [Define Custom Properties](#define-custom-properties)
