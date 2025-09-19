@@ -21,7 +21,7 @@ Demonstrate **explicit permissions, inheritance, group memberships, and deny per
 ---
 
 ## 🛠️ Steps  
-
+<a id="create-security-group"></a>
 ### 1️⃣ Create Security Group in ADUC  
 1. Open **Active Directory Users and Computers (ADUC)** on Windows Server.  
 ![Tools_ADUC](images/1_Tools_ADUC.png)
@@ -39,7 +39,7 @@ Demonstrate **explicit permissions, inheritance, group memberships, and deny per
 
 
 ---
-
+<a id="create-folder-structure"></a>
 ### 2️⃣ Create Folder Structure  
 1. On the server, open **File Explorer** → `C:\`.
 ![Goto_Local_Disk](image/7_Goto_Local_Disk.png)  
@@ -51,7 +51,7 @@ Demonstrate **explicit permissions, inheritance, group memberships, and deny per
 ![Create_Subfolders](images/9_Create_Subfolders.png)
 
 ---
-
+<a id="share-permissions"></a>
 ### 3️⃣ Configure Share Permissions  
 1. Right-click **Common** → **Properties** → **Sharing** → **Share** → **Add Everyone** → **Share**.
  ![Common_Properties](images/10_Common_Properties.png)
@@ -68,7 +68,7 @@ Demonstrate **explicit permissions, inheritance, group memberships, and deny per
 ![Allow_FullControl_Everyone](images/17_Allow_FullControl_Everyone.png)
 
 ---
-
+<a id="ntfs-permissions"></a>
 ### 4️⃣ Configure NTFS Permissions (Inheritance)  
 1. Right-click **Common** → **Properties → Security**.  
 ![Security_Permissions_Common_Everyone](images/18_Security_Permissions_Common_Everyone.png)
@@ -90,7 +90,7 @@ Demonstrate **explicit permissions, inheritance, group memberships, and deny per
 
 
 ---
-
+<a id="restrict-project"></a>
 ### 5️⃣ Restrict the Project Subfolder  
 1. Right-click `Project` → **Properties → Security → Advanced**.
 ![Project_Properties](images/29_Project_Properties.png)
@@ -109,7 +109,7 @@ Demonstrate **explicit permissions, inheritance, group memberships, and deny per
 ![Click_Ok_Project_Permissions](images/36_Click_Ok_Project_Permissions.png)
 ![Verify_Project_Security_Permissions](images/37_Verify_Project_Security_Permissions.png)
 ---
-
+<a id="verify-permissions"></a>
 ### 6️⃣ Verify Permissions  
 - **Login as a Project group member (AliceIT, WIN11):**  
   - Should access `Common`, `Events`, and `Project`.
@@ -132,8 +132,8 @@ Demonstrate **explicit permissions, inheritance, group memberships, and deny per
 - `Project` → restricted, only `Project` group members can access.  
 - Inheritance successfully disabled and overridden for `Project`.  
 
-
-# Separate Share for Contracts Subfolder
+<a id="contracts-subfolder"></a>
+# 📂 Separate Share for Contracts Subfolder
 
 ## 📌 Objective
 Allow **EveHR** to access the `Contracts` folder without granting access to the parent `Project` folder, while keeping full control for the `Project` group. Demonstrates **explicit permissions, inheritance, and NTFS security**.
@@ -227,13 +227,12 @@ Allow **EveHR** to access the `Contracts` folder without granting access to the 
 - Explicit deny is not used here; EveHR access is granted **only on Contracts** via a separate share.  
 - Inheritance is disabled on Contracts to prevent unwanted permission propagation from Project folder.
 
+---
 
+<a id="explicit-deny"></a>
+# 🚫 Explicit Deny Permissions in NTFS
 
-
-
-
-# Explicit Deny Permissions in NTFS
-
+## 📌 Objective  
 In this step, we configure **explicit deny permissions** in NTFS to restrict access for a single user (EveHR) to a confidential folder, while allowing all other employees access.
 
 ---
@@ -259,7 +258,6 @@ EveHR is a member of the **AllEmployees** security group, but we need to block h
      - `Confidential`  
      - `Materials`  
 ![Create_Subfolder_Conf_Mat](images/46_Create_Subfolder_Conf_Mat.png)
-📸 *Screenshot: Folder structure in File Explorer*
 
 ---
 
