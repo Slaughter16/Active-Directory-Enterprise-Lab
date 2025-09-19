@@ -1,5 +1,23 @@
 # Step 6 – Implementing Security Policies
 
+## 📑 Table of Contents
+🎯 [Objectives](#objectives)
+1. 📝 [Password Policy Configuration](#password-policy-configuration)
+   - [Configured Settings](#configured-settings)
+   - [Testing & Validation](#testing--validation)
+2. 🔒 [Account Lockout Policy Configuration](#account-lockout-policy-configuration)
+   - [Configured Settings](#configured-settings-lockout)
+   - [Testing & Validation](#testing--validation-lockout)
+3. 👥 [User Rights Assignment Configuration](#user-rights-assignment-configuration)
+   - [Configured Settings](#configured-settings-user-rights)
+   - [Testing & Validation](#testing--validation-user-rights)
+4. 🔐 [Implement Fine-Grained Password Policies (FGPP)](#implement-fine-grained-password-policies-fgpp)
+   - [Administrative Accounts](#administrative-accounts)
+   - [Standard Users](#standard-users)
+   - [Verification](#verification-fgpp)
+
+---
+## 🎯 Objectives
 To enforce strong password standards across the domain, I configured the **Default Domain Policy** in Group Policy Management
 
 ---
