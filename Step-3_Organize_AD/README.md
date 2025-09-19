@@ -236,7 +236,7 @@ Now that users and groups are in place, we will create Group Policy Objects (GPO
 
 ---
 <a id="gpo-it"></a>
-## 2. Create a GPO for IT
+## 2.💻 Create a GPO for IT
 1. Right-click the **IT OU** under `LabUsers → IT`.
 2. Select **Create a GPO in this domain, and Link it here...**
  ![IT_GPO](images/37_IT_GPO.png)
@@ -259,7 +259,7 @@ Now that users and groups are in place, we will create Group Policy Objects (GPO
 
 ---
 <a id="gpo-hr"></a>
-## 3. Create a GPO for HR
+## 3. 📄 Create a GPO for HR
 1. Right-click the **HR OU** under `LabUsers → HR`.
 2. Select **Create a GPO in this domain, and Link it here...**
  ![HR_GPO](images/42_HR_GPO.png)
