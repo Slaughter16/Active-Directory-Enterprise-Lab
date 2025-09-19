@@ -6,7 +6,7 @@
 - [🛠️ Configuration Overview](#️-configuration-overview)
 - [🔹 Steps Performed](#-steps-performed)
   - [1. Assigned Static IP to Windows Server 2019](#1-assigned-static-ip-to-windows-server-2019)
-  - [2. Disabled DHCP on pfSense VLAN 10](#2-disabled-dhcp-on-pfsense-vlan-10)
+  - [2. Disabled DHCP on pfSense VLAN 10](##step-2-disabled-dhcp-on-pfsense-vlan-10)
   - [3. Installed DHCP Role on Windows Server 2019](#3-installed-dhcp-role-on-windows-server-2019)
   - [4. Created New DHCP Scope](#4-created-new-dhcp-scope)
   - [5. Tested DHCP on Clients](#5-tested-dhcp-on-clients)
