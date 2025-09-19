@@ -48,8 +48,10 @@ This step builds the foundation for:
 
 ---
 
+<a id="steps-performed"></a>
 ## 🔹 Steps Performed
 
+<a id="step-1-install-ad-ds-on-windows-server-2019"></a>
 ### 1️⃣ Install AD DS on Windows Server 2019
 
 1. Open **Server Manager** → **Manage → Add Roles and Features**.  
@@ -80,7 +82,7 @@ This step builds the foundation for:
 ![Promote_DC](images/8_Promote_DC.png)
 
 ---
-
+<a id="step-2-promote-the-server-to-a-domain-controller"></a>
 ### 2️⃣ Promote the Server to a Domain Controller
 1. **Deployment Configuration** → Select **Add a new forest**.
 2. **Root Domain Name:** `corp.local`
