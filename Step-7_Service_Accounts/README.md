@@ -12,6 +12,17 @@ Set up a **single-purpose computer** to automatically log in with a **service ac
 
 ---
 
+## 📑 Table of Contents  
+- <a href="#create-service-account">1️⃣ Create a Service Account in Active Directory</a>  
+- <a href="#install-sysinternals">2️⃣ Install Sysinternals Suite on Windows Client</a>  
+- <a href="#configure-autologon">3️⃣ Configure Auto-Login for the Service Account</a>  
+- <a href="#configure-browser">4️⃣ Set Browser to Auto-Start with Specific Web Page</a>  
+- <a href="#system-settings">5️⃣ Configure System Settings</a>  
+- <a href="#restrict-logon">6️⃣ Restrict Local Logon Using Group Policy</a>  
+- <a href="#verification">7️⃣ Verification</a>  
+
+---
+
 - ### 1️⃣ Create a Service Account in Active Directory
 1. Open **Active Directory Users and Computers (ADUC)** on the Windows Server.
    ![Open_ADUC](images/43_Open_ADUC.png)  
