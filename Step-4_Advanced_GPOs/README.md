@@ -28,7 +28,7 @@ This simulates real-world administrative tasks where IT departments enforce poli
 ## 🛠️ Policies to Configure
 
 <a id="it-department"></a>
-### 🔹 IT Department (OU: LabUsers → IT)
+## 🔹 IT Department (OU: LabUsers → IT)
 **GPO Name:** `IT_User_Policy`
 **Security Group:** `IT_Staff`
 
@@ -44,7 +44,7 @@ This simulates real-world administrative tasks where IT departments enforce poli
 ---
 
 <a id="create-wallpaper-folder"></a>
-## 1️⃣ Create a Wallpaper Folder
+### 1️⃣ Create a Wallpaper Folder
 
 1. Open **File Explorer** → navigate to `C:\`  
 2. Click **Home → New Folder** (or press **Ctrl + Shift + N**)  
