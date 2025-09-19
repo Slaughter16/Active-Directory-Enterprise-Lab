@@ -108,10 +108,10 @@ Alternate DNS: 192.168.20.2
   - Scope Name: VLAN10-Scope
   - Description: VLAN10-Leases
   ![Create_DHCP_Scope](images/22_DHCP_Scope.png)
-- IP Range: 192.168.10.50 – 192.168.10.200
+- IP Range: 192.168.10.1 – 192.168.10.200
 - Length: 24 , Subnet mask: 255.255.255.0
   ![Create_DHCP_Scope](images/23_DHCP_Scope.png)
-- Exclusions: 192.168.10.1–192.168.10.49
+- Exclusions: 192.168.10.1 – 192.168.10.49
   ![Create_DHCP_Scope](images/24_DHCP_Scope.png)
 - Lease Duration: 8 Days
   ![Create_DHCP_Scope](images/25_DHCP_Scope.png)
