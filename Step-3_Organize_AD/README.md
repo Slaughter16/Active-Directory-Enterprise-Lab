@@ -12,14 +12,14 @@
     - [📌 Create Security Groups](#make-groups)
     - [➕ Add Users to Groups](#add-users)
     - [✅ Verify Group Membership](#verify-membership)
-- [🛡️ Step 4 – Create and Link Group Policies (GPOs)](#step-4-gpos)
+- [4️⃣ Step 4 – Create and Link Group Policies (GPOs)](#step-4-gpos)
   - [💻 Create a GPO for IT](#gpo-it)
   - [📄 Create a GPO for HR](#gpo-hr)
-- [🔍 Step 5 – Verify Users, Groups, and GPO Application](#step-5-verification)
+- [5️⃣ Step 5 – Verify Users, Groups, and GPO Application](#step-5-verification)
   - [🖥️ Windows 10 Client – Eve HR](#verify-win10)
   - [🖥️ Windows 11 Client – Alice IT](#verify-win11)
   - [🐧 Debian Client](#verify-debian)
-- [🎯 Outcome](#outcome)
+- [✅ Outcome](#outcome)
 
 ---
 <a id="objective"></a>
@@ -160,7 +160,7 @@ For this lab, create the following groups:
 
 ---
 <a id="make-groups"></a>
-### 2. Create Security Groups
+### 📌2. Create Security Groups
 1. Open **Server Manager → Tools → Active Directory Users and Computers (ADUC)**.  
 2. Navigate to the appropriate OU (e.g., **IT OU**).  
 3. Right-click → **New → Group**.
@@ -185,7 +185,7 @@ For this lab, create the following groups:
 
 ---
 <a id="add-users"></a>
-### 3. Add Users to Groups
+### ➕3. Add Users to Groups
 1. Go to the **IT OU**, right-click **AliceIT** → **Add to a group…**  
    - Type `IT_Staff`, click **Check Names**, then **OK**
 
@@ -206,7 +206,7 @@ For this lab, create the following groups:
 ---
 
 <a id="verify-membership"></a>
-### 4. Verify Group Membership
+### ✅4. Verify Group Membership
 1. Right-click the group (e.g., `IT_Staff`) → **Properties**  
 2. Go to the **Members** tab to confirm users are listed  
 
@@ -287,7 +287,7 @@ Now that users and groups are in place, we will create Group Policy Objects (GPO
 ### 5️⃣ Test Users and Groups
 
 <a id="verify-win10"></a>
-#### **Windows 10 Client – Eve HR**
+#### 🖥️ **Windows 10 Client – Eve HR**
 1. Log in using **CORP\EveHR** (or EveHR@corp.local) with the temporary password set in AD.
    
    ![WIN10_EveHR](images/47_WIN10_EveHR.png)
@@ -314,7 +314,7 @@ gpresult /r
 
 ---
 <a id="verify-win11"></a>
-#### **Windows 11 Client – Alice IT**
+#### 🖥️ **Windows 11 Client – Alice IT**
 1. Log in using **CORP\AliceIT** (or AliceIT@corp.local) with the temporary password set in AD.
       ![WIN11_EveHR](images/53_WIN11_AliceIT_.png)
 
@@ -341,7 +341,7 @@ gpresult /r
 
 ---
 <a id="verify-debian"></a>
-#### **Debian Client**
+#### 🐧 **Debian Client**
 
 - Confirm machine joined the domain:
 - sudo realm list
