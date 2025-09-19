@@ -99,7 +99,7 @@ To protect against brute-force attacks, I configured an **Account Lockout Policy
 
    
 ---
-<a id="configured-settings"></a>
+<a id="configured-settings-lockout"></a>
 ### Configured Settings (Best Practice)
 - **Account Lockout Threshold:** 3 invalid logon attempts  
 - **Account Lockout Duration:** 30 minutes  '
@@ -107,7 +107,7 @@ To protect against brute-force attacks, I configured an **Account Lockout Policy
 - **Reset Account Lockout Counter After:** 30 minutes
  ![Config_Lockout_Policy](images/16_Config_Lockout_Policy.png)
 ---
-<a id="testing--validation"></a>
+<a id="testing--validation-lockout"></a>
 ### Testing & Validation
 - On the **Windows 10 client (EveHR)**, attempted to log in with the wrong password **3 times in a row**.  
 - After the 3rd failed attempt → **Account locked out** ✅  
@@ -120,7 +120,7 @@ To protect against brute-force attacks, I configured an **Account Lockout Policy
 ✅ With this configuration, repeated brute-force password attempts against domain accounts are mitigated by temporary account lockouts, reducing the risk of credential-guessing attacks.
 
 ---
-<a id="user-rights-assignment"></a>
+<a id="user-rights-assignment-configuration"></a>
 ## 👥 User Rights Assignment Configuration
 
 To enforce **role-based access control (RBAC)** and enhance security, I configured **User Rights Assignment** in the **Default Domain Policy**.
@@ -136,7 +136,7 @@ To enforce **role-based access control (RBAC)** and enhance security, I configur
    `Computer Configuration → Policies → Windows Settings → Security Settings → Local Policies → User Rights Assignment`  
 ![User_Rights_Access](images/20_User_Rights_Access.png)
 ---
-
+<a id="configured-settings-user-rights"></a>
 ### Configured Settings
 
 #### 🔒 Deny Log on Locally
@@ -158,7 +158,7 @@ To enforce **role-based access control (RBAC)** and enhance security, I configur
 ![IT_Staff_Allow_Add_Verify](images/26_IT_Staff_Allow_Add_Verify.png)
 
 ---
-
+<a id="testing--validation-user-rights"></a>
 ### Testing & Validation
 - On the **Windows 11 client (AliceIT)**:  
   - Confirmed that an **HR_Staff** account cannot log in locally.
@@ -182,17 +182,17 @@ To enforce **role-based access control (RBAC)** and enhance security, I configur
 
 ---
 
-
+<a id="implement-fine-grained-password-policies-fgpp"></a>
 # 🔐 Step 6 – Implement Fine-Grained Password Policies (FGPP)
 
 ## 📌 Scenario
-The organization wants stricter password rules for administrative accounts, while standard users follow less stringent requirements.  
-We’ll use **Password Settings Objects (PSOs)** in **Active Directory Administrative Center (ADAC)** to apply different password policies to different groups.
+- The organization wants stricter password rules for administrative accounts (IT_Staff), while standard users (HR_Staff) follow less stringent requirements.  
+- We’ll use **Password Settings Objects (PSOs)** in **Active Directory Administrative Center (ADAC)** to apply different password policies to different groups.
 
 ---
 
 ## 🛠️ Configuration
-
+<a id="administrative-accounts"></a>
 ### 1️⃣ Open ADAC
 1. On the **Windows Server (Domain Controller)**, open:  
    **Server Manager → Tools → Active Directory Administrative Center (ADAC)**
@@ -225,7 +225,7 @@ We’ll use **Password Settings Objects (PSOs)** in **Active Directory Administr
 ✅ Outcome: All IT staff (admins) must use strong 15+ character passwords with history enforcement.
 
 ---
-
+<a id="standard-users"></a>
 ### 3️⃣ Create a Policy for Standard Users
 1. In the same container, click **New → Password Settings** again.
 ![Verify_Admin_Pass_Policy](images/40_Verify_Admin_Pass_Policy.png)
