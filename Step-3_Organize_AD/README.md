@@ -22,13 +22,13 @@
 - [🎯 Outcome](#outcome)
 
 ---
-
+<a id="objective"></a>
 ## 📌 Objective
 Organize Active Directory by creating Organizational Units (OUs), user accounts, and security groups.  
 This enables structured administration, targeted Group Policy application, and role-based access management in your lab environment.
 
 ---
-
+<a id="background"></a>
 ## 🔹 Background
 - **Organizational Units (OUs):** Logical containers in AD to group users, computers, and groups.  
 - **User Accounts:** Individual identities in AD for authentication and access control.  
@@ -36,7 +36,7 @@ This enables structured administration, targeted Group Policy application, and r
 - **Group Policy Objects (GPOs):** Rules that can be applied to OUs to enforce policies.
 
 ---
-
+<a id="configuration-details"></a>
 ## 🛠️ Configuration Details
 - **Domain Name:** corp.local  
 - **Domain Controller:** Windows Server 2019 (DC01)  
@@ -45,9 +45,10 @@ This enables structured administration, targeted Group Policy application, and r
 - **Example OU Structure:**  
 
 ---
-
+<a id="steps-performed"></a>
 ## 🔹 Steps Performed
 
+<a id="create-ous"></a>
 ### 1️⃣ Create Organizational Units (OUs)
 1. Open **Server Manager → Tools → Active Directory Users and Computers**.
 
@@ -82,7 +83,7 @@ This enables structured administration, targeted Group Policy application, and r
 
 
 ---
-
+<a id="create-users"></a>
 ### 2️⃣ Create User Accounts
 
 1. In **Active Directory Users and Computers**, expand your domain (`corp.local`) and navigate to the **OU where you want the user** (e.g., `LabUsers → IT` or `LabUsers → HR`) We chose HR this time.
@@ -140,7 +141,7 @@ This enables structured administration, targeted Group Policy application, and r
 
 
 ---
-
+<a id="create-groups"></a>
 ### 3️⃣ Create Security Groups & Add Users
 
 ## 📌 Objective
@@ -150,7 +151,7 @@ This enables centralized management of permissions, policies, and resources in A
 ---
 
 ## 🔹 Steps Performed
-
+<a id="decide-groups"></a>
 ### 1. Decide on Security Groups
 For this lab, create the following groups:
 
@@ -158,7 +159,7 @@ For this lab, create the following groups:
 - `HR_Staff` → All users in the **HR OU**  
 
 ---
-
+<a id="make-groups"></a>
 ### 2. Create Security Groups
 1. Open **Server Manager → Tools → Active Directory Users and Computers (ADUC)**.  
 2. Navigate to the appropriate OU (e.g., **IT OU**).  
@@ -183,7 +184,7 @@ For this lab, create the following groups:
    ![Verify_HR_Staff](images/27_Verify_HR_Staff.png)
 
 ---
-
+<a id="add-users"></a>
 ### 3. Add Users to Groups
 1. Go to the **IT OU**, right-click **AliceIT** → **Add to a group…**  
    - Type `IT_Staff`, click **Check Names**, then **OK**
@@ -204,7 +205,7 @@ For this lab, create the following groups:
 
 ---
 
-
+<a id="verify-membership"></a>
 ### 4. Verify Group Membership
 1. Right-click the group (e.g., `IT_Staff`) → **Properties**  
 2. Go to the **Members** tab to confirm users are listed  
@@ -220,7 +221,7 @@ For this lab, create the following groups:
 
 ---
 
-
+<a id="step-4-gpos"></a>
 # Step 4️⃣: Create and Link Group Policies (GPOs)
 
 Now that users and groups are in place, we will create Group Policy Objects (GPOs) to manage settings for each OU.
@@ -234,7 +235,7 @@ Now that users and groups are in place, we will create Group Policy Objects (GPO
 ![Tools_GroupPolicy](images/36_Tools_GroupPolicy.png)
 
 ---
-
+<a id="gpo-it"></a>
 ## 2. Create a GPO for IT
 1. Right-click the **IT OU** under `LabUsers → IT`.
 2. Select **Create a GPO in this domain, and Link it here...**
@@ -257,7 +258,7 @@ Now that users and groups are in place, we will create Group Policy Objects (GPO
 
 
 ---
-
+<a id="gpo-hr"></a>
 ## 3. Create a GPO for HR
 1. Right-click the **HR OU** under `LabUsers → HR`.
 2. Select **Create a GPO in this domain, and Link it here...**
@@ -282,8 +283,10 @@ Now that users and groups are in place, we will create Group Policy Objects (GPO
 
 
 ## 🔹 Step 5 – Verify Users, Groups, and GPO Application
-
+<a id="step-5-verification"></a>
 ### 5️⃣ Test Users and Groups
+
+<a id="verify-win10"></a>
 #### **Windows 10 Client – Eve HR**
 1. Log in using **CORP\EveHR** (or EveHR@corp.local) with the temporary password set in AD.
    
@@ -310,7 +313,7 @@ gpresult /r
 ![WIN10_Domain](images/52_WIN10_Domain.png)
 
 ---
-
+<a id="verify-win11"></a>
 #### **Windows 11 Client – Alice IT**
 1. Log in using **CORP\AliceIT** (or AliceIT@corp.local) with the temporary password set in AD.
       ![WIN11_EveHR](images/53_WIN11_AliceIT_.png)
@@ -337,7 +340,7 @@ gpresult /r
 ![WIN11_Domain](images/57_WIN11_Domain.png)
 
 ---
-
+<a id="verify-debian"></a>
 #### **Debian Client**
 
 - Confirm machine joined the domain:
@@ -355,7 +358,7 @@ gpresult /r
 3. Verify OU hierarchy and GPO links in **Active Directory Users and Computers** and **Group Policy Management Console**.
 
 ---
-
+<a id="outcome"></a>
 ✅ **Outcome:**  
 - Active Directory is structured with OUs for logical management.  
 - Users and groups are created and organized.  
