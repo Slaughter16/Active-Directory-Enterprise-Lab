@@ -546,7 +546,7 @@ HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\Windows\RemovableStorageDevices Lo
 
 ---
 <a id="hr-shared-folder"></a>
-# HR Shared Folder Setup
+# 4️⃣ HR Shared Folder Setup
 
 ## Objective
 Create a secure shared folder on the server for HR users, allowing only authorized HR staff to access and modify files. Verify proper permissions and client access.
