@@ -82,7 +82,7 @@ To implement domain-wide password and account security policies using Group Poli
 
 ---
 
-## Account Lockout Policy Configuration
+## 🔒 Account Lockout Policy Configuration
 
 To protect against brute-force attacks, I configured an **Account Lockout Policy** in the Default Domain Policy. This ensures that repeated invalid login attempts will temporarily lock the user’s account.
 
@@ -100,7 +100,7 @@ To protect against brute-force attacks, I configured an **Account Lockout Policy
 
    
 ---
-
+<a id="configured-settings"></a>
 ### Configured Settings (Best Practice)
 - **Account Lockout Threshold:** 3 invalid logon attempts  
 - **Account Lockout Duration:** 30 minutes  '
@@ -108,7 +108,7 @@ To protect against brute-force attacks, I configured an **Account Lockout Policy
 - **Reset Account Lockout Counter After:** 30 minutes
  ![Config_Lockout_Policy](images/16_Config_Lockout_Policy.png)
 ---
-
+<a id="testing--validation"></a>
 ### Testing & Validation
 - On the **Windows 10 client (EveHR)**, attempted to log in with the wrong password **3 times in a row**.  
 - After the 3rd failed attempt → **Account locked out** ✅  
@@ -121,8 +121,8 @@ To protect against brute-force attacks, I configured an **Account Lockout Policy
 ✅ With this configuration, repeated brute-force password attempts against domain accounts are mitigated by temporary account lockouts, reducing the risk of credential-guessing attacks.
 
 ---
-
-## User Rights Assignment Configuration
+<a id="user-rights-assignment"></a>
+## 👥 User Rights Assignment Configuration
 
 To enforce **role-based access control (RBAC)** and enhance security, I configured **User Rights Assignment** in the **Default Domain Policy**.
 
