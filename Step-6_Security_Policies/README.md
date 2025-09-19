@@ -53,7 +53,7 @@ To implement domain-wide password and account security policies using Group Poli
 - **Minimum Length + Complexity** enforces stronger, harder-to-crack passwords.  
 
 ---
-
+<a id="testing--validation"></a>
 ### Testing & Validation
 
 - Forced a password reset for **AliceIT** in **Active Directory Users and Computers (ADUC)**  
