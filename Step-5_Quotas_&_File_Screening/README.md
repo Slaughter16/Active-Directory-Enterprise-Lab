@@ -4,7 +4,7 @@
 
 1. 🎯 [Objectives](#objectives)
 2. 🛠️ [Install File Server Resource Manager (FSRM)](#install-file-server-resource-manager)
-3. 🗄️ [Configure Quotas](#2-configure-quotas)
+3. 🗄️ [Configure Quotas](#configure-quotas)
    - [Create Quota](#create-quota)
    - [Define Custom Properties](#define-custom-properties)
    - [Configure Notification Thresholds](#configure-notification-thresholds)
