@@ -102,7 +102,7 @@ Alternate DNS: 192.168.20.2
   ![Disable_DHCP_pfSense](images/10_Disable_DHCP.png)
 
   
-3. **Installed DHCP Role on Windows Server 2019**  
+### 3. **Installed DHCP Role on Windows Server 2019**  
    - Server Manager → Add Roles and Features → DHCP Server  
    - Completed post-install configuration and authorized in AD  
 
@@ -117,7 +117,7 @@ Alternate DNS: 192.168.20.2
 
 ---
 
-4. **Created New DHCP Scope**  
+### 4. **Created New DHCP Scope**  
    - Scope Name: VLAN10-Scope  
    - IP Range: 192.168.10.50–192.168.10.200  
    - Exclusions: 192.168.10.1–192.168.10.49  
@@ -160,9 +160,9 @@ Alternate DNS: 192.168.20.2
 
 ---
 
-5. **Tested DHCP on Clients**
+### 5. **Tested DHCP on Clients**
 
-**Windows 10 Client:**  
+### **Windows 10 Client:**  
 ```cmd
 ipconfig /release       # Release current IP
 ipconfig /renew         # Request new IP from DHCP
@@ -178,7 +178,7 @@ ipconfig /all           # Verify IP, gateway, DHCP server, and DNS
 
 
 
-  **Windows 11 Client**:  
+### **Windows 11 Client**:  
  ```cmd
    ipconfig /release
    ipconfig /renew
@@ -188,7 +188,7 @@ ipconfig /all           # Verify IP, gateway, DHCP server, and DNS
   ![WIN_11_Verify](images/36_WIN11_Verify.png)
 
 
-  **Debian Client**:
+### **Debian Client**:
  ```cmd
   sudo dhclient -r      # Release current IP
   sudo dhclient         # Request new IP from DHCP
