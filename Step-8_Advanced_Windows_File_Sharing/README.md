@@ -41,11 +41,9 @@ Demonstrate **explicit permissions, inheritance, group memberships, and deny per
 ---
 <a id="create-folder-structure"></a>
 ### 2️⃣ Create Folder Structure  
-1. On the server, open **File Explorer** → `C:\`.
-![Goto_Local_Disk](image/7_Goto_Local_Disk.png)  
-2. Create a new folder named **Common**.
+1. On the server, open **File Explorer** → `C:\`and Create a new folder named **Common**.
 ![Create_Common_Folder](images/8_Create_Common_Folder.png)
-3. Inside **Common**, create two subfolders:  
+2. Inside **Common**, create two subfolders:  
    - `Project`  
    - `Events`  
 ![Create_Subfolders](images/9_Create_Subfolders.png)
