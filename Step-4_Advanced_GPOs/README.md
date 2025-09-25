@@ -244,11 +244,6 @@ The configuration redirects each user’s **Documents** folder to a centralized 
 
 
 
-2. Right-click → **Properties → Sharing → Advanced Sharing…**  
-   - Share name: `HRDocs`  
-   - Permissions: Add **HR_Staff group → Read/Write**
-
-
 
 
 
