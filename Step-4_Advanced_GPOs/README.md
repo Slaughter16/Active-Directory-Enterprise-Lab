@@ -337,7 +337,6 @@ In a real-world environment, this setting would typically be enabled for user pr
 ---
 
 ### Verification Steps
-1.---
 
 ## ✅ 4. Test on Client
 
